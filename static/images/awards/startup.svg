@@ -1,0 +1,8 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" rx="10" fill="#f0f0f0" />
+  <path d="M150 30 L 190 110 L 120 70 L 180 70 L 110 110 Z" fill="#3498db" />
+  <circle cx="150" cy="120" r="40" fill="#2980b9" />
+  <text x="150" y="130" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="#fff">8</text>
+  <text x="150" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">TOP 8 STARTUP</text>
+  <text x="150" y="190" text-anchor="middle" font-family="Arial" font-size="12">AIC ALEAP WE Hub & MSME</text>
+</svg>

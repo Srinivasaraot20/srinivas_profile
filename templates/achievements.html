@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <h1 class="section-title text-center mb-5" data-aos="fade-up">Achievements</h1>
+        <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+            Recognition and awards received for innovation, technical excellence, and problem-solving abilities.
+        </p>
+        
+        <div class="row">
+            {% for achievement in achievements %}
+            <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="card bg-dark text-white border-0 shadow h-100">
+                    <div class="row g-0">
+                        <div class="col-md-5 d-flex align-items-center justify-content-center p-4" style="background-color: #111111;">
+                            <img src="{{ url_for('static', filename='images/' + achievement.image) }}" alt="{{ achievement.title }}" class="img-fluid" style="max-height: 150px;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <h4 class="card-title mb-0">{{ achievement.title }}</h4>
+                                    <span class="ms-2 fs-4">{{ achievement.emoji }}</span>
+                                </div>
+                                <h6 class="text-muted mb-3">{{ achievement.organization }}</h6>
+                                <p class="card-text">{{ achievement.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card bg-dark text-white border-0 shadow" data-aos="fade-up">
+                    <div class="card-body p-4">
+                        <h4 class="text-white mb-4">The Impact of These Achievements</h4>
+                        <p>These achievements have been instrumental in shaping my career path and technical skills. The recognition has provided valuable opportunities for:</p>
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-users fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Networking</h5>
+                                        <p>Connected with industry professionals and like-minded innovators who provide mentorship and collaboration opportunities.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-lightbulb fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Innovation</h5>
+                                        <p>Encouraged me to think outside the box and pursue creative solutions to real-world problems.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-hand-holding-usd fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Funding</h5>
+                                        <p>Secured financial support to transform conceptual ideas into practical, working solutions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-chart-line fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Growth</h5>
+                                        <p>Fostered personal and professional development through challenging projects and recognition.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

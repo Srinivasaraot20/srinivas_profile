@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <h1 class="section-title text-center mb-5" data-aos="fade-up">Contact Me</h1>
+        
+        <div class="row">
+            <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+                <div class="card bg-dark text-white border-0 shadow h-100">
+                    <div class="card-body p-4">
+                        <h4 class="text-white mb-4">Get In Touch</h4>
+                        <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                        
+                        <div class="mt-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-map-marker-alt fs-4 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Location</h5>
+                                    <p>Bayyavaram, Andhra Pradesh, India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-envelope fs-4 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p>srininvast20@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <i class="fas fa-phone fs-4 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Phone</h5>
+                                    <p>+91-8341492762</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h5 class="mb-3">Connect with me</h5>
+                            <div class="social-links">
+                                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                                <a href="https://linkedin.com/in/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                                <a href="https://instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                <div class="card bg-dark text-white border-0 shadow contact-form-container">
+                    <div class="card-body p-4">
+                        <h4 class="text-white mb-4">Send Message</h4>
+                        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <form id="contact-form" action="{{ url_for('contact') }}" method="post">
+                            {{ form.csrf_token }}
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        {{ form.name.label(class="form-label") }}
+                                        {{ form.name(class="form-control", placeholder="Your Name") }}
+                                        <div class="invalid-feedback" id="name-error" style="display: none;">
+                                            Please enter your name.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        {{ form.email.label(class="form-label") }}
+                                        {{ form.email(class="form-control", placeholder="Your Email") }}
+                                        <div class="invalid-feedback" id="email-error" style="display: none;">
+                                            Please enter a valid email address.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mb-3">
+                                    <div class="form-group">
+                                        {{ form.subject.label(class="form-label") }}
+                                        {{ form.subject(class="form-control", placeholder="Subject") }}
+                                        <div class="invalid-feedback" id="subject-error" style="display: none;">
+                                            Please enter a subject.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mb-4">
+                                    <div class="form-group">
+                                        {{ form.message.label(class="form-label") }}
+                                        {{ form.message(class="form-control", rows=5, placeholder="Your Message") }}
+                                        <div class="invalid-feedback" id="message-error" style="display: none;">
+                                            Please enter your message.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-2"></i> Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section (Optional) -->
+<section class="py-5">
+    <div class="container">
+        <div class="card bg-dark text-white border-0 shadow" data-aos="fade-up">
+            <div class="card-body p-0">
+                <div class="ratio ratio-21x9">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240314.1700668943!2d82.87882359646985!3d17.7696449731815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389e6973f%3A0x92d9c20395498468!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1651345178255!5m2!1sen!2sin" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,6 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="95" fill="#3498db" />
+  <circle cx="100" cy="75" r="35" fill="#f8f9fa" />
+  <path d="M100 120 Q 65 120 50 150 Q 50 180 100 180 Q 150 180 150 150 Q 135 120 100 120" fill="#f8f9fa" />
+  <text x="100" y="190" text-anchor="middle" fill="#fff" font-family="Arial" font-size="12">Srinivasa Rao Talari</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" rx="10" fill="#f0f0f0" />
+  <circle cx="150" cy="80" r="50" fill="#f39c12" />
+  <text x="150" y="95" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="#fff">₹3L</text>
+  <path d="M100 140 H 200 Q 210 140 210 150 V 170 Q 210 180 200 180 H 100 Q 90 180 90 170 V 150 Q 90 140 100 140" fill="#3498db" />
+  <text x="150" y="165" text-anchor="middle" font-family="Arial" font-size="16" fill="#fff">Funding</text>
+  <text x="150" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Innovation Grant Award</text>
+</svg>

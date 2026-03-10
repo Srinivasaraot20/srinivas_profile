@@ -1,0 +1,9 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" rx="10" fill="#f0f0f0" />
+  <circle cx="150" cy="90" r="60" fill="#f1c40f" />
+  <circle cx="150" cy="90" r="50" fill="#f39c12" />
+  <text x="150" y="100" text-anchor="middle" font-family="Arial" font-size="48" font-weight="bold" fill="#fff">1</text>
+  <path d="M130 150 H 170 L 160 190 H 140 Z" fill="#e67e22" />
+  <text x="150" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">First Prize Winner</text>
+  <text x="150" y="170" text-anchor="middle" font-family="Arial" font-size="14">Innovation Day Celebration</text>
+</svg>

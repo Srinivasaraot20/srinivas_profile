@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="hero" class="hero-section d-flex align-items-center">
+    <div id="particles-js" class="particles-js"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-1 order-2 mt-5 mt-lg-0">
+                <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <span class="typed-text"></span>
+                    </h1>
+                    <p class="lead mb-4">B.Tech AI & Data Science student | Awarded ₹3L+ Funding| Award-Winning Project Innovator | IoT Innovator | ML Developer | Full-Stack Developer</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="{{ url_for('resume') }}" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-file-alt me-2"></i> View Resume
+                        </a>
+                        <a href="{{ url_for('projects') }}" class="btn btn-outline-primary btn-lg" data-aos="fade-up" data-aos-delay="500">
+                            <i class="fas fa-brain me-2"></i> View Projects
+                        </a>
+                        <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg" data-aos="fade-up" data-aos-delay="600">
+                            <i class="fas fa-envelope me-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1 text-center">
+                <img src="{{ url_for('static', filename='images/ps.png') }}" alt="Srinivasa Rao Talari" class="profile-img img-fluid" data-aos="zoom-in" data-aos-delay="300">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section id="intro" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-center mb-5" data-aos="fade-up">About Me</h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                    Computer Programmer with hands-on experience in full-stack development, proficient in Java, Python, C, JavaScript, and SQL. 
+                    Excels in coding, testing, and refining software applications while collaborating with development teams.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    Demonstrates a strong commitment to building reliable, user-focused solutions and robust error-free software.
+                </p>
+                <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn More About Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section id="featured-projects" class="py-5 bg-dark">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Projects</h2>
+        <div class="row g-4">
+            <!-- Project 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
+                            <img src="{{ url_for('static', filename='images/projects/smart_helmet.svg') }}" alt="Smart Helmet" class="img-fluid mb-3" style="max-height: 130px;">
+                            <h5 class="card-title">Smart Helmet ⛏️</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5 class="mb-3">Smart Helmet for Coal Mine Workers</h5>
+                            <p class="small">IoT-based safety solution using Arduino, gas sensors, GPS, and an SMS alert system.</p>
+                            <div class="mt-auto">
+                                <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
+                            <img src="{{ url_for('static', filename='images/projects/insurance_fraud.svg') }}" alt="Insurance Fraud" class="img-fluid mb-3" style="max-height: 130px;">
+                            <h5 class="card-title">Fraud Detection 💡</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5 class="mb-3">Health Insurance Fraud Detection</h5>
+                            <p class="small">AI-powered fraud detection using XGBoost and SVM for health insurance claims.</p>
+                            <div class="mt-auto">
+                                <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
+                            <img src="{{ url_for('static', filename='images/projects/resume_builder.svg') }}" alt="Resume Builder" class="img-fluid mb-3" style="max-height: 130px;">
+                            <h5 class="card-title">Resume Builder 🧾</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5 class="mb-3">AI Resume Builder</h5>
+                            <p class="small">Web-based platform featuring templates, real-time suggestions, and AI-driven feedback.</p>
+                            <div class="mt-auto">
+                                <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
+                            <img src="{{ url_for('static', filename='images/projects/payroll.svg') }}" alt="Payroll System" class="img-fluid mb-3" style="max-height: 130px;">
+                            <h5 class="card-title">Payroll System 💼</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5 class="mb-3">Smart Payroll System</h5>
+                            <p class="small">Automated payroll system with role-based authentication and biometric attendance.</p>
+                            <div class="mt-auto">
+                                <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="{{ url_for('projects') }}" class="btn btn-primary">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Achievements Highlight -->
+<section id="achievements-highlight" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Achievements</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="achievement-card text-center p-4 h-100">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/awards/first_prize.svg') }}" alt="First Prize" class="img-fluid" style="height: 120px;">
+                    </div>
+                    <h5>1st Prize 🥇</h5>
+                    <p class="small">Innovation Day Celebration at VR Siddhartha Engineering College</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="achievement-card text-center p-4 h-100">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/awards/startup.svg') }}" alt="Top 8 Startup" class="img-fluid" style="height: 220px;">
+                    </div>
+                    <h5>Top 8 Startup 🚀</h5>
+                    <p class="small">Recognized by AIC ALEAP WE Hub & MSME Minister, Andhra Pradesh</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="achievement-card text-center p-4 h-100">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/awards/vit_ap.svg') }}" alt="VIT-AP Award" class="img-fluid" style="height: 120px;">
+                    </div>
+                    <h5>Innovation Award 🛡️</h5>
+                    <p class="small">VIT-AP Innovation Acquisition Summit-24 in collaboration with FAPSIA & NRDC</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="achievement-card text-center p-4 h-100">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/awards/funding.svg') }}" alt="Funding" class="img-fluid" style="height: 120px;">
+                    </div>
+                    <h5>₹3 Lakhs Funding 💰</h5>
+                    <p class="small">Received funding for AIoT-based smart helmet development</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3" data-aos="fade-up">
+            <a href="{{ url_for('achievements') }}" class="btn btn-primary">View All Achievements</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section id="cta" class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4" data-aos="fade-up">Interested in working together?</h2>
+                <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">Let's discuss how I can contribute to your next project with my skills in AI, ML, and full-stack development.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-paper-plane me-2"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hero section parallax effect
+        window.addEventListener('scroll', function() {
+            const heroSection = document.getElementById('hero');
+            if (heroSection) {
+                const scrollPosition = window.scrollY;
+                if (scrollPosition < 600) {
+                    heroSection.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+                }
+            }
+        });
+
+        // Animate skill bars when they come into view
+        const animateSkillBars = function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            if (skillBars.length > 0) {
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                });
+            }
+        };
+
+        // Check if we're on the resume page
+        if (document.querySelector('.skill-progress')) {
+            animateSkillBars();
+        }
+
+        // Staggered animation for achievement cards
+        const achievementCards = document.querySelectorAll('.achievement-card');
+        if (achievementCards.length > 0) {
+            achievementCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, 300 * index);
+            });
+        }
+    });
+</script>
+{% endblock %}

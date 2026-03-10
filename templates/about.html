@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <h1 class="section-title text-center mb-5" data-aos="fade-up">About Me</h1>
+        
+        <div class="row mb-5">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="card bg-dark text-white border-0 shadow-sm h-100" data-aos="fade-right">
+                    <div class="card-body text-center p-4">
+                        <img src="{{ url_for('static', filename='images/ps.png') }}" alt="Srinivasa Rao Talari" class="img-fluid rounded-circle mb-4" style="max-width: 200px;">
+                        <h4>Srinivasa Rao Talari</h4>
+                        <p class="text-muted">B.Tech AI & Data Science student</p>
+                        <!-- Include Font Awesome & Bootstrap (if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Buttons Section -->
+<div class="d-flex justify-content-center mt-3 flex-wrap gap-2">
+    <a href="https://github.com/Srinivasaraot20" class="btn btn-outline-primary btn-sm" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/srinivasa-rao-talari-a87723289/" class="btn btn-outline-primary btn-sm" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="mailto:srininvast20@gmail.com" class="btn btn-outline-primary btn-sm">
+        <i class="fas fa-envelope"></i> Email
+    </a>
+    <a href="https://leetcode.com/u/srinivasarao_talari_26/" class="btn btn-sm text-white" style="background-color: #FFA116;" target="_blank">
+        <i class="fas fa-code"></i> LeetCode
+    </a>
+    <a href="https://www.codechef.com/users/srinivast20" class="btn btn-outline-dark btn-sm" target="_blank">
+        <i class="fas fa-utensils"></i> CodeChef
+    </a>
+    <a href="https://www.hackerrank.com/profile/srininvast20" class="btn btn-outline-success btn-sm" target="_blank">
+        <i class="fab fa-hackerrank"></i> HackerRank
+    </a>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-8">
+                <div class="card bg-dark text-white border-0 shadow-sm h-100" data-aos="fade-left">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4">Professional Summary</h3>
+                        <p>Computer Programmer with hands-on experience in full-stack development, proficient in Java, Python, C, JavaScript, and SQL, Data Science, Machine Learning. Excels in coding, testing, and refining software applications while collaborating with development teams.</p>
+                        <p>Demonstrates a strong commitment to building reliable, user-focused solutions and robust error-free software.</p>
+                        
+                        <div class="mt-4">
+                            <h5 class="mb-3">Contact Information</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i> Bayyavaram, Andhra Pradesh
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-phone me-2 text-primary"></i> +91-8341492762
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope me-2 text-primary"></i> srininvast20@gmail.com
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="mb-3">Languages</h5>
+                            <span class="badge bg-primary me-2 mb-2 p-2">English</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Telugu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Education Timeline -->
+        <div class="mb-5">
+            <h3 class="section-title mb-4" data-aos="fade-up">Education</h3>
+            <div class="timeline">
+                <!-- Education 1 -->
+                <div class="timeline-container left" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-content">
+                        <h4>Bachelor of Technology</h4>
+                        <h6>Artificial Intelligence and Data Science</h6>
+                        <p class="mb-1">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</p>
+                        <p class="small text-muted mb-1">2023 - Present</p>
+                        <p class="small">GPA: 8.85</p>
+                    </div>
+                </div>
+                
+                <!-- Education 2 -->
+                <div class="timeline-container right" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-content">
+                        <h4>Diploma</h4>
+                        <h6>Computer Engineering</h6>
+                        <p class="mb-1">Adsumlu Aswardha Narayana Muurthi & Valluripalli Venkata Rama Seshadri Rao College,Gudlavalleru </p>
+                        <p class="small text-muted mb-1">2020 - 2023</p>
+                        <p class="small">GPA: 89.17%</p>
+                    </div>
+                </div>
+                
+                <!-- Education 3 -->
+                <div class="timeline-container left" data-aos="fade-right" data-aos-delay="300">
+                    <div class="timeline-content">
+                        <h4>Secondary School Certificate (SSC)</h4>
+                        <p class="mb-1">Padmavathi EM High School, Vidyanagar, Krosuru</p>
+                        <p class="small text-muted mb-1">2019 - 2020</p>
+                        <p class="small">GPA: 9.2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Professional Experience -->
+        <div class="mb-5">
+            <h3 class="section-title mb-4" data-aos="fade-up">Professional Experience</h3>
+            <div class="card bg-dark text-white border-0 shadow-sm mb-4" data-aos="fade-up">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4>Full Stack Developer Intern</h4>
+                        <span class="badge bg-primary">June 2025 - Sept 2025</span>
+                    </div>
+                    <h6>Council for Skills and Competencies (CSC India)</h6>
+                    <ul>
+                        <li>Developed and deployed full-stack web applications using modern technologies (Flask, React, MySQL, REST APIs), delivering scalable and user-centric solutions.</li>
+                        <li>Collaborated in an agile team environment to design features, optimize performance, and ensure seamless user experiences, while adhering to best practices in version control, testing, and deployment pipelines.</li>
+                    </ul>
+                </div>
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4>Web Developer (Remote Work)</h4>
+                        <span class="badge bg-primary">Jan 2024 - Mar 2024</span>
+                    </div>
+                    <h6>Coding Raja Technologies</h6>
+                    <ul>
+                        <li>Developed and maintained responsive web applications using HTML, CSS, JavaScript, and SQL while testing functionalities to ensure optimal performance and adherence to design specifications.</li>
+                        <li>Collaborated with software development teams to enhance user-focused solutions by contributing to debugging efforts and updating existing code libraries.</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Internships -->
+        <div class="mb-5">
+            <h3 class="section-title mb-4" data-aos="fade-up">Internships</h3>
+            <div class="row">
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card bg-dark text-white border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-white">AI-ML Virtual Internship</h5>
+                            <h6 class="text-muted">Eduskills</h6>
+                            <p>Gained hands-on experience with machine learning algorithms, data preprocessing, and model evaluation using Python and libraries like TensorFlow.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card bg-dark text-white border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-white">SQL Internship</h5>
+                            <h6 class="text-muted">DevSkillHub Training & Consultancy</h6>
+                            <p>Worked on database management, SQL query writing, and optimizing relational databases for efficient data retrieval.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card bg-dark text-white border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-white">Full Stack Development Training & Internship (Python, Django)</h5>
+                            <h6 class="text-muted">Lineysha and Thevan Software Technologies</h6>
+                            <p>Developed full-stack web applications using Python, Django, and REST APIs for both front-end and back-end tasks.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card bg-dark text-white border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-white">Cloud Virtual Internship</h5>
+                            <h6 class="text-muted">Eduskills</h6>
+                            <p>Gained experience in cloud infrastructure, AWS and Azure services, and cloud-based development tools for app deployment.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card bg-dark text-white border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-white">Web Development Internship</h5>
+                            <h6 class="text-muted">Coding Raja Technologies</h6>
+                            <p>Contributed to web projects using HTML, CSS, JavaScript, and backend integration to build dynamic websites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skills -->
+<div class="mb-5">
+    <h3 class="section-title mb-4" data-aos="fade-up">Skills</h3>
+
+    <div class="row mb-4">
+        <!-- Programming Languages -->
+        <div class="col-md-6" data-aos="fade-right">
+            <h5 class="mb-3">Programming Languages</h5>
+            <ul class="list-unstyled d-flex flex-wrap gap-2">
+                <li class="badge bg-primary p-2">Java</li>
+                <li class="badge bg-primary p-2">Python</li>
+                <li class="badge bg-primary p-2">C</li>
+                <li class="badge bg-primary p-2">JavaScript</li>
+                <li class="badge bg-primary p-2">R</li>
+            </ul>
+
+            <h5 class="mb-3 mt-4">Data Science</h5>
+            <ul class="list-unstyled d-flex flex-wrap gap-2">
+                <li class="badge bg-success p-2">Machine Learning</li>
+                <li class="badge bg-success p-2">Data Analysis</li>
+                <li class="badge bg-success p-2">Deep Learning</li>
+                <li class="badge bg-success p-2">AI</li>
+                <li class="badge bg-success p-2">Data Visualization</li>
+            </ul>
+        </div>
+
+        <!-- Web Development -->
+        <div class="col-md-6" data-aos="fade-left">
+            <h5 class="mb-3">Web Development</h5>
+            <ul class="list-unstyled d-flex flex-wrap gap-2">
+                <li class="badge bg-warning text-dark p-2">HTML</li>
+                <li class="badge bg-warning text-dark p-2">CSS</li>
+                <li class="badge bg-warning text-dark p-2">React.js</li>
+                <li class="badge bg-warning text-dark p-2">Django</li>
+            </ul>
+
+            <h5 class="mb-3 mt-4">Tools & Technologies</h5>
+            <ul class="list-unstyled d-flex flex-wrap gap-2">
+                <li class="badge bg-secondary p-2">GitHub</li>
+                <li class="badge bg-secondary p-2">Jupyter</li>
+                <li class="badge bg-secondary p-2">Colab</li>
+                <li class="badge bg-secondary p-2">VS Code</li>
+                <li class="badge bg-secondary p-2">SQL</li>
+                <li class="badge bg-secondary p-2">MongoDB</li>
+                <li class="badge bg-secondary p-2">Windows</li>
+            </ul>
+            <h5 class="mb-3 mt-4">Operating Systems</h5>
+<ul class="list-unstyled d-flex flex-wrap gap-2">
+    <li class="badge bg-primary p-2">Windows</li>
+    <li class="badge bg-success p-2">Linux</li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+        <!-- Volunteer Experience -->
+        <div>
+            <h3 class="section-title mb-4" data-aos="fade-up">Volunteer Experience</h3>
+            <div class="card bg-dark text-white border-0 shadow-sm" data-aos="fade-up">
+                <div class="card-body p-4">
+                    <h5>National Service Scheme (NSS)</h5>
+                    <h6 class="text-muted">Volunteer</h6>
+                    <p>I participated in various service activities, including a blood donation camp and waste plastic collection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

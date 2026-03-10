@@ -1,0 +1,9 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" rx="10" fill="#f0f0f0" />
+  <rect x="70" y="60" width="160" height="100" rx="10" fill="#e74c3c" />
+  <rect x="80" y="70" width="140" height="80" rx="5" fill="#c0392b" />
+  <text x="150" y="110" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#fff">VIT-AP</text>
+  <text x="150" y="130" text-anchor="middle" font-family="Arial" font-size="14" fill="#fff">INNOVATION</text>
+  <text x="150" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Appreciation Award</text>
+  <text x="150" y="180" text-anchor="middle" font-family="Arial" font-size="12">Innovation Acquisition Summit-24</text>
+</svg>

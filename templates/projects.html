@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <h1 class="section-title text-center mb-5" data-aos="fade-up">My Projects</h1>
+        <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+            Explore my work in AI, ML, IoT and web development. Each project demonstrates my technical skills and problem-solving approach.
+        </p>
+        
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="card bg-dark text-white border-0 shadow-sm h-100 project-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="img-fluid me-3" style="width: 50px; height: 50px;">
+                            <h4 class="card-title text-white mb-0">{{ project.title }} <span>{{ project.emoji }}</span></h4>
+                        </div>
+                        <p class="card-text">{{ project.description }}</p>
+                        <div class="mt-3">
+                            <h6 class="text-white mb-2">Technologies Used:</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% for tech in project.tech %}
+                                <span class="badge bg-primary p-2">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 p-4">
+                        <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#projectModal{{ loop.index }}">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Modal -->
+            <div class="modal fade" id="projectModal{{ loop.index }}" tabindex="-1" aria-labelledby="projectModalLabel{{ loop.index }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="projectModalLabel{{ loop.index }}">{{ project.title }} {{ project.emoji }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center mb-4">
+                                <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }} - Project Image" class="img-fluid" style="max-height: 200px;">
+                            </div>
+                            <div class="mb-4">
+                                <h5>Project Overview</h5>
+                                <p>{{ project.description }}</p>
+                            </div>
+                            <div class="mb-4">
+                                <h5>Technologies Used</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    {% for tech in project.tech %}
+                                    <span class="badge bg-primary p-2">{{ tech }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5>Key Features</h5>
+                                <ul>
+                                    {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
+                                    <li>Real-time detection of methane (CH4) and carbon monoxide (CO) gases</li>
+                                    <li>LoRa/GSM communication for long-range alerts</li>
+                                    
+                                    <li>Automated SMS alerts to control rooms and other miners</li>
+                                    <li>Battery-efficient design for extended operation</li>
+                                    {% elif project.title == 'Health Insurance Fraud Detection' %}
+                                    <li>Advanced ML algorithms (XGBoost, SVM) for high accuracy detection</li>
+                                    <li>Anomaly detection for identifying unusual claim patterns</li>
+                                    <li>Feature engineering for improved model performance</li>
+                                    <li>Real-time analysis dashboard for monitoring</li>
+                                    <li>Significantly reduces financial losses due to fraud</li>
+                                    {% elif project.title == 'AI Resume Builder' %}
+                                    <li>Professionally designed resume templates</li>
+                                    <li>AI-powered content suggestions and improvements</li>
+                                    <li>Real-time editing and preview</li>
+                                    <li>Export options in multiple formats (PDF, DOCX)</li>
+                                    <li>ATS-friendly resume optimization</li>
+                                    {% elif project.title == 'Smart Payroll System' %}
+                                    <li>Role-based authentication for secure access</li>
+                                    <li>Automated salary calculations and statutory deductions</li>
+                                    
+                                    <li>Employee self-service portal for leave requests and payslips</li>
+                                    <li>Analytics dashboard for payroll trends and insights</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Challenges & Solutions</h5>
+                                <p>
+                                    {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
+                                    Designing a compact, lightweight system that could reliably detect harmful gases was challenging. The solution involved careful component selection and integration, with extensive testing to ensure accuracy in detection and alarm triggering mechanisms.
+                                    {% elif project.title == 'Health Insurance Fraud Detection' %}
+                                    Handling imbalanced datasets where fraudulent cases were the minority presented a significant challenge. Implemented SMOTE for balanced class distribution and ensemble methods to improve model performance on rare fraud instances.
+                                    {% elif project.title == 'AI Resume Builder' %}
+                                    Creating an AI system that could provide personalized, context-aware suggestions required sophisticated NLP models. Implemented a hybrid approach combining rule-based systems with machine learning for optimal content recommendations.
+                                    {% elif project.title == 'Smart Payroll System' %}
+                                    Ensuring compliance with various tax rules and regulations while maintaining system flexibility was complex. Developed a modular architecture that allowed for easy updates to calculation rules without affecting the core system functionality.
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h4 class="mb-4" data-aos="fade-up">Other Projects</h4>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    I have worked on various other projects involving web development, mobile applications, and data analysis. 
+                    For more information about my work, please feel free to <a href="{{ url_for('contact') }}">contact me</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

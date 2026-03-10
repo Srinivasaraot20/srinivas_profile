@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <div data-aos="fade-up">
+                    <div class="mb-4" style="font-size: 120px; line-height: 1; font-weight: bold; background: linear-gradient(45deg, #e74c3c, #c0392b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        500
+                    </div>
+                    <h1 class="mb-4">Server Error</h1>
+                    <p class="lead mb-5">Sorry, something went wrong on our server. We're working to fix the issue. Please try again later.</p>
+                    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home me-2"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
