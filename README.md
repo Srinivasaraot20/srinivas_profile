@@ -1,7 +1,3 @@
-# srinivas_profile
-A modern, responsive portfolio website showcasing AI/ML projects, achievements, and professional journey. Built with Flask, Bootstrap 5, and featuring an interactive gallery with modal popups, contact form with email notifications, and production-ready Docker deployment
-
-
 # Srinivasa Rao Talari - Professional Portfolio
 
 A modern, responsive portfolio website showcasing projects, achievements, and professional journey in AI/ML development, IoT, and full-stack engineering.
@@ -70,7 +66,7 @@ A modern, responsive portfolio website showcasing projects, achievements, and pr
 
 ### Development
 ```bash
-python main.py
+python app.py
 ```
 
 ### Production
@@ -169,7 +165,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Srinivasa Rao Talari**
-- GitHub: [@yourusername]([https://github.com/yourusername](https://github.com/Srinivasaraot20/)
+- GitHub: [@yourusername](https://github.com/yourusername)
 - Email: srininvast20@gmail.com
 - Portfolio: [https://your-portfolio-url.com](https://your-portfolio-url.com)
 
