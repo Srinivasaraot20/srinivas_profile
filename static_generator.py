@@ -14,8 +14,11 @@ def generate_static_site():
     """Generate static HTML files from Flask application"""
     print("🚀 Generating static site for Netlify deployment...")
     
-    # Create Flask app
+    # Create Flask app with test configuration
     app = create_app('development')
+    
+    # Set secret key for CSRF (required for form generation)
+    app.config['SECRET_KEY'] = 'static-generator-secret-key'
     
     with app.app_context():
         # Clean and create build directory
