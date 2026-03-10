@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <h1 class="section-title text-center mb-5" data-aos="fade-up">Contact Me</h1>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card bg-dark text-white border-0 shadow p-4" data-aos="fade-up">
+                    <h4 class="mb-4">Get in Touch</h4>
+                    
+                    <!-- Netlify Contact Form -->
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <!-- Honeypot field for spam protection -->
+                        <div class="d-none">
+                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success Message (hidden by default) -->
+                    <div id="success-message" class="alert alert-success mt-3" style="display: none;">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Thank you for your message! I'll get back to you soon.
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-info-card">
+                            <i class="fas fa-envelope fa-3x mb-3 text-primary"></i>
+                            <h5>Email</h5>
+                            <p>srininvast20@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-info-card">
+                            <i class="fas fa-phone fa-3x mb-3 text-primary"></i>
+                            <h5>Phone</h5>
+                            <p>+91 XXX XXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-info-card">
+                            <i class="fas fa-map-marker-alt fa-3x mb-3 text-primary"></i>
+                            <h5>Location</h5>
+                            <p>Andhra Pradesh, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-info-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform var(--transition-speed);
+    margin-bottom: 2rem;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.form-label {
+    color: var(--light-text);
+    font-weight: 500;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle form submission success
+    if (window.location.search.includes('success=true')) {
+        document.getElementById('success-message').style.display = 'block';
+        document.querySelector('form').style.display = 'none';
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            document.getElementById('success-message').style.display = 'none';
+            document.querySelector('form').style.display = 'block';
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }, 5000);
+    }
+});
+</script>
+{% endblock %}
