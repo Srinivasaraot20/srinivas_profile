@@ -43,24 +43,52 @@ def generate_static_site():
         # Handle contact page separately (use static version)
         print("📄 Generating HTML files...")
         for route, filename in routes:
-            with app.test_client() as client:
-                response = client.get(route)
-                if response.status_code == 200:
-                    filepath = os.path.join(build_dir, filename)
-                    with open(filepath, 'w', encoding='utf-8') as f:
-                        f.write(response.get_data(as_text=True))
-                    print(f"   ✅ Generated {filename}")
-                else:
-                    print(f"   ❌ Failed to generate {filename} (Status: {response.status_code})")
+            try:
+                with app.test_client() as client:
+                    response = client.get(route)
+                    if response.status_code == 200:
+                        filepath = os.path.join(build_dir, filename)
+                        with open(filepath, 'w', encoding='utf-8') as f:
+                            f.write(response.get_data(as_text=True))
+                        print(f"   ✅ Generated {filename}")
+                    else:
+                        print(f"   ❌ Failed to generate {filename} (Status: {response.status_code})")
+            except Exception as e:
+                print(f"   ⚠️  Error generating {filename}: {e}")
+                # Create a basic error page
+                error_content = f"""<!DOCTYPE html>
+<html>
+<head><title>{filename} - Generation Error</title></head>
+<body>
+    <h1>Page Generation Failed</h1>
+    <p>Could not generate {filename} from route {route}</p>
+    <p>Error: {e}</p>
+</body>
+</html>"""
+                filepath = os.path.join(build_dir, filename)
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(error_content)
+                print(f"   🔄 Created error page for {filename}")
         
         # Generate static contact page
         print("📄 Generating static contact page...")
-        with app.app_context():
-            from flask import render_template
-            contact_html = render_template('contact_static.html')
-            with open(os.path.join(build_dir, 'contact.html'), 'w', encoding='utf-8') as f:
-                f.write(contact_html)
-            print("   ✅ Generated contact.html (Netlify Forms version)")
+        try:
+            with app.app_context():
+                from flask import render_template
+                contact_html = render_template('contact_static.html')
+                with open(os.path.join(build_dir, 'contact.html'), 'w', encoding='utf-8') as f:
+                    f.write(contact_html)
+                print("   ✅ Generated contact.html (Netlify Forms version)")
+        except Exception as e:
+            print(f"   ⚠️  Could not generate contact_static.html: {e}")
+            print("   🔄 Using original contact page instead...")
+            # Fallback to original contact page
+            with app.test_client() as client:
+                response = client.get('/contact')
+                if response.status_code == 200:
+                    with open(os.path.join(build_dir, 'contact.html'), 'w', encoding='utf-8') as f:
+                        f.write(response.get_data(as_text=True))
+                    print("   ✅ Generated contact.html (original version)")
         
         # Create error pages
         print("📄 Generating error pages...")
