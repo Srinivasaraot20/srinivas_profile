@@ -70,7 +70,7 @@ A modern, responsive portfolio website showcasing projects, achievements, and pr
 
 ### Development
 ```bash
-python app.py
+python main.py
 ```
 
 ### Production
@@ -169,7 +169,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Srinivasa Rao Talari**
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@yourusername]([https://github.com/yourusername](https://github.com/Srinivasaraot20/)
 - Email: srininvast20@gmail.com
 - Portfolio: [https://your-portfolio-url.com](https://your-portfolio-url.com)
 
