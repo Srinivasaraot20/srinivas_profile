@@ -1,0 +1,82 @@
+/* Additional CSS fixes for background images using Flask url_for */
+
+/* If you have any background images in CSS, they should be updated to use Flask's static file serving */
+/* Example of how to handle background images in Flask templates: */
+
+/* Instead of hardcoded paths like: */
+/* background-image: url('/static/images/bg.jpg'); */
+
+/* Use this approach in your templates: */
+/* style="background-image: url('{{ url_for('static', filename='images/bg.jpg') }}');" */
+
+/* Hero section background (if you want to add one) */
+.hero-section-with-bg {
+  /* Use inline style in template: style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}');" */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Profile image enhancements */
+.profile-img {
+  border-radius: 50%;
+  border: 5px solid var(--light-bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.5s;
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive image fixes */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Achievement card image styling */
+.achievement-card img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Project card image styling */
+.flip-card-front img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Gallery image styling */
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform var(--transition-speed);
+}
+
+/* Ensure all images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Loading placeholder for images */
+.image-loading {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.image-loading::before {
+  content: "Loading...";
+  color: var(--text-color);
+  opacity: 0.5;
+}
