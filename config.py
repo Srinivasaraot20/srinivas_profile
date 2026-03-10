@@ -43,6 +43,9 @@ class DevelopmentConfig(Config):
     DEBUG = True
     LOG_LEVEL = 'DEBUG'
     
+    # Development secret key (for local development only)
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
+    
     # Development mail settings (use environment variables in production)
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', 587))
@@ -86,7 +89,7 @@ class TestingConfig(Config):
     TESTING = True
     DEBUG = True
     WTF_CSRF_ENABLED = False
-    SECRET_KEY = 'test-secret-key'
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'test-secret-key-for-testing')
 
 config = {
     'development': DevelopmentConfig,
