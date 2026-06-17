@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}Contact Talari Srinivasa Rao | Hire Full Stack & AI Developer{% endblock %}
+
+{% block meta_description %}Get in touch with Talari Srinivasa Rao for freelance software development, AI solutions, web application design, and collaboration in Andhra Pradesh, India.{% endblock %}
+
+{% block meta_keywords %}Hire Full Stack Developer India, Contact Python Developer, Freelance MERN Stack Developer Visakhapatnam, Hire AI Machine Learning Engineer{% endblock %}
+
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
@@ -73,52 +79,82 @@
                             {% endif %}
                         {% endwith %}
                         
-                        <form id="contact-form" action="{{ url_for('contact') }}" method="post">
+                        <form id="contact-form" action="{{ url_for('contact') }}" method="post" novalidate>
                             {{ form.csrf_token }}
                             
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         {{ form.name.label(class="form-label") }}
-                                        {{ form.name(class="form-control", placeholder="Your Name") }}
-                                        <div class="invalid-feedback" id="name-error" style="display: none;">
-                                            Please enter your name.
-                                        </div>
+                                        {% if form.name.errors %}
+                                            {{ form.name(class="form-control is-invalid", placeholder="Your Name") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.name.errors %}{{ error }}{% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.name(class="form-control", placeholder="Your Name") }}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         {{ form.email.label(class="form-label") }}
-                                        {{ form.email(class="form-control", placeholder="Your Email") }}
-                                        <div class="invalid-feedback" id="email-error" style="display: none;">
-                                            Please enter a valid email address.
-                                        </div>
+                                        {% if form.email.errors %}
+                                            {{ form.email(class="form-control is-invalid", placeholder="Your Email") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.email.errors %}{{ error }}{% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.email(class="form-control", placeholder="Your Email") }}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 mb-3">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        {{ form.phone.label(class="form-label") }}
+                                        {% if form.phone.errors %}
+                                            {{ form.phone(class="form-control is-invalid", placeholder="+918341492762") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.phone.errors %}{{ error }}{% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.phone(class="form-control", placeholder="+918341492762") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         {{ form.subject.label(class="form-label") }}
-                                        {{ form.subject(class="form-control", placeholder="Subject") }}
-                                        <div class="invalid-feedback" id="subject-error" style="display: none;">
-                                            Please enter a subject.
-                                        </div>
+                                        {% if form.subject.errors %}
+                                            {{ form.subject(class="form-control is-invalid", placeholder="Subject") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.subject.errors %}{{ error }}{% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.subject(class="form-control", placeholder="Subject") }}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
                                 <div class="col-12 mb-4">
                                     <div class="form-group">
                                         {{ form.message.label(class="form-label") }}
-                                        {{ form.message(class="form-control", rows=5, placeholder="Your Message") }}
-                                        <div class="invalid-feedback" id="message-error" style="display: none;">
-                                            Please enter your message.
-                                        </div>
+                                        {% if form.message.errors %}
+                                            {{ form.message(class="form-control is-invalid", rows=5, placeholder="Your Message") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.message.errors %}{{ error }}{% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.message(class="form-control", rows=5, placeholder="Your Message") }}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">
                                         <i class="fas fa-paper-plane me-2"></i> Send Message
                                     </button>
                                 </div>
@@ -128,8 +164,43 @@
                 </div>
             </div>
         </div>
+        <!-- Next Steps / Explore More (SEO Cross-Linking) -->
+        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+            <div class="col-12">
+                <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+                    <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-tools me-2"></i>My Skills
+                    </a>
+                    <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                    </a>
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-code me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    var submitBtn = this.querySelector('button[type="submit"]');
+    // Basic client-side feedback for native submit spinner trigger
+    submitBtn.disabled = true;
+    var originalHtml = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending Message...';
+    
+    // Fallback reset if page doesn't redirect or if server validation returns error
+    setTimeout(function() {
+        if (submitBtn.disabled) {
+            // Check if page did not reload (which is typical for validation errors)
+            // But we will let Flask handle WTForms redirects
+        }
+    }, 5000);
+});
+</script>
 
 <!-- Map Section (Optional) -->
 <section class="py-5">

@@ -1,0 +1,145 @@
+<style>
+  #fraudTab .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+  #fraudTab .nav-link {
+    transition: all var(--transition-speed);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  #fraudTab .nav-link:hover:not(.active) {
+    background-color: rgba(255,255,255,0.1);
+  }
+  .result-box {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(46, 204, 113, 0.1) 100%);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+</style>
+
+<!-- Pills Navigation -->
+<ul class="nav nav-pills nav-justified mb-4" id="fraudTab" role="tablist" style="background-color: rgba(255,255,255,0.05); padding: 5px; border-radius: 30px;">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active rounded-pill text-white py-2" id="pills-fraud-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-fraud-overview" type="button" role="tab" aria-controls="pills-fraud-overview" aria-selected="true">
+      <i class="fas fa-circle-info me-1 text-primary"></i> Overview & Results
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-fraud-features-tab" data-bs-toggle="pill" data-bs-target="#pills-fraud-features" type="button" role="tab" aria-controls="pills-fraud-features" aria-selected="false">
+      <i class="fas fa-list-check me-1 text-primary"></i> Key Features
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-fraud-tech-tab" data-bs-toggle="pill" data-bs-target="#pills-fraud-tech" type="button" role="tab" aria-controls="pills-fraud-tech" aria-selected="false">
+      <i class="fas fa-microchip me-1 text-primary"></i> Tech Stack
+    </button>
+  </li>
+</ul>
+
+<!-- Pills Content -->
+<div class="tab-content text-white" id="fraudTabContent">
+  <!-- Tab 1: Overview & Results -->
+  <div class="tab-pane fade show active" id="pills-fraud-overview" role="tabpanel" aria-labelledby="pills-fraud-overview-tab">
+    <div class="mb-4">
+      <h5 class="fw-bold mb-3 text-primary">Project Overview</h5>
+      <p class="text-white-50 leading-relaxed mb-3">
+        Health insurance fraud is a major challenge in modern healthcare systems, resulting in significant financial losses and delays in claim processing. This project presents an intelligent and explainable AI-powered health insurance claim verification system that automates fraud detection using advanced Artificial Intelligence, Optical Character Recognition (OCR), and Natural Language Processing (NLP) techniques.
+      </p>
+      <p class="text-white-50 leading-relaxed mb-3">
+        The system extracts key medical and insurance-related information from uploaded claim documents using OCR. BioGPT embeddings and a Transformer-based RoBERTa classifier are utilized to analyze claim data and classify claims as legitimate or fraudulent. To address class imbalance, a hybrid sampling approach combining SMOTE and Random Undersampling is applied.
+      </p>
+      <p class="text-white-50 leading-relaxed">
+        For transparency and trust, SHAP (Shapley Additive Explanations) is integrated to explain model decisions and highlight the factors influencing fraud predictions. An AI-powered chatbot provides real-time responses to claim-related queries and retrieves updated policy information to assist users throughout the verification process.
+      </p>
+    </div>
+    
+    <div class="result-box mb-3">
+      <h5 class="fw-bold text-success mb-3"><i class="fas fa-square-poll-vertical me-2"></i>Key Results & Metrics</h5>
+      <div class="row text-center">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="display-5 fw-bold text-primary">98.48%</div>
+          <div class="text-white-50 small mt-1">Model Classification Accuracy</div>
+        </div>
+        <div class="col-md-6">
+          <div class="h5 fw-bold text-white mb-2">Explainable Decision-Making</div>
+          <div class="text-white-50 small">SHAP Integration reduces review effort while ensuring clear audit trails.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Key Features -->
+  <div class="tab-pane fade" id="pills-fraud-features" role="tabpanel" aria-labelledby="pills-fraud-features-tab">
+    <h5 class="fw-bold mb-3 text-primary">Core Modules & Features</h5>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-eye text-primary me-2"></i>OCR-Based Document Processing</h6>
+          <p class="text-white-50 small">Automated extraction of textual data from medical forms, prescription sheets, and receipts using Tesseract OCR.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-robot text-primary me-2"></i>BioGPT Embedding Extraction</h6>
+          <p class="text-white-50 small">Extracts medical concept semantics using specialized biomedical BioGPT models to improve feature representation.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-brain text-primary me-2"></i>RoBERTa Transformer Classifier</h6>
+          <p class="text-white-50 small">Classifies claims as legitimate or fraudulent using advanced deep learning classification models.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-scale-unbalanced text-primary me-2"></i>Hybrid Class Sampling</h6>
+          <p class="text-white-50 small">Combines SMOTE oversampling and Random Undersampling to handle imbalanced datasets without bias.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-chart-line text-primary me-2"></i>SHAP Explainability Dashboard</h6>
+          <p class="text-white-50 small">Provides real-time, visual explanations of predictions, identifying exactly which claim features influenced the model.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-message text-primary me-2"></i>AI Chatbot & Policy Retrieval</h6>
+          <p class="text-white-50 small">Chatbot assists users by retrieving policy updates and answering claim verification queries dynamically.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-gauge text-primary me-2"></i>Real-Time Visualization</h6>
+          <p class="text-white-50 small">A responsive web-based dashboard mapping fraud probability curves and text fields highlighting anomalies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 3: Tech Stack -->
+  <div class="tab-pane fade" id="pills-fraud-tech" role="tabpanel" aria-labelledby="pills-fraud-tech-tab">
+    <div class="mb-3">
+      <h6 class="fw-bold mb-2 text-primary">Natural Language & Deep Learning</h6>
+      <div>
+        <span class="tech-badge">BioGPT</span>
+        <span class="tech-badge">RoBERTa</span>
+        <span class="tech-badge">SHAP</span>
+        <span class="tech-badge">NLP</span>
+        <span class="tech-badge">Tesseract OCR</span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <h6 class="fw-bold mb-2 text-primary">Machine Learning Models</h6>
+      <div>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">XGBoost</span>
+        <span class="tech-badge">Scikit-Learn</span>
+        <span class="tech-badge">SMOTE</span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <h6 class="fw-bold mb-2 text-primary">Web Development & Database</h6>
+      <div>
+        <span class="tech-badge">Flask</span>
+        <span class="tech-badge">SQLite</span>
+        <span class="tech-badge">MySQL</span>
+        <span class="tech-badge">HTML5 / CSS3</span>
+        <span class="tech-badge">JavaScript</span>
+      </div>
+    </div>
+  </div>
+</div>

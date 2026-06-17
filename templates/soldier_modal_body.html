@@ -1,0 +1,151 @@
+<style>
+  #soldierTab .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+  #soldierTab .nav-link {
+    transition: all var(--transition-speed);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  #soldierTab .nav-link:hover:not(.active) {
+    background-color: rgba(255,255,255,0.1);
+  }
+</style>
+
+<!-- Pills Navigation -->
+<ul class="nav nav-pills nav-justified mb-4" id="soldierTab" role="tablist" style="background-color: rgba(255,255,255,0.05); padding: 5px; border-radius: 30px;">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active rounded-pill text-white py-2" id="pills-soldier-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-soldier-overview" type="button" role="tab" aria-controls="pills-soldier-overview" aria-selected="true">
+      <i class="fas fa-circle-info me-1 text-primary"></i> Overview & Applications
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-soldier-features-tab" data-bs-toggle="pill" data-bs-target="#pills-soldier-features" type="button" role="tab" aria-controls="pills-soldier-features" aria-selected="false">
+      <i class="fas fa-list-check me-1 text-primary"></i> Key Features
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-soldier-tech-tab" data-bs-toggle="pill" data-bs-target="#pills-soldier-tech" type="button" role="tab" aria-controls="pills-soldier-tech" aria-selected="false">
+      <i class="fas fa-microchip me-1 text-primary"></i> Tech & Benefits
+    </button>
+  </li>
+</ul>
+
+<!-- Pills Content -->
+<div class="tab-content text-white" id="soldierTabContent">
+  <!-- Tab 1: Overview & Applications -->
+  <div class="tab-pane fade show active" id="pills-soldier-overview" role="tabpanel" aria-labelledby="pills-soldier-overview-tab">
+    <div class="mb-4">
+      <h5 class="fw-bold mb-3 text-primary">Project Overview</h5>
+      <p class="text-white-50 leading-relaxed mb-3">
+        Unmanned Aerial Vehicles (UAVs) have become an essential technology for modern surveillance and defense operations. Monitoring large-scale environments such as forests, mountains, and border regions is difficult using conventional methods. Detecting camouflaged soldiers remains particularly challenging because they blend naturally with surrounding terrain and environmental conditions.
+      </p>
+      <p class="text-white-50 leading-relaxed mb-3">
+        This project introduces a robust multi-stage deep learning framework for detecting camouflaged soldiers from UAV imagery. The system utilizes RT-DETR, a real-time object detection architecture, to identify potential human targets from aerial images. To improve localization accuracy and reduce false detections, the Segment Anything Model (SAM) performs precise pixel-level segmentation of detected objects.
+      </p>
+      <p class="text-white-50 leading-relaxed">
+        The framework further converts detected locations into real-world geographic coordinates through geospatial mapping techniques. These coordinates are displayed within an interactive monitoring dashboard, enabling defense personnel to monitor target locations, improve situational awareness, and support mission-critical decision-making.
+      </p>
+    </div>
+    
+    <div class="mb-3">
+      <h5 class="fw-bold text-info mb-2">Key Applications</h5>
+      <div class="row text-white-50 small">
+        <div class="col-md-6">
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><i class="fas fa-shield-halved text-primary me-2"></i>Border Security & Monitoring</li>
+            <li class="mb-2"><i class="fas fa-fighter-jet text-primary me-2"></i>Military Surveillance & Tactical Intelligence</li>
+            <li class="mb-2"><i class="fas fa-life-ring text-primary me-2"></i>Search and Rescue Operations</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><i class="fas fa-tree text-primary me-2"></i>Forest Monitoring & Wildlife Protection</li>
+            <li class="mb-2"><i class="fas fa-satellite text-primary me-2"></i>Remote Area Surveillance</li>
+            <li class="mb-2"><i class="fas fa-brain text-primary me-2"></i>Strategic Defense Intelligence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Key Features -->
+  <div class="tab-pane fade" id="pills-soldier-features" role="tabpanel" aria-labelledby="pills-soldier-features-tab">
+    <h5 class="fw-bold mb-3 text-primary">Core Framework Features</h5>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-helicopter text-primary me-2"></i>UAV-Based Surveillance System</h6>
+          <p class="text-white-50 small">Designed for processing live aerial video feeds and image frames captured by drone cameras.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-radar text-primary me-2"></i>Real-Time Human Detection</h6>
+          <p class="text-white-50 small">High-speed targeting of individuals using state-of-the-art RT-DETR (Real-Time DEtection TRansformer).</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-mask text-primary me-2"></i>Camouflaged Identification</h6>
+          <p class="text-white-50 small">Specialized training datasets optimized to detect patterns blending in environments (woodlands, desert, snow).</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-crop-simple text-primary me-2"></i>SAM Pixel-Level Segmentation</h6>
+          <p class="text-white-50 small">Integrates Meta's Segment Anything Model (SAM) for extreme boundary outlining, reducing false-positive boxes.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-location-crosshairs text-primary me-2"></i>Geospatial Coordinate Mapping</h6>
+          <p class="text-white-50 small">Translates pixel bounding boxes into GPS coordinates using camera angle, altitude, and mapping models.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-chart-line text-primary me-2"></i>Interactive Monitoring Dashboard</h6>
+          <p class="text-white-50 small">A live map display tracking drone location and targeted detections with telemetry feeds.</p>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-1"><i class="fas fa-gauge-high text-primary me-2"></i>Real-Time Analytics</h6>
+          <p class="text-white-50 small">Historical timeline metrics, target movement tracking, and instant alerts for secure networks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 3: Tech & Benefits -->
+  <div class="tab-pane fade" id="pills-soldier-tech" role="tabpanel" aria-labelledby="pills-soldier-tech-tab">
+    <div class="row">
+      <div class="col-md-6">
+        <h5 class="fw-bold mb-3 text-primary"><i class="fas fa-microchip me-2"></i>Technologies Used</h5>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-2">Deep Learning Frameworks</h6>
+          <div>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">PyTorch</span>
+            <span class="tech-badge">RT-DETR</span>
+            <span class="tech-badge">Segment Anything (SAM)</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold text-white mb-2">Image Processing & Mapping</h6>
+          <div>
+            <span class="tech-badge">OpenCV</span>
+            <span class="tech-badge">UAV Imagery Processing</span>
+            <span class="tech-badge">Geospatial Mapping</span>
+            <span class="tech-badge">GIS Integration</span>
+            <span class="tech-badge">Interactive Dashboard</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <h5 class="fw-bold mb-3 text-primary"><i class="fas fa-circle-check me-2"></i>Key Benefits</h5>
+        <ul class="text-white-50 small ps-3">
+          <li class="mb-2"><strong>Improved Detection Accuracy</strong>: SAM's precise boundaries eliminate localization errors.</li>
+          <li class="mb-2"><strong>Reduced False Positives</strong>: Distinguishes wildlife and flora from targets.</li>
+          <li class="mb-2"><strong>Real-Time Monitoring</strong>: Near zero latency pipelines for critical defense operations.</li>
+          <li class="mb-2"><strong>Enhanced Situational Awareness</strong>: Operators see live map layers with drone feeds.</li>
+          <li class="mb-2"><strong>Scalable Architecture</strong>: Deployable across multiple UAV fleets simultaneously.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

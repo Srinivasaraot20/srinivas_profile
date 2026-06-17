@@ -1,4 +1,27 @@
+
 {% extends 'base.html' %}
+
+{% block title %}Talari Srinivasa Rao | Portfolio - Full Stack Developer & AI Engineer{% endblock %}
+
+{% block meta_description %}Portfolio of Talari Srinivasa Rao, a Computer Science Engineer specializing in Full Stack Web Development (MERN, Flask, Django) and AI & Machine Learning Solutions.{% endblock %}
+
+{% block meta_keywords %}Talari Srinivasa Rao, Srinivasa Rao Talari, Full Stack Developer, Python Developer, MERN Stack Developer, AI Engineer, Machine Learning Engineer, Software Engineer India{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Talari Srinivasa Rao Portfolio",
+  "url": "https://talari-srinivasa-rao.netlify.app/",
+  "author": {
+    "@type": "Person",
+    "name": "Talari Srinivasa Rao"
+  },
+  "description": "Professional portfolio website of Talari Srinivasa Rao, Full Stack Developer and AI/ML Engineer."
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -39,11 +62,10 @@
             <div class="col-lg-8 text-center">
                 <h2 class="section-title text-center mb-5" data-aos="fade-up">About Me</h2>
                 <p class="lead" data-aos="fade-up" data-aos-delay="100">
-                    Computer Programmer with hands-on experience in full-stack development, proficient in Java, Python, C, JavaScript, and SQL. 
-                    Excels in coding, testing, and refining software applications while collaborating with development teams.
+                    I am a Computer Science graduate and Full-Stack Developer with expertise in Python, Java, C, JavaScript, SQL, MERN Stack (MongoDB, Express.js, React.js, Node.js), and modern web technologies. I have hands-on experience in designing, developing, and deploying scalable web applications, AI-powered solutions, enterprise platforms, and data-driven systems.
                 </p>
                 <p data-aos="fade-up" data-aos-delay="200">
-                    Demonstrates a strong commitment to building reliable, user-focused solutions and robust error-free software.
+                    Passionate about software engineering, artificial intelligence, and problem-solving, I focus on building secure, efficient, and user-centric applications. My experience spans Full-Stack Development, MERN Stack applications, AI/ML solutions, RESTful APIs, database management, and cloud-based deployments.
                 </p>
                 <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
                     <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn More About Me</a>
@@ -57,9 +79,9 @@
 <section id="featured-projects" class="py-5 bg-dark">
     <div class="container">
         <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Projects</h2>
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
             <!-- Project 1 -->
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-4">
                 <div class="flip-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
@@ -78,7 +100,7 @@
             </div>
             
             <!-- Project 2 -->
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-4">
                 <div class="flip-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
@@ -97,7 +119,7 @@
             </div>
             
             <!-- Project 3 -->
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-4">
                 <div class="flip-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
@@ -116,7 +138,7 @@
             </div>
             
             <!-- Project 4 -->
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-4">
                 <div class="flip-card" data-aos="flip-left" data-aos-delay="400">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
@@ -127,7 +149,45 @@
                             <h5 class="mb-3">Smart Payroll System</h5>
                             <p class="small">Automated payroll system with role-based authentication and biometric attendance.</p>
                             <div class="mt-auto">
-                                <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
+                                <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#payrollDemoModal">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
+                            <img src="{{ url_for('static', filename='images/projects/insurance_fraud.svg') }}" alt="Explainable AI Fraud Detection" class="img-fluid mb-3" style="max-height: 130px;">
+                            <h5 class="card-title">Explainable AI 🛡️</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5 class="mb-3">Explainable AI Claim Fraud Detection</h5>
+                            <p class="small">AI claim verification platform utilizing OCR, BioGPT embeddings, RoBERTa classifier, and SHAP explainability.</p>
+                            <div class="mt-auto">
+                                <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#fraudDemoModal">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
+                            <img src="{{ url_for('static', filename='images/projects/soldier_detection.svg') }}" alt="Soldier Detection" class="img-fluid mb-3" style="max-height: 130px;">
+                            <h5 class="card-title">Soldier Detection 🪖</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5 class="mb-3">Camouflaged Soldier Detection</h5>
+                            <p class="small">UAV surveillance framework utilising RT-DETR, SAM segmentation, and geospatial GPS coordinates.</p>
+                            <div class="mt-auto">
+                                <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#soldierDemoModal">View Details</button>
                             </div>
                         </div>
                     </div>
@@ -202,6 +262,66 @@
         </div>
     </div>
 </section>
+
+<!-- Smart Payroll System Detailed Modal -->
+<div class="modal fade" id="payrollDemoModal" tabindex="-1" aria-labelledby="payrollDemoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="background-color: #111; border: 1px solid rgba(255,255,255,0.15);">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title fw-bold text-white d-flex align-items-center" id="payrollDemoModalLabel">
+                    <span class="fs-4 me-2">💼</span> Smart Payroll Management System
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 pb-4">
+                {% include 'payroll_modal_body.html' %}
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Explainable AI Claim Fraud Detection Modal -->
+<div class="modal fade" id="fraudDemoModal" tabindex="-1" aria-labelledby="fraudDemoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="background-color: #111; border: 1px solid rgba(255,255,255,0.15);">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title fw-bold text-white d-flex align-items-center" id="fraudDemoModalLabel">
+                    <span class="fs-4 me-2">💡</span> Explainable AI Claim Fraud Detection
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 pb-4">
+                {% include 'fraud_modal_body.html' %}
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Camouflaged Soldier Detection Modal -->
+<div class="modal fade" id="soldierDemoModal" tabindex="-1" aria-labelledby="soldierDemoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="background-color: #111; border: 1px solid rgba(255,255,255,0.15);">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title fw-bold text-white d-flex align-items-center" id="soldierDemoModalLabel">
+                    <span class="fs-4 me-2">🪖</span> Camouflaged Soldier Detection
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 pb-4">
+                {% include 'soldier_modal_body.html' %}
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}

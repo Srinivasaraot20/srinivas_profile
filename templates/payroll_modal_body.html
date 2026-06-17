@@ -1,0 +1,588 @@
+<style>
+  #payrollTab .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+  #payrollTab .nav-link {
+    transition: all var(--transition-speed);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  #payrollTab .nav-link:hover:not(.active) {
+    background-color: rgba(255,255,255,0.1);
+  }
+  .accordion-button::after {
+    filter: invert(1);
+  }
+  .accordion-button:not(.collapsed) {
+    color: var(--primary-color) !important;
+    background-color: rgba(255,255,255,0.02) !important;
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,.125);
+  }
+  .accordion-item {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  .tech-badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f8f9fa;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0.25rem;
+    transition: all 0.3s ease;
+  }
+  .tech-badge:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  .role-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+  }
+  .role-card:hover {
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+</style>
+
+<!-- Pills Navigation -->
+<ul class="nav nav-pills nav-justified mb-4" id="payrollTab" role="tablist" style="background-color: rgba(255,255,255,0.05); padding: 5px; border-radius: 30px;">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active rounded-pill text-white py-2" id="pills-demo-tab" data-bs-toggle="pill" data-bs-target="#pills-demo" type="button" role="tab" aria-controls="pills-demo" aria-selected="true">
+      <i class="fas fa-play-circle me-1 text-primary"></i> Demo Videos
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-features-tab" data-bs-toggle="pill" data-bs-target="#pills-features" type="button" role="tab" aria-controls="pills-features" aria-selected="false">
+      <i class="fas fa-list-check me-1 text-primary"></i> Features
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-roles-tab" data-bs-toggle="pill" data-bs-target="#pills-roles" type="button" role="tab" aria-controls="pills-roles" aria-selected="false">
+      <i class="fas fa-users-cog me-1 text-primary"></i> Roles
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-pill text-white py-2" id="pills-tech-tab" data-bs-toggle="pill" data-bs-target="#pills-tech" type="button" role="tab" aria-controls="pills-tech" aria-selected="false">
+      <i class="fas fa-microchip me-1 text-primary"></i> Tech Stack
+    </button>
+  </li>
+</ul>
+
+<!-- Pills Content -->
+<div class="tab-content text-white" id="payrollTabContent">
+  
+  <!-- Tab 1: Demo & Videos -->
+  <div class="tab-pane fade show active" id="pills-demo" role="tabpanel" aria-labelledby="pills-demo-tab">
+    <div class="mb-4">
+      <h5 class="fw-bold mb-3 text-primary">Project Overview</h5>
+      <p class="text-white-50 leading-relaxed mb-3">
+        Smart Payroll System is an enterprise-grade HR and Payroll platform that helps organizations manage their workforce efficiently. The system provides centralized employee records, automated payroll calculations, attendance monitoring, compliance reporting, and detailed analytics through an intuitive web-based dashboard.
+      </p>
+      <p class="text-white-50 leading-relaxed">
+        The platform is suitable for startups, SMEs, educational institutions, agencies, and enterprise organizations seeking a complete workforce management solution.
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <a href="https://smartpayroll-io7dpsu1w-srinivasa-rao-talaris-projects.vercel.app" target="_blank" class="btn btn-primary w-100 py-3 mb-4 fw-bold shadow-lg d-flex align-items-center justify-content-center text-white text-decoration-none">
+        <i class="fas fa-external-link-alt me-2 fs-5"></i> Launch Live Demo on Vercel
+      </a>
+    </div>
+
+    <div class="mb-4">
+      <h5 class="fw-bold mb-2 text-primary">Smart Payroll Management System – Demo Video</h5>
+      <p class="text-white-50 small mb-4">
+        This project demo is presented in four parts. Each part explains different modules and features of the Smart Payroll Management System, including employee management, salary processing, attendance tracking, and report generation.
+      </p>
+      
+      <div class="row g-3">
+        <!-- Part 1 -->
+        <div class="col-md-6">
+          <div class="card h-100 border-0" style="background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05) !important;">
+            <div class="card-body p-3 d-flex flex-column">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: rgba(231, 76, 60, 0.15);">
+                  <i class="fas fa-play text-danger"></i>
+                </div>
+                <h6 class="fw-bold mb-0 text-white">Part 1: Employee Management</h6>
+              </div>
+              <p class="card-text text-white-50 small flex-grow-1">Employee Profile Creation, Onboarding workflow, department/designation setups, and document management.</p>
+              <a href="https://drive.google.com/file/d/1gFdt_MkcWc02ggPRZp2jPjYVAzVriyUm/view?usp=sharing" target="_blank" class="btn btn-outline-danger btn-sm mt-3 w-100 text-decoration-none">
+                <i class="fab fa-google-drive me-1"></i> Watch Part 1
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Part 2 -->
+        <div class="col-md-6">
+          <div class="card h-100 border-0" style="background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05) !important;">
+            <div class="card-body p-3 d-flex flex-column">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: rgba(231, 76, 60, 0.15);">
+                  <i class="fas fa-play text-danger"></i>
+                </div>
+                <h6 class="fw-bold mb-0 text-white">Part 2: Attendance & Shifts</h6>
+              </div>
+              <p class="card-text text-white-50 small flex-grow-1">Daily attendance tracking, check-in/out, shift allocations, overtime and late arrival/early exit tracking.</p>
+              <a href="https://drive.google.com/file/d/1WfdP4Fhamz_1Q5gssd-HDHGZ3Yg1w6e7/view?usp=sharing" target="_blank" class="btn btn-outline-danger btn-sm mt-3 w-100 text-decoration-none">
+                <i class="fab fa-google-drive me-1"></i> Watch Part 2
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Part 3 -->
+        <div class="col-md-6">
+          <div class="card h-100 border-0" style="background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05) !important;">
+            <div class="card-body p-3 d-flex flex-column">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: rgba(231, 76, 60, 0.15);">
+                  <i class="fas fa-play text-danger"></i>
+                </div>
+                <h6 class="fw-bold mb-0 text-white">Part 3: Payroll Calculations</h6>
+              </div>
+              <p class="card-text text-white-50 small flex-grow-1">Gross/Net salary calculations, deductions, earnings, bonus adjustments, taxes, and approvals workflows.</p>
+              <a href="https://drive.google.com/file/d/1YUaNuUj6R48axSoulvVIbELZttrkmKTy/view?usp=sharing" target="_blank" class="btn btn-outline-danger btn-sm mt-3 w-100 text-decoration-none">
+                <i class="fab fa-google-drive me-1"></i> Watch Part 3
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Part 4 -->
+        <div class="col-md-6">
+          <div class="card h-100 border-0" style="background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05) !important;">
+            <div class="card-body p-3 d-flex flex-column">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: rgba(231, 76, 60, 0.15);">
+                  <i class="fas fa-play text-danger"></i>
+                </div>
+                <h6 class="fw-bold mb-0 text-white">Part 4: Portals & Reporting</h6>
+              </div>
+              <p class="card-text text-white-50 small flex-grow-1">Admin dashboard analytics, employee self-service portal, leave requests, payslip exports, and operational logs.</p>
+              <a href="https://drive.google.com/file/d/1cenfDzXNM_97J6e5Zdf-dBgazxfxL_Jg/view?usp=sharing" target="_blank" class="btn btn-outline-danger btn-sm mt-3 w-100 text-decoration-none">
+                <i class="fab fa-google-drive me-1"></i> Watch Part 4
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tab 2: Key Features -->
+  <div class="tab-pane fade" id="pills-features" role="tabpanel" aria-labelledby="pills-features-tab">
+    <div class="accordion accordion-flush" id="featuresAccordion">
+      
+      <!-- Employee Management -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingEmp">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEmp" aria-expanded="false" aria-controls="flush-collapseEmp">
+            <i class="fas fa-user-tie me-2 text-primary"></i> Employee Management
+          </button>
+        </h2>
+        <div id="flush-collapseEmp" class="accordion-collapse collapse" aria-labelledby="flush-headingEmp" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Profile Creation & Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Onboarding Workflow</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Department Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Designation Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Document Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee ID Generation</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Directory</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employment History Tracking</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Emergency Contact Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bank Account Information Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Educational Qualification Records</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Experience Records</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance Management -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingAtt">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAtt" aria-expanded="false" aria-controls="flush-collapseAtt">
+            <i class="fas fa-clock me-2 text-primary"></i> Attendance Management
+          </button>
+        </h2>
+        <div id="flush-collapseAtt" class="accordion-collapse collapse" aria-labelledby="flush-headingAtt" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Daily Attendance Tracking</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Check-In / Check-Out System</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Shift Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Work Hours Calculation</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Overtime Tracking</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Late Arrival Detection</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Early Exit Detection</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Attendance Corrections</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Monthly Attendance Reports</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Attendance Analytics Dashboard</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payroll Management -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingPay">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsePay" aria-expanded="false" aria-controls="flush-collapsePay">
+            <i class="fas fa-money-bill-wave me-2 text-primary"></i> Payroll Management
+          </button>
+        </h2>
+        <div id="flush-collapsePay" class="accordion-collapse collapse" aria-labelledby="flush-headingPay" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Salary Structure Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Automated Payroll Processing</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Gross Salary Calculation</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Net Salary Calculation</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Earnings Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Deductions Management</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bonus & Incentive Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Overtime Salary Calculation</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Tax Calculation</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Payroll Approval Workflow</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Payroll History Tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payslip Management -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingSlip">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSlip" aria-expanded="false" aria-controls="flush-collapseSlip">
+            <i class="fas fa-file-invoice-dollar me-2 text-primary"></i> Payslip Management
+          </button>
+        </h2>
+        <div id="flush-collapseSlip" class="accordion-collapse collapse" aria-labelledby="flush-headingSlip" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <ul class="list-unstyled mb-0 row">
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Monthly Payslip Generation</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>PDF Payslip Export</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Employee Payslip Access</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Payroll Archive Management</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Email Payslip Distribution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leave Management -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingLeave">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseLeave" aria-expanded="false" aria-controls="flush-collapseLeave">
+            <i class="fas fa-calendar-alt me-2 text-primary"></i> Leave Management
+          </button>
+        </h2>
+        <div id="flush-collapseLeave" class="accordion-collapse collapse" aria-labelledby="flush-headingLeave" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Leave Application System</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Leave Approval Workflow</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Leave Balance Tracking</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Leave Policies Management</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Leave History Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Holiday Calendar Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sick, Casual, and Earned Leave Tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance Management -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingComp">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseComp" aria-expanded="false" aria-controls="flush-collapseComp">
+            <i class="fas fa-scale-balanced me-2 text-primary"></i> Compliance Management
+          </button>
+        </h2>
+        <div id="flush-collapseComp" class="accordion-collapse collapse" aria-labelledby="flush-headingComp" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <ul class="list-unstyled mb-0 row">
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Provident Fund (PF) Reports</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Employee State Insurance (ESI) Reports</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Professional Tax Reports</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Statutory Compliance Reports</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Government Filing Support & Analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- HR Operations -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingOps">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOps" aria-expanded="false" aria-controls="flush-collapseOps">
+            <i class="fas fa-cogs me-2 text-primary"></i> HR Operations
+          </button>
+        </h2>
+        <div id="flush-collapseOps" class="accordion-collapse collapse" aria-labelledby="flush-headingOps" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Promotions & Transfers</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Resignations & Exit Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee Performance Records</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Training Records Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Probation Management</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Confirmation Management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reporting & Analytics -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingReport">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseReport" aria-expanded="false" aria-controls="flush-collapseReport">
+            <i class="fas fa-chart-pie me-2 text-primary"></i> Reporting & Analytics
+          </button>
+        </h2>
+        <div id="flush-collapseReport" class="accordion-collapse collapse" aria-labelledby="flush-headingReport" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Payroll & Salary Reports</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Attendance & Leave Reports</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Employee & Department Reports</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Compliance & Statutory Reports</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Monthly HR Dashboard & Org Analytics</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Export Reports to Excel/PDF/CSV</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee Self-Service Portal -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingEss">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEss" aria-expanded="false" aria-controls="flush-collapseEss">
+            <i class="fas fa-laptop me-2 text-primary"></i> Employee Self-Service Portal
+          </button>
+        </h2>
+        <div id="flush-collapseEss" class="accordion-collapse collapse" aria-labelledby="flush-headingEss" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>View & Update Personal Profile Information</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Download Monthly Payslips</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Apply for Leaves & Check History</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>View Attendance Logs</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Download Company Documents</li>
+                  <li class="mb-2"><i class="fas fa-check text-success me-2"></i>View Company Announcements & Submit Requests</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Dashboard -->
+      <div class="accordion-item bg-transparent text-white border-bottom">
+        <h2 class="accordion-header" id="flush-headingAdmin">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAdmin" aria-expanded="false" aria-controls="flush-collapseAdmin">
+            <i class="fas fa-chart-line me-2 text-primary"></i> Admin Dashboard
+          </button>
+        </h2>
+        <div id="flush-collapseAdmin" class="accordion-collapse collapse" aria-labelledby="flush-headingAdmin" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <ul class="list-unstyled mb-0 row">
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Organization & Employee Statistics Overview</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Payroll & Attendance Summaries</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Leave Statistics & Compliance Summary</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Quick Actions Panel</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Recent Activity Logs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Features -->
+      <div class="accordion-item bg-transparent text-white border-0">
+        <h2 class="accordion-header" id="flush-headingSec">
+          <button class="accordion-button collapsed bg-transparent text-white fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSec" aria-expanded="false" aria-controls="flush-collapseSec">
+            <i class="fas fa-lock me-2 text-primary"></i> Security Features
+          </button>
+        </h2>
+        <div id="flush-collapseSec" class="accordion-collapse collapse" aria-labelledby="flush-headingSec" data-bs-parent="#featuresAccordion">
+          <div class="accordion-body text-white-50 small">
+            <ul class="list-unstyled mb-0 row">
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Secure Authentication & Password Encryption</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Role-Based Access Control (RBAC)</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Multi-Level Permissions & Session Management</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Activity Logging & Audit Trails</li>
+              <li class="col-md-6 mb-2"><i class="fas fa-check text-success me-2"></i>Secure Document Storage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <!-- Tab 3: User Roles -->
+  <div class="tab-pane fade" id="pills-roles" role="tabpanel" aria-labelledby="pills-roles-tab">
+    <p class="text-white-50 small mb-4">
+      The system employs a strict Role-Based Access Control (RBAC) model to ensure security and proper delegation of responsibilities.
+    </p>
+    
+    <div class="role-card">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="fw-bold text-white mb-0"><i class="fas fa-user-shield text-danger me-2"></i>Super Admin</h6>
+        <span class="badge bg-danger text-white">Full Access</span>
+      </div>
+      <p class="text-white-50 small mb-0">Complete system configuration access, user administration, corporate structures configuration, security controls definition, and log auditing.</p>
+    </div>
+    
+    <div class="role-card">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="fw-bold text-white mb-0"><i class="fas fa-users text-primary me-2"></i>HR Manager</h6>
+        <span class="badge bg-primary text-white">Operations</span>
+      </div>
+      <p class="text-white-50 small mb-0">Workforce onboarding workflows, department assignments, compliance management, leave scheduling approval, and operational reports access.</p>
+    </div>
+    
+    <div class="role-card">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="fw-bold text-white mb-0"><i class="fas fa-calculator text-success me-2"></i>Payroll Manager</h6>
+        <span class="badge bg-success text-white">Financials</span>
+      </div>
+      <p class="text-white-50 small mb-0">Automated payroll cycles processing, salary structures modifications, allowances/deductions management, payslip distribution, and payroll reporting.</p>
+    </div>
+    
+    <div class="role-card">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="fw-bold text-white mb-0"><i class="fas fa-user-friends text-warning me-2"></i>Department Manager</h6>
+        <span class="badge bg-warning text-dark">Team Lead</span>
+      </div>
+      <p class="text-white-50 small mb-0">Department shift setups, attendance validation and corrections, team leave requests approval, and team performance tracking.</p>
+    </div>
+    
+    <div class="role-card bg-transparent">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="fw-bold text-white mb-0"><i class="fas fa-user-circle text-info me-2"></i>Employee</h6>
+        <span class="badge bg-info text-dark">Self-Service</span>
+      </div>
+      <p class="text-white-50 small mb-0">Access to self-service portal, check leave balances, submit leave applications, download payslips, register shift check-ins/outs, and update basic credentials.</p>
+    </div>
+  </div>
+  
+  <!-- Tab 4: Tech Stack -->
+  <div class="tab-pane fade" id="pills-tech" role="tabpanel" aria-labelledby="pills-tech-tab">
+    <div class="mb-4">
+      <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-server me-2"></i>Backend Development</h6>
+      <div>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">Flask (Web Framework)</span>
+        <span class="tech-badge">SQLAlchemy (ORM)</span>
+        <span class="tech-badge">Flask-Login</span>
+        <span class="tech-badge">Flask-Migrate</span>
+        <span class="tech-badge">Flask-WTF</span>
+      </div>
+    </div>
+    
+    <div class="mb-4">
+      <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-desktop me-2"></i>Frontend UI/UX</h6>
+      <div>
+        <span class="tech-badge">HTML5</span>
+        <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">JavaScript</span>
+        <span class="tech-badge">Bootstrap 5</span>
+        <span class="tech-badge">jQuery</span>
+      </div>
+    </div>
+    
+    <div class="mb-4">
+      <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-database me-2"></i>Database Storage</h6>
+      <div>
+        <span class="tech-badge">MySQL</span>
+        <span class="tech-badge">MariaDB</span>
+      </div>
+    </div>
+    
+    <div class="mb-4">
+      <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-file-pdf me-2"></i>Reporting & Data Exports</h6>
+      <div>
+        <span class="tech-badge">PDF Generation</span>
+        <span class="tech-badge">Excel Export (.xlsx)</span>
+        <span class="tech-badge">CSV Export</span>
+      </div>
+    </div>
+    
+    <div>
+      <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-shield-halved me-2"></i>System Security</h6>
+      <div>
+        <span class="tech-badge">Password Hashing (Bcrypt)</span>
+        <span class="tech-badge">Session Protection</span>
+        <span class="tech-badge">CSRF Protection</span>
+        <span class="tech-badge">Role-Based Access Control</span>
+      </div>
+    </div>
+  </div>
+  
+</div>

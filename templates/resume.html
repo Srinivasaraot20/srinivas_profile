@@ -1,4 +1,10 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
+
+{% block title %}Resume & Curriculum Vitae | Talari Srinivasa Rao{% endblock %}
+
+{% block meta_description %}Download and view the professional resume of Talari Srinivasa Rao, software engineer with experience in Python, Java, JavaScript, React, and Machine Learning.{% endblock %}
+
+{% block meta_keywords %}Srinivasa Rao Talari Resume, Download Resume Software Engineer India, Python Developer CV, MERN Stack Developer Curriculum Vitae{% endblock %}
 
 {% block content %}
 <section class="py-5 mt-5">
@@ -36,10 +42,10 @@
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between mb-1">
                                     <h5>Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</h5>
-                                    <span>2023 - Present</span>
+                                    <span>2023 - 2026</span>
                                 </div>
                                 <p class="mb-1">Bachelor of Technology, Artificial Intelligence and Data Science</p>
-                                <p class="mb-0"><strong>GPA:</strong> 8.93</p>
+                                <p class="mb-0"><strong>GPA:</strong> 8.68</p>
                             </div>
                             
                             <div class="mb-4">
@@ -64,6 +70,46 @@
                         <!-- Professional Experience -->
                         <div class="mb-5">
                             <h4 class="border-bottom pb-2">Professional Experience</h4>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>Council for Skills and Competencies (CSC India) – Non-Profit Organization</h5>
+                                    <span>8 Months</span>
+                                </div>
+                                <p class="fw-bold mb-2">Python Full Stack Developer Intern</p>
+                                <ul>
+                                    <li>Developed and deployed 4+ full-stack web applications to streamline organizational processes and improve operational efficiency.</li>
+                                    <li>Designed and implemented an <strong>Internship Offer Letter Management System</strong> to automate offer letter generation, storage, tracking, and distribution.</li>
+                                    <li>Built an <strong>Internship Certificate Management System</strong> for automated certificate creation, management, verification, and email delivery.</li>
+                                    <li>Developed an <strong>Online Examination Portal</strong> featuring secure user authentication, exam management, automated evaluation, and result processing.</li>
+                                    <li>Created an <strong>Award Ceremony Management System</strong> to manage participants, event workflows, award allocation, and certificate distribution.</li>
+                                    <li>Built responsive user interfaces using <strong>HTML, CSS, JavaScript, React.js, and Bootstrap</strong>, ensuring an intuitive user experience across devices.</li>
+                                    <li>Developed backend services using <strong>Python, Flask, REST APIs, and SQLAlchemy</strong> to support scalable and maintainable applications.</li>
+                                    <li>Managed and optimized databases using <strong>MySQL and SQLite</strong> for secure, reliable, and efficient data storage.</li>
+                                    <li>Collaborated with team members in an agile development environment, following best practices in version control, testing, debugging, and deployment.</li>
+                                    <li>Automated manual administrative processes, significantly reducing processing time and improving overall productivity.</li>
+                                    <li>Participated in the complete software development lifecycle, including requirements gathering, development, testing, deployment, and maintenance.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>Canohub</h5>
+                                    <span>2 Months</span>
+                                </div>
+                                <p class="fw-bold mb-2">Web Development Intern</p>
+                                <ul>
+                                    <li>Developed and maintained responsive, user-friendly, and high-performance web applications using modern frontend technologies.</li>
+                                    <li>Built interactive and reusable UI components using HTML5, CSS3, JavaScript, React.js, and Next.js.</li>
+                                    <li>Implemented responsive web designs to ensure seamless user experiences across desktop, tablet, and mobile devices.</li>
+                                    <li>Assisted in developing new website features, optimizing performance, and resolving frontend issues and bugs.</li>
+                                    <li>Collaborated with designers and development teams to translate UI/UX designs into functional web applications.</li>
+                                    <li>Improved website usability, accessibility, SEO readiness, and cross-browser compatibility.</li>
+                                    <li>Participated in testing, deployment, debugging, and maintenance activities to ensure reliable application performance.</li>
+                                    <li>Worked with Git and GitHub for version control, code collaboration, and project management.</li>
+                                    <li>Contributed to the development of scalable and modern web solutions following industry best practices.</li>
+                                </ul>
+                            </div>
                             
                             <div>
                                 <div class="d-flex justify-content-between mb-1">
@@ -353,6 +399,27 @@
                                 <h5>National Service Scheme (NSS)</h5>
                                 <p class="fst-italic mb-2">Volunteer</p>
                                 <p>I participated in various service activities, including a blood donation camp and waste plastic collection.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Steps / Explore More (SEO Cross-Linking) -->
+                        <div class="row mt-5 pt-4 border-top border-secondary text-center">
+                            <div class="col-12">
+                                <h5 class="mb-4 text-white">Explore My Portfolio</h5>
+                                <div class="d-flex justify-content-center flex-wrap gap-3">
+                                    <a href="{{ url_for('skills') }}" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-tools me-2"></i>My Skills
+                                    </a>
+                                    <a href="{{ url_for('experience') }}" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                                    </a>
+                                    <a href="{{ url_for('projects') }}" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-code me-2"></i>View Projects
+                                    </a>
+                                    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-envelope me-2"></i>Contact Me
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
