@@ -1,5 +1,60 @@
 {% extends 'base.html' %}
 
+{% block title %}Software Projects | Talari Srinivasa Rao - AI & Web Developer{% endblock %}
+
+{% block meta_description %}Explore the portfolio projects of Talari Srinivasa Rao. Includes Health Insurance Fraud Detection with SHAP Explainable AI, Smart IoT Helmet for miners, AI Resume Builder, and UAV camouflaged soldier detection.{% endblock %}
+
+{% block meta_keywords %}AI Projects, Machine Learning Portfolio, Web Developer Projects, IoT Projects, RT-DETR UAV, Explainable AI Claim Fraud, Smart Payroll System, Tesseract OCR, BioGPT, Python Projects{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Talari Srinivasa Rao - Portfolio Projects",
+  "description": "A list of software development, AI/ML, and IoT projects completed by Talari Srinivasa Rao",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Smart Helmet for Coal Mine Workers",
+      "description": "An intelligent IoT-based safety helmet for coal mine workers that continuously monitors hazardous gases, temperature, humidity, and location, sending real-time alerts."
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Insurance Fraud Detection",
+      "description": "An Explainable AI-powered health insurance claim verification and fraud detection system utilizing OCR, NLP, hybrid XGBoost + SVM models, and SHAP explainability."
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Resume Builder",
+      "description": "An AI-powered web application that helps users create professional, ATS-friendly resumes with customizable templates, real-time suggestions, and dynamic PDF generation."
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Smart Payroll System",
+      "description": "Payroll system using Python Flask, MySQL, and Bootstrap/Tailwind CSS with role-based authentication, automated payroll processing, and biometric attendance integration."
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Explainable AI Health Insurance Claim Fraud Detection",
+      "description": "AI-powered claim verification utilizing BioGPT medical embeddings, RoBERTa transformer classifier, hybrid SMOTE sampling, and SHAP explainability dashboard."
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "A Multi-Stage Deep Learning Framework for Camouflaged Soldier Detection Using UAV Imagery",
+      "description": "UAV surveillance system utilizing RT-DETR object detection and SAM pixel-level segmentation, integrated with geospatial coordinate mapping."
+    }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
@@ -14,7 +69,7 @@
                 <div class="card bg-dark text-white border-0 shadow-sm h-100 project-card">
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center mb-4">
-                            <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="img-fluid me-3" style="width: 50px; height: 50px;">
+                            <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="img-fluid me-3" style="width: 50px; height: 50px;" loading="lazy">
                             <h4 class="card-title text-white mb-0">{{ project.title }} <span>{{ project.emoji }}</span></h4>
                         </div>
                         <p class="card-text">{{ project.description }}</p>
@@ -44,65 +99,92 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="text-center mb-4">
-                                <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }} - Project Image" class="img-fluid" style="max-height: 200px;">
-                            </div>
-                            <div class="mb-4">
-                                <h5>Project Overview</h5>
-                                <p>{{ project.description }}</p>
-                            </div>
-                            <div class="mb-4">
-                                <h5>Technologies Used</h5>
-                                <div class="d-flex flex-wrap gap-2">
-                                    {% for tech in project.tech %}
-                                    <span class="badge bg-primary p-2">{{ tech }}</span>
-                                    {% endfor %}
+                            {% if project.title == 'Smart Payroll System' %}
+                                {% include 'payroll_modal_body.html' %}
+                            {% elif project.title == 'Explainable AI Health Insurance Claim Fraud Detection' %}
+                                {% include 'fraud_modal_body.html' %}
+                            {% elif project.title == 'A Multi-Stage Deep Learning Framework for Camouflaged Soldier Detection Using UAV Imagery' %}
+                                {% include 'soldier_modal_body.html' %}
+                            {% else %}
+                                <div class="text-center mb-4">
+                                    <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }} - Project Image" class="img-fluid" style="max-height: 200px;" loading="lazy">
                                 </div>
-                            </div>
-                            <div class="mb-4">
-                                <h5>Key Features</h5>
-                                <ul>
-                                    {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
-                                    <li>Real-time detection of methane (CH4) and carbon monoxide (CO) gases</li>
-                                    <li>LoRa/GSM communication for long-range alerts</li>
-                                    
-                                    <li>Automated SMS alerts to control rooms and other miners</li>
-                                    <li>Battery-efficient design for extended operation</li>
-                                    {% elif project.title == 'Health Insurance Fraud Detection' %}
-                                    <li>Advanced ML algorithms (XGBoost, SVM) for high accuracy detection</li>
-                                    <li>Anomaly detection for identifying unusual claim patterns</li>
-                                    <li>Feature engineering for improved model performance</li>
-                                    <li>Real-time analysis dashboard for monitoring</li>
-                                    <li>Significantly reduces financial losses due to fraud</li>
-                                    {% elif project.title == 'AI Resume Builder' %}
-                                    <li>Professionally designed resume templates</li>
-                                    <li>AI-powered content suggestions and improvements</li>
-                                    <li>Real-time editing and preview</li>
-                                    <li>Export options in multiple formats (PDF, DOCX)</li>
-                                    <li>ATS-friendly resume optimization</li>
-                                    {% elif project.title == 'Smart Payroll System' %}
-                                    <li>Role-based authentication for secure access</li>
-                                    <li>Automated salary calculations and statutory deductions</li>
-                                    
-                                    <li>Employee self-service portal for leave requests and payslips</li>
-                                    <li>Analytics dashboard for payroll trends and insights</li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>Challenges & Solutions</h5>
-                                <p>
-                                    {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
-                                    Designing a compact, lightweight system that could reliably detect harmful gases was challenging. The solution involved careful component selection and integration, with extensive testing to ensure accuracy in detection and alarm triggering mechanisms.
-                                    {% elif project.title == 'Health Insurance Fraud Detection' %}
-                                    Handling imbalanced datasets where fraudulent cases were the minority presented a significant challenge. Implemented SMOTE for balanced class distribution and ensemble methods to improve model performance on rare fraud instances.
-                                    {% elif project.title == 'AI Resume Builder' %}
-                                    Creating an AI system that could provide personalized, context-aware suggestions required sophisticated NLP models. Implemented a hybrid approach combining rule-based systems with machine learning for optimal content recommendations.
-                                    {% elif project.title == 'Smart Payroll System' %}
-                                    Ensuring compliance with various tax rules and regulations while maintaining system flexibility was complex. Developed a modular architecture that allowed for easy updates to calculation rules without affecting the core system functionality.
-                                    {% endif %}
-                                </p>
-                            </div>
+                                <div class="mb-4">
+                                    <h5>Project Overview</h5>
+                                    <p>
+                                        {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
+                                        An intelligent IoT-based safety monitoring system designed to protect coal mine workers by continuously monitoring hazardous environmental conditions. The helmet detects dangerous gas concentrations such as Methane (CH4), Carbon Monoxide (CO), Carbon Dioxide (CO₂), and other harmful gases in real time. The system also monitors temperature and humidity levels to enhance workplace safety.<br><br>
+                                        Integrated GPS tracking and LoRa/GSM communication enable real-time location monitoring and emergency alert transmission to supervisors and rescue teams. When hazardous conditions are detected, the system automatically activates visual and audible alerts while sending emergency notifications with worker location details.
+                                        {% elif project.title == 'Health Insurance Fraud Detection' %}
+                                        An Explainable AI-powered health insurance claim verification and fraud detection system designed to identify fraudulent claims while maintaining transparency in decision-making. The platform leverages OCR, NLP, Machine Learning, and Explainable AI techniques to automate claim analysis and reduce manual verification efforts.<br><br>
+                                        The system extracts information from claim documents, performs advanced feature engineering, handles class imbalance using SMOTE, and predicts fraud risk using a hybrid XGBoost and SVM model. SHAP explainability provides detailed insights into model predictions, while an AI chatbot assists users with claim-related queries.
+                                        {% elif project.title == 'AI Resume Builder' %}
+                                        An AI-powered web application that helps users create professional and ATS-friendly resumes through an intuitive interface. The platform provides customizable templates, real-time content suggestions, skill recommendations, and resume optimization insights to improve job application success rates.<br><br>
+                                        Users can generate, edit, preview, and download resumes instantly while receiving AI-driven feedback for improving content quality, formatting, and keyword optimization.
+                                        {% else %}
+                                        {{ project.description }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5>Technologies Used</h5>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        {% for tech in project.tech %}
+                                        <span class="badge bg-primary p-2">{{ tech }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <h5>Key Features</h5>
+                                    <ul>
+                                        {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
+                                        <li>Real-time Gas Detection (CH4, CO, CO₂)</li>
+                                        <li>Temperature & Humidity Monitoring</li>
+                                        <li>GPS-Based Worker Tracking</li>
+                                        <li>LoRa Long-Range Communication</li>
+                                        <li>GSM SMS Emergency Alerts</li>
+                                        <li>Real-Time Safety Monitoring Dashboard</li>
+                                        <li>Buzzer & LED Warning System</li>
+                                        <li>Cloud-Based Data Logging</li>
+                                        <li>Worker Safety Analytics</li>
+                                        {% elif project.title == 'Health Insurance Fraud Detection' %}
+                                        <li>Automated Claim Verification</li>
+                                        <li>OCR-Based Document Processing</li>
+                                        <li>Fraud Risk Prediction</li>
+                                        <li>Hybrid XGBoost + SVM Model</li>
+                                        <li>SHAP Explainable AI</li>
+                                        <li>NLP-Based Claim Analysis</li>
+                                        <li>Interactive Analytics Dashboard</li>
+                                        <li>Real-Time Fraud Probability Scoring</li>
+                                        <li>AI-Powered Chatbot Assistant</li>
+                                        <li>Claim Tracking and Reporting</li>
+                                        {% elif project.title == 'AI Resume Builder' %}
+                                        <li>ATS-Friendly Resume Templates</li>
+                                        <li>AI-Powered Resume Suggestions</li>
+                                        <li>Real-Time Resume Preview</li>
+                                        <li>Dynamic Resume Customization</li>
+                                        <li>Skills & Keyword Recommendations</li>
+                                        <li>PDF Resume Generation</li>
+                                        <li>Professional Formatting</li>
+                                        <li>User Authentication & Profile Management</li>
+                                        <li>Resume Download & Sharing</li>
+                                        <li>Responsive User Interface</li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5>Challenges & Solutions</h5>
+                                    <p>
+                                        {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
+                                        Designing a compact, lightweight system that could reliably detect harmful gases was challenging. The solution involved careful component selection and integration, with extensive testing to ensure accuracy in detection and alarm triggering mechanisms.
+                                        {% elif project.title == 'Health Insurance Fraud Detection' %}
+                                        Handling imbalanced datasets where fraudulent cases were the minority presented a significant challenge. Implemented SMOTE for balanced class distribution and ensemble methods to improve model performance on rare fraud instances.
+                                        {% elif project.title == 'AI Resume Builder' %}
+                                        Creating an AI system that could provide personalized, context-aware suggestions required sophisticated NLP models. Implemented a hybrid approach combining rule-based systems with machine learning for optimal content recommendations.
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -113,13 +195,24 @@
             {% endfor %}
         </div>
         
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <h4 class="mb-4" data-aos="fade-up">Other Projects</h4>
-                <p data-aos="fade-up" data-aos-delay="100">
-                    I have worked on various other projects involving web development, mobile applications, and data analysis. 
-                    For more information about my work, please feel free to <a href="{{ url_for('contact') }}">contact me</a>.
-                </p>
+        <!-- Next Steps / Explore More (SEO Cross-Linking) -->
+        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+            <div class="col-12">
+                <h3 class="h4 mb-4 text-white">Explore More</h3>
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+                    <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-tools me-2"></i>My Skills
+                    </a>
+                    <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                    </a>
+                    <a href="{{ url_for('certifications') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-certificate me-2"></i>Certifications
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
+                </div>
             </div>
         </div>
     </div>

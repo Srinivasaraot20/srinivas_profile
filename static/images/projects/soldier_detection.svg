@@ -1,0 +1,18 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" rx="10" fill="#f0f0f0" />
+  <!-- Drone/UAV icon -->
+  <path d="M110 90 L190 110 M110 110 L190 90" stroke="#2c3e50" stroke-width="4" stroke-linecap="round" />
+  <circle cx="150" cy="100" r="15" fill="#34495e" />
+  <!-- Propellers -->
+  <ellipse cx="110" cy="90" rx="15" ry="5" fill="#7f8c8d" />
+  <ellipse cx="190" cy="110" rx="15" ry="5" fill="#7f8c8d" />
+  <ellipse cx="110" cy="110" rx="15" ry="5" fill="#7f8c8d" />
+  <ellipse cx="190" cy="90" rx="15" ry="5" fill="#7f8c8d" />
+  <!-- Camera lens -->
+  <circle cx="150" cy="100" r="6" fill="#3498db" />
+  <!-- Crosshair/Scanner overlay -->
+  <circle cx="150" cy="100" r="45" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="8,6" />
+  <path d="M150 45 L150 155 M95 100 L205 100" stroke="#e74c3c" stroke-width="1.5" stroke-opacity="0.7" />
+  <!-- Text -->
+  <text x="150" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#333">Camouflaged Soldier Detection</text>
+</svg>

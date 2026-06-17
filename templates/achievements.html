@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}Awards & Achievements | Talari Srinivasa Rao{% endblock %}
+
+{% block meta_description %}Discover the innovation awards and startup recognitions won by Talari Srinivasa Rao, including 1st Prize at VRSEC Innovation Day and ₹3L funding for the Smart IoT Helmet.{% endblock %}
+
+{% block meta_keywords %}Innovation Awards, Startup Recognition, Smart Helmet Funding, Talari Srinivasa Rao Achievements, VRSEC Innovation Award, MSME Startup India{% endblock %}
+
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
@@ -11,19 +17,28 @@
         <div class="row">
             {% for achievement in achievements %}
             <div class="col-md-6 mb-5" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-                <div class="card bg-dark text-white border-0 shadow h-100">
-                    <div class="row g-0">
-                        <div class="col-md-5 d-flex align-items-center justify-content-center p-4" style="background-color: #111111;">
-                            <img src="{{ url_for('static', filename='images/' + achievement.image) }}" alt="{{ achievement.title }}" class="img-fluid" style="max-height: 150px;">
+                <div class="card bg-dark text-white border-0 shadow h-100 achievement-card">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-5 d-flex align-items-center justify-content-center p-3" style="background-color: #111111; min-height: 200px;">
+                            <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="max-height: 180px; overflow: hidden;">
+                                <img src="{{ url_for('static', filename='images/achievements/' + achievement.image) }}" 
+                                     alt="{{ achievement.title }}" 
+                                     class="img-fluid rounded" 
+                                     style="max-height: 160px; object-fit: contain; width: auto; height: auto; transition: transform 0.3s ease;"
+                                     onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/logo.svg') }}'; this.style.padding='20px';"
+                                     loading="lazy">
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="card-title mb-0">{{ achievement.title }}</h4>
+                                    <h4 class="card-title mb-0 text-white">{{ achievement.title }}</h4>
                                     <span class="ms-2 fs-4">{{ achievement.emoji }}</span>
                                 </div>
-                                <h6 class="text-muted mb-3">{{ achievement.organization }}</h6>
-                                <p class="card-text">{{ achievement.description }}</p>
+                                <h6 class="text-info fw-bold mb-3 d-flex align-items-center">
+                                    <i class="fas fa-university me-2"></i> {{ achievement.organization }}
+                                </h6>
+                                <p class="card-text text-white-50">{{ achievement.description }}</p>
                             </div>
                         </div>
                     </div>
@@ -85,6 +100,26 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Next Steps / Explore More (SEO Cross-Linking) -->
+        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+            <div class="col-12">
+                <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+                    <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-tools me-2"></i>My Skills
+                    </a>
+                    <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                    </a>
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-code me-2"></i>View Projects
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
                 </div>
             </div>
         </div>

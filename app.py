@@ -1,11 +1,89 @@
 import os
 import logging
 import datetime
+import time
+import csv
+import io
 from pathlib import Path
-from flask import Flask, render_template, flash, redirect, url_for, request, send_from_directory
+from functools import wraps
+from flask import Flask, render_template, flash, redirect, url_for, request, send_from_directory, Response, make_response
 from flask_mail import Mail, Message
 from forms import ContactForm
+from flask_wtf.csrf import CSRFProtect
 from config import config
+from models import db, ContactMessage
+from twilio.rest import Client
+
+# Simple in-memory rate limiter
+SUBMISSION_LIMIT = 3
+LIMIT_WINDOW = 60
+ip_tracker = {}
+
+def is_rate_limited(ip):
+    current_time = time.time()
+    if ip not in ip_tracker:
+        ip_tracker[ip] = []
+    ip_tracker[ip] = [t for t in ip_tracker[ip] if current_time - t < LIMIT_WINDOW]
+    if len(ip_tracker[ip]) >= SUBMISSION_LIMIT:
+        return True
+    ip_tracker[ip].append(current_time)
+    return False
+
+# Basic Authentication Helper
+def check_auth(username, password):
+    admin_user = os.environ.get('ADMIN_USER', 'admin')
+    admin_pass = os.environ.get('ADMIN_PASS', 'admin123')
+    return username == admin_user and password == admin_pass
+
+def authenticate_response():
+    return Response(
+        'Admin login required.\n'
+        'Please authenticate with valid credentials.', 401,
+        {'WWW-Authenticate': 'Basic realm="Admin Required"'}
+    )
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate_response()
+        return f(*args, **kwargs)
+    return decorated
+
+# Twilio WhatsApp Helper
+def send_whatsapp_notification(name, email, phone, subject, message, submission_time, admin_phone):
+    account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
+    auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+    from_whatsapp = os.environ.get('TWILIO_WHATSAPP_FROM', 'whatsapp:+14155238886')
+    to_whatsapp = f"whatsapp:+{admin_phone}" if not admin_phone.startswith('whatsapp:') else admin_phone
+    
+    body = f"""*New Inquiry on Portfolio!* 🚨
+*Name:* {name}
+*Email:* {email}
+*Phone:* {phone}
+*Subject:* {subject}
+*Message:* {message}
+*Time:* {submission_time}"""
+
+    if account_sid and auth_token:
+        try:
+            client = Client(account_sid, auth_token)
+            msg = client.messages.create(
+                body=body,
+                from_=from_whatsapp,
+                to=to_whatsapp
+            )
+            logging.info(f"WhatsApp notification sent via Twilio: {msg.sid}")
+            return True
+        except Exception as e:
+            logging.error(f"Failed to send WhatsApp notification via Twilio: {str(e)}")
+            return False
+    else:
+        logging.warning("Twilio credentials missing. WhatsApp notification body (logged for testing):")
+        logging.warning(body)
+        return False
+
 
 # Initialize Flask app
 def create_app(config_name=None):
@@ -18,12 +96,24 @@ def create_app(config_name=None):
     # Initialize app with configuration
     config[config_name].init_app(app)
     
+    # Initialize CSRF Protection
+    csrf = CSRFProtect(app)
+    
     # Configure logging
     log_level = getattr(logging, app.config.get('LOG_LEVEL', 'INFO'))
     logging.basicConfig(level=log_level)
     
     # Initialize Flask-Mail
     mail = Mail(app)
+    
+    # Initialize Flask-SQLAlchemy
+    db.init_app(app)
+    
+    # Ensure database tables exist
+    with app.app_context():
+        # Ensure instance directory exists for SQLite
+        os.makedirs(os.path.join(app.root_path, 'instance'), exist_ok=True)
+        db.create_all()
     
     @app.route('/')
     def index():
@@ -35,6 +125,16 @@ def create_app(config_name=None):
         now = datetime.datetime.now()
         return render_template('about.html', title='About Me', now=now)
 
+    @app.route('/skills')
+    def skills():
+        now = datetime.datetime.now()
+        return render_template('skills.html', title='Technical Skills', now=now)
+
+    @app.route('/experience')
+    def experience():
+        now = datetime.datetime.now()
+        return render_template('experience.html', title='Professional Experience', now=now)
+
     @app.route('/projects')
     def projects():
         now = datetime.datetime.now()
@@ -42,23 +142,23 @@ def create_app(config_name=None):
             {
                 'title': 'Smart Helmet for Coal Mine Workers',
                 'emoji': '⛏️',
-                'description': 'IoT-based safety solution using Arduino, gas sensors, GPS, and an SMS alert system to detect methane (CH4) and carbon monoxide (CO) in coal mines. Features LoRa/GSM communication for real-time, long-range alerts.',
+                'description': 'An intelligent IoT-based safety helmet for coal mine workers that continuously monitors hazardous gases, temperature, humidity, and location, sending real-time alerts via LoRa and GSM.',
                 'image': 'projects/smart_helmet.svg',
-                'tech': ['Arduino', 'IoT', 'Sensors', 'GSM/LoRa']
+                'tech': ['Arduino Uno', 'ESP32', 'IoT', 'LoRa', 'GSM SIM800L', 'GPS Neo-6M', 'MQ4, MQ135 Gas Sensors', 'DHT11', 'BME680', 'Embedded Systems']
             },
             {
                 'title': 'Health Insurance Fraud Detection',
                 'emoji': '💡',
-                'description': 'AI-powered fraud detection for health insurance claims using XGBoost and SVM. Implemented data preprocessing, anomaly detection, and feature engineering, integrated into a web dashboard for real-time analysis.',
+                'description': 'An Explainable AI-powered health insurance claim verification and fraud detection system utilizing OCR, NLP, hybrid XGBoost + SVM models, and SHAP explainability.',
                 'image': 'projects/insurance_fraud.svg',
-                'tech': ['Python', 'Machine Learning', 'XGBoost', 'SVM', 'Data Analysis','Hybrid Model']
+                'tech': ['Python', 'Flask', 'Machine Learning', 'XGBoost', 'SVM', 'SHAP', 'NLP', 'OCR (Tesseract)', 'Pandas', 'Scikit-Learn', 'SQLite/MySQL']
             },
             {
                 'title': 'AI Resume Builder',
                 'emoji': '🧾',
-                'description': 'Web-based platform for creating professional resumes featuring templates, real-time suggestions, and AI-driven feedback for professionally optimized resumes.',
+                'description': 'An AI-powered web application that helps users create professional, ATS-friendly resumes with customizable templates, real-time suggestions, and dynamic PDF generation.',
                 'image': 'projects/resume_builder.svg',
-                'tech': ['HTML/CSS', 'JavaScript', 'Python', 'AI', 'Web Development']
+                'tech': ['HTML5', 'CSS3', 'JavaScript', 'Python', 'Flask', 'AI/NLP', 'Bootstrap', 'SQLite/MySQL', 'PDF Generation', 'Web Development']
             },
             {
                 'title': 'Smart Payroll System',
@@ -66,6 +166,20 @@ def create_app(config_name=None):
                 'description': 'Payroll system using Python (Flask), MySQL, and Bootstrap/Tailwind CSS with role-based authentication, automated payroll processing, and biometric attendance integration.',
                 'image': 'projects/payroll.svg',
                 'tech': ['Flask', 'MySQL', 'Bootstrap', 'Python', 'Authentication','HTML/CSS','Javascript']
+            },
+            {
+                'title': 'Explainable AI Health Insurance Claim Fraud Detection',
+                'emoji': '🛡️',
+                'description': 'AI-powered health insurance claim fraud detection using Tesseract OCR, BioGPT medical embeddings, RoBERTa transformer classifier, hybrid SMOTE sampling, and SHAP explainability dashboard.',
+                'image': 'projects/insurance_fraud.svg',
+                'tech': ['Python', 'Flask', 'OCR', 'BioGPT', 'RoBERTa', 'SHAP', 'XGBoost', 'Machine Learning']
+            },
+            {
+                'title': 'A Multi-Stage Deep Learning Framework for Camouflaged Soldier Detection Using UAV Imagery',
+                'emoji': '🪖',
+                'description': 'UAV surveillance system utilizing RT-DETR object detection and SAM (Segment Anything Model) pixel-level segmentation, integrated with geospatial coordinate mapping on an interactive monitoring dashboard.',
+                'image': 'projects/soldier_detection.svg',
+                'tech': ['Python', 'Deep Learning', 'PyTorch', 'RT-DETR', 'SAM', 'OpenCV', 'Geospatial Mapping']
             }
         ]
         return render_template('projects.html', title='Projects', projects=project_data, now=now)
@@ -78,28 +192,28 @@ def create_app(config_name=None):
                 'title': 'First Place - Innovation Day Celebration',
                 'organization': 'Velagapudi Ramakrishna Siddhartha Engineering College',
                 'description': 'Won 1st place for the "Smart Helmet for Coal Mine Workers," an AIoT safety solution for detecting harmful gases in coal mines.',
-                'image': 'awards/solo.png',
+                'image': 'solo.png',
                 'emoji': '🥇'
             },
             {
                 'title': 'Top 8 Startup and Innovation Ideas',
                 'organization': 'AIC ALEAP WE Hub & MSME Minister, Andhra Pradesh',
                 'description': 'Recognized for startup idea "Robotics for Bomb Detection and Disposal" at an MSME-sponsored innovation event, received award for best startup idea.',
-                'image': 'awards/cert.svg',
+                'image': 'cert.svg',
                 'emoji': '🚀'
             },
             {
                 'title': 'Appreciation Award - Innovation Acquisition Summit-24',
                 'organization': 'VIT-AP, in collaboration with FAPSIA & NRDC',
                 'description': '₹3 lakhs in funding for AIoT-based smart helmet to monitor harmful gases in real-time for coal mine workers\' safety.',
-                'image': 'awards/vit.png',
+                'image': 'vit.png',
                 'emoji': '🛡️'
             },
             {
                 'title': '₹3 Lakhs Funding',
                 'organization': 'Innovation Grant',
                 'description': 'Received funding for the development of an AIoT-based smart helmet to monitor harmful gases in real-time for coal mine workers.',
-                'image': 'awards/funding.svg',
+                'image': 'funding.svg',
                 'emoji': '💰'
             }
         ]
@@ -111,55 +225,75 @@ def create_app(config_name=None):
         certifications_data = [
             {
                 'title': 'Java Programming Fundamentals',
-                'organization': 'GalileoX (Universidad Galileo)'
+                'organization': 'GalileoX (Universidad Galileo)',
+                'image': 'java.svg',
+                'link': 'https://credentials.edx.org/'
             },
             {
                 'title': 'Foundation of R Software',
-                'organization': 'IIT Madras (NPTEL)'
+                'organization': 'IIT Madras (NPTEL)',
+                'image': 'r.svg',
+                'link': 'https://nptel.ac.in/'
             },
-             {
-                'title': ' ServiceNow Certified System Administrator',
-                'organization': 'ServiceNow'
-            },
-             {
+            {
                 'title': 'ServiceNow Certified System Administrator',
-                'organization': 'ServiceNow'
+                'organization': 'ServiceNow',
+                'image': 'servicenow.png',
+                'link': 'https://nowlearning.servicenow.com/'
             },
             {
                 'title': 'Artificial Intelligence with Python - Heuristic Search',
-                'organization': 'Infysos'
+                'organization': 'Infysos',
+                'image': 'ai.svg',
+                'link': ''
             },
             {
                 'title': 'Hardware and Operating Systems',
-                'organization': 'IBM'
+                'organization': 'IBM',
+                'image': 'hardware.svg',
+                'link': 'https://www.coursera.org/'
             },
             {
                 'title': 'Introduction to Data Science with Python',
-                'organization': 'HarvardX (Harvard University)'
+                'organization': 'HarvardX (Harvard University)',
+                'image': 'data_science.svg',
+                'link': 'https://credentials.edx.org/'
             },
             {
                 'title': 'Ethical Hacking',
-                'organization': 'IIT Kharagpur (NPTEL)'
+                'organization': 'IIT Kharagpur (NPTEL)',
+                'image': 'ethical_hacking.svg',
+                'link': 'https://nptel.ac.in/'
             },
             {
                 'title': 'NDG Linux Essentials',
-                'organization': 'Cisco Networking Academy'
+                'organization': 'Cisco Networking Academy',
+                'image': 'linux.svg',
+                'link': 'https://www.netacad.com/'
             },
             {
                 'title': 'Introduction to Deep Learning',
-                'organization': 'Infysos'
+                'organization': 'Infysos',
+                'image': 'deep_learning.svg',
+                'link': ''
             },
             {
                 'title': 'Introduction to MongoDB for Students',
-                'organization': 'MongoDB'
+                'organization': 'MongoDB',
+                'image': 'mongodb.svg',
+                'link': 'https://learn.mongodb.com/'
             },
             {
                 'title': 'Production Machine Learning Systems',
-                'organization': 'Google Cloud (Coursera)'
+                'organization': 'Google Cloud (Coursera)',
+                'image': 'ml_systems.svg',
+                'link': 'https://www.coursera.org/'
             },
             {
                 'title': 'Introduction to Networks',
-                'organization': 'Cisco Networking Academy'
+                'organization': 'Cisco Networking Academy',
+                'image': 'networks.svg',
+                'link': 'https://www.netacad.com/'
             }
         ]
         return render_template('certifications.html', title='Certifications', certifications=certifications_data, now=now)
@@ -197,22 +331,76 @@ def create_app(config_name=None):
         now = datetime.datetime.now()
         form = ContactForm()
         if form.validate_on_submit():
+            visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+            if visitor_ip and ',' in visitor_ip:
+                visitor_ip = visitor_ip.split(',')[0].strip()
+            
+            # Rate limiting check (max 3 submissions per minute)
+            if is_rate_limited(visitor_ip):
+                flash('You have exceeded the submission limit. Please wait a minute before trying again.', 'danger')
+                return render_template('contact.html', title='Contact Me', form=form, now=now)
+                
             try:
-                msg = Message(
-                    subject=f"Portfolio Contact: {form.subject.data}",
-                    recipients=[app.config['MAIL_DEFAULT_SENDER']],
-                    sender=form.email.data,
-                    body=f"""
-                    From: {form.name.data} <{form.email.data}>
-                    
-                    {form.message.data}
-                    """
+                # 1. Store submission in the database permanently
+                new_message = ContactMessage(
+                    name=form.name.data,
+                    email=form.email.data,
+                    phone=form.phone.data,
+                    subject=form.subject.data,
+                    message=form.message.data,
+                    ip_address=visitor_ip,
+                    status='New'
                 )
-                mail.send(msg)
-                flash('Your message has been sent successfully!', 'success')
+                db.session.add(new_message)
+                db.session.commit()
+                
+                # 2. Email notification to Admin
+                dashboard_url = url_for('admin_dashboard', _external=True)
+                admin_msg = Message(
+                    subject=f"🚨 New Portfolio Inquiry: {form.subject.data}",
+                    recipients=[app.config['ADMIN_EMAIL']],
+                    sender=app.config['MAIL_DEFAULT_SENDER']
+                )
+                admin_msg.html = render_template(
+                    'emails/admin_notification.html',
+                    name=form.name.data,
+                    email=form.email.data,
+                    phone=form.phone.data,
+                    subject=form.subject.data,
+                    message=form.message.data,
+                    time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    dashboard_url=dashboard_url
+                )
+                mail.send(admin_msg)
+                
+                # 3. Automatic Acknowledgment Email to Visitor
+                visitor_msg = Message(
+                    subject="Thank you for contacting Srinivasa Rao Talari",
+                    recipients=[form.email.data],
+                    sender=app.config['MAIL_DEFAULT_SENDER']
+                )
+                visitor_msg.html = render_template(
+                    'emails/visitor_acknowledgment.html',
+                    name=form.name.data
+                )
+                mail.send(visitor_msg)
+                
+                # 4. WhatsApp notification to Admin
+                send_whatsapp_notification(
+                    name=form.name.data,
+                    email=form.email.data,
+                    phone=form.phone.data,
+                    subject=form.subject.data,
+                    message=form.message.data,
+                    submission_time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    admin_phone=app.config['ADMIN_WHATSAPP']
+                )
+                
+                flash('Your message has been sent successfully.', 'success')
                 return redirect(url_for('contact'))
             except Exception as e:
-                app.logger.error(f"Email error: {str(e)}")
+                db.session.rollback()
+                app.logger.error(f"Contact form processing error: {str(e)}")
                 flash('There was an error sending your message. Please try again later.', 'danger')
         return render_template('contact.html', title='Contact Me', form=form, now=now)
 
@@ -266,6 +454,82 @@ def create_app(config_name=None):
         ]
         return render_template('gallery.html', title='Gallery', images=gallery_images, now=now)
 
+    @app.route('/sitemap.xml')
+    def sitemap():
+        now_date = datetime.datetime.now().strftime('%Y-%m-%d')
+        xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/about</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/skills</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/experience</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/projects</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/achievements</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/certifications</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/resume</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/gallery</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://talari-srinivasa-rao.netlify.app/contact</loc>
+    <lastmod>{now_date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>"""
+        return Response(xml, mimetype='application/xml')
+
+    @app.route('/robots.txt')
+    def robots():
+        txt = """User-agent: *
+Allow: /
+Sitemap: https://talari-srinivasa-rao.netlify.app/sitemap.xml
+"""
+        return Response(txt, mimetype='text/plain')
+
     @app.errorhandler(404)
     def page_not_found(e):
         now = datetime.datetime.now()
@@ -275,6 +539,120 @@ def create_app(config_name=None):
     def internal_server_error(e):
         now = datetime.datetime.now()
         return render_template('500.html', now=now), 500
+
+    @app.route('/admin/messages')
+    @requires_auth
+    def admin_dashboard():
+        now = datetime.datetime.now()
+        search_query = request.args.get('search', '').strip()
+        status_filter = request.args.get('status', 'All').strip()
+        
+        # Build query
+        query = ContactMessage.query
+        
+        if status_filter != 'All':
+            query = query.filter(ContactMessage.status == status_filter)
+            
+        if search_query:
+            search_pattern = f"%{search_query}%"
+            query = query.filter(
+                (ContactMessage.name.like(search_pattern)) |
+                (ContactMessage.email.like(search_pattern)) |
+                (ContactMessage.subject.like(search_pattern)) |
+                (ContactMessage.message.like(search_pattern))
+            )
+            
+        # Get statistics (all messages without filters)
+        total_count = ContactMessage.query.count()
+        new_count = ContactMessage.query.filter(ContactMessage.status == 'New').count()
+        read_count = ContactMessage.query.filter(ContactMessage.status == 'Read').count()
+        replied_count = ContactMessage.query.filter(ContactMessage.status == 'Replied').count()
+        
+        stats = {
+            'total': total_count,
+            'new': new_count,
+            'read': read_count,
+            'replied': replied_count
+        }
+        
+        # Sort by date descending
+        messages_list = query.order_by(ContactMessage.created_at.desc()).all()
+        
+        return render_template(
+            'admin/dashboard.html',
+            title='Admin Dashboard',
+            messages_list=messages_list,
+            stats=stats,
+            search_query=search_query,
+            status_filter=status_filter,
+            now=now
+        )
+
+    @app.route('/admin/messages/<int:msg_id>/status/<string:status>', methods=['POST'])
+    @requires_auth
+    def admin_update_status(msg_id, status):
+        if status not in ['New', 'Read', 'Replied']:
+            flash('Invalid status value.', 'warning')
+            return redirect(url_for('admin_dashboard'))
+            
+        msg = ContactMessage.query.get_or_404(msg_id)
+        msg.status = status
+        try:
+            db.session.commit()
+            flash(f"Message status updated to '{status}'.", 'success')
+        except Exception as e:
+            db.session.rollback()
+            app.logger.error(f"Failed to update status for message {msg_id}: {str(e)}")
+            flash("Failed to update message status.", 'danger')
+            
+        return redirect(url_for('admin_dashboard'))
+
+    @app.route('/admin/messages/<int:msg_id>/delete', methods=['POST'])
+    @requires_auth
+    def admin_delete_message(msg_id):
+        msg = ContactMessage.query.get_or_404(msg_id)
+        try:
+            db.session.delete(msg)
+            db.session.commit()
+            flash("Message deleted successfully.", 'success')
+        except Exception as e:
+            db.session.rollback()
+            app.logger.error(f"Failed to delete message {msg_id}: {str(e)}")
+            flash("Failed to delete message.", 'danger')
+            
+        return redirect(url_for('admin_dashboard'))
+
+    @app.route('/admin/messages/export/csv')
+    @requires_auth
+    def admin_export_csv():
+        messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
+        
+        # Generate CSV in memory
+        output = io.StringIO()
+        writer = csv.writer(output)
+        
+        # Header row
+        writer.writerow(['ID', 'Name', 'Email', 'Phone', 'Subject', 'Message', 'IP Address', 'Date Submitted (UTC)', 'Status'])
+        
+        # Data rows
+        for msg in messages:
+            writer.writerow([
+                msg.id,
+                msg.name,
+                msg.email,
+                msg.phone,
+                msg.subject,
+                msg.message,
+                msg.ip_address,
+                msg.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                msg.status
+            ])
+            
+        # Create response
+        response = make_response(output.getvalue())
+        response.headers["Content-Disposition"] = "attachment; filename=portfolio_inquiries.csv"
+        response.headers["Content-type"] = "text/csv; charset=utf-8"
+        return response
 
     return app
 
