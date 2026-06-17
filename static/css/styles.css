@@ -545,3 +545,49 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Skill Cards Styling */
+.skill-card {
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+.skill-badge {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.skill-badge:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Achievement Cards Styling */
+.achievement-card {
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+.achievement-card img {
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover img {
+  transform: scale(1.05);
+}
+
+
