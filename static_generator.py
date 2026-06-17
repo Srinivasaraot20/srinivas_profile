@@ -36,11 +36,15 @@ def generate_static_site():
         routes = [
             ('/', 'index.html'),
             ('/about', 'about.html'),
+            ('/skills', 'skills.html'),
+            ('/experience', 'experience.html'),
             ('/projects', 'projects.html'),
             ('/achievements', 'achievements.html'),
             ('/certifications', 'certifications.html'),
             ('/resume', 'resume.html'),
-            ('/gallery', 'gallery.html')
+            ('/gallery', 'gallery.html'),
+            ('/sitemap.xml', 'sitemap.xml'),
+            ('/robots.txt', 'robots.txt')
         ]
         
         # Handle contact page separately (use static version)
@@ -76,9 +80,9 @@ def generate_static_site():
         # Generate static contact page
         print("📄 Generating static contact page...")
         try:
-            with app.app_context():
+            with app.test_request_context('/contact'):
                 from flask import render_template
-                contact_html = render_template('contact_static.html')
+                contact_html = render_template('contact_static.html', now=datetime.now())
                 with open(os.path.join(build_dir, 'contact.html'), 'w', encoding='utf-8') as f:
                     f.write(contact_html)
                 print("   ✅ Generated contact.html (Netlify Forms version)")
