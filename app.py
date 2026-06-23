@@ -456,6 +456,8 @@ def create_app(config_name=None):
 
     @app.route('/sitemap.xml')
     def sitemap():
+        if os.path.exists(os.path.join(app.root_path, 'sitemap.xml')):
+            return send_from_directory(app.root_path, 'sitemap.xml', mimetype='application/xml')
         now_date = datetime.datetime.now().strftime('%Y-%m-%d')
         xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -524,6 +526,8 @@ def create_app(config_name=None):
 
     @app.route('/robots.txt')
     def robots():
+        if os.path.exists(os.path.join(app.root_path, 'robots.txt')):
+            return send_from_directory(app.root_path, 'robots.txt', mimetype='text/plain')
         txt = """User-agent: *
 Allow: /
 Sitemap: https://talari-srinivasa-rao.netlify.app/sitemap.xml
@@ -531,6 +535,8 @@ Sitemap: https://talari-srinivasa-rao.netlify.app/sitemap.xml
         return Response(txt, mimetype='text/plain')
     @app.route('/googled5ad724c92ee2f27.html')
     def google_verification():
+        if os.path.exists(os.path.join(app.root_path, 'googled5ad724c92ee2f27.html')):
+            return send_from_directory(app.root_path, 'googled5ad724c92ee2f27.html', mimetype='text/html')
         return Response("google-site-verification: googled5ad724c92ee2f27.html", mimetype='text/html')
 
 
