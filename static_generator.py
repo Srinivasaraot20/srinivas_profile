@@ -44,7 +44,8 @@ def generate_static_site():
             ('/resume', 'resume.html'),
             ('/gallery', 'gallery.html'),
             ('/sitemap.xml', 'sitemap.xml'),
-            ('/robots.txt', 'robots.txt')
+            ('/robots.txt', 'robots.txt'),
+            ('/googled5ad724c92ee2f27.html', 'googled5ad724c92ee2f27.html')
         ]
         
         # Handle contact page separately (use static version)

@@ -96,8 +96,15 @@ def test_routes():
             robots_content = response.get_data(as_text=True)
             assert 'User-agent: *' in robots_content
             assert 'Sitemap:' in robots_content
+
+            # Verify Google Site Verification Route
+            response = client.get('/googled5ad724c92ee2f27.html')
+            assert response.status_code == 200
+            assert 'text/html' in response.content_type
+            verification_content = response.get_data(as_text=True)
+            assert 'google-site-verification: googled5ad724c92ee2f27.html' in verification_content
             
-            print("✓ All routes and SEO files are accessible and correct")
+            print("✓ All routes, SEO files, and verification files are accessible and correct")
             return True
     except Exception as e:
         print(f"✗ Route testing error: {e}")
