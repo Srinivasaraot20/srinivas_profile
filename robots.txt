@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://srinivas-profile.onrender.com/sitemap.xml

@@ -456,6 +456,8 @@ def create_app(config_name=None):
 
     @app.route('/sitemap.xml')
     def sitemap():
+        if os.path.exists(os.path.join(app.root_path, 'sitemap.xml')):
+            return send_from_directory(app.root_path, 'sitemap.xml', mimetype='application/xml')
         now_date = datetime.datetime.now().strftime('%Y-%m-%d')
         site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
         xml = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -525,6 +527,8 @@ def create_app(config_name=None):
 
     @app.route('/robots.txt')
     def robots():
+        if os.path.exists(os.path.join(app.root_path, 'robots.txt')):
+            return send_from_directory(app.root_path, 'robots.txt', mimetype='text/plain')
         site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
         txt = f"""User-agent: *
 Allow: /
@@ -534,6 +538,8 @@ Sitemap: {site_url}/sitemap.xml
 
     @app.route('/googled5ad724c92ee2f27.html')
     def google_verification():
+        if os.path.exists(os.path.join(app.root_path, 'googled5ad724c92ee2f27.html')):
+            return send_from_directory(app.root_path, 'googled5ad724c92ee2f27.html', mimetype='text/html')
         return Response("google-site-verification: googled5ad724c92ee2f27.html", mimetype='text/html')
 
     @app.errorhandler(404)
