@@ -38,7 +38,7 @@ class Config:
     # Application configuration
     DEBUG = False
     TESTING = False
-    
+    SITE_URL = os.environ.get('SITE_URL', 'https://srinivas-profile.onrender.com')
     # Logging configuration
     LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')
     LOG_FILE = os.environ.get('LOG_FILE')
