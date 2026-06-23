@@ -529,6 +529,10 @@ Allow: /
 Sitemap: https://talari-srinivasa-rao.netlify.app/sitemap.xml
 """
         return Response(txt, mimetype='text/plain')
+    @app.route('/googled5ad724c92ee2f27.html')
+    def google_verification():
+        return Response("google-site-verification: googled5ad724c92ee2f27.html", mimetype='text/html')
+
 
     @app.errorhandler(404)
     def page_not_found(e):
