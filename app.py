@@ -457,64 +457,65 @@ def create_app(config_name=None):
     @app.route('/sitemap.xml')
     def sitemap():
         now_date = datetime.datetime.now().strftime('%Y-%m-%d')
+        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
         xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/</loc>
+    <loc>{site_url}/</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/about</loc>
+    <loc>{site_url}/about</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/skills</loc>
+    <loc>{site_url}/skills</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/experience</loc>
+    <loc>{site_url}/experience</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/projects</loc>
+    <loc>{site_url}/projects</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/achievements</loc>
+    <loc>{site_url}/achievements</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/certifications</loc>
+    <loc>{site_url}/certifications</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/resume</loc>
+    <loc>{site_url}/resume</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/gallery</loc>
+    <loc>{site_url}/gallery</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://talari-srinivasa-rao.netlify.app/contact</loc>
+    <loc>{site_url}/contact</loc>
     <lastmod>{now_date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -524,9 +525,10 @@ def create_app(config_name=None):
 
     @app.route('/robots.txt')
     def robots():
-        txt = """User-agent: *
+        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
+        txt = f"""User-agent: *
 Allow: /
-Sitemap: https://talari-srinivasa-rao.netlify.app/sitemap.xml
+Sitemap: {site_url}/sitemap.xml
 """
         return Response(txt, mimetype='text/plain')
 
