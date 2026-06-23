@@ -9,9 +9,15 @@
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">My Resume</h1>
+        <h1 class="section-title text-center mb-4" data-aos="fade-up">My Resume</h1>
         
-        
+        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+            <button id="print-resume" class="btn btn-primary me-2">
+                <i class="fas fa-print me-2"></i>Print Resume
+            </button>
+            <button id="share-resume" class="btn btn-outline-primary">
+                <i class="fas fa-share-alt me-2"></i>Share / Copy URL
+            </button>
         </div>
         
         <div class="row justify-content-center">
@@ -129,41 +135,80 @@
                             <h4 class="border-bottom pb-2">Projects</h4>
                             
                             <div class="mb-4">
-                                <h5>Health Insurance Fraud Detection Using Machine Learning</h5>
-                                <p class="fst-italic mb-2">AI-powered fraud detection for health insurance claims</p>
-                                <ul>
-                                    <li>Developed a machine learning model using XGBoost and SVM for fraud detection.</li>
-                                    <li>Implemented data preprocessing, anomaly detection, and feature engineering, integrating it into a web dashboard for real-time analysis, which reduced financial losses.</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="mb-4">
-                                <h5>Smart Helmet for Coal Mine Workers</h5>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>Smart Helmet for Coal Mine Workers</h5>
+                                    <span class="text-muted">IoT &amp; Embedded Systems</span>
+                                </div>
                                 <p class="fst-italic mb-2">IoT-based safety solution for coal mine workers</p>
                                 <ul>
-                                    <li>I developed a smart helmet that incorporates Arduino, gas sensors, GPS, and an SMS alert system to detect methane (CH4) and carbon monoxide (CO) in coal mines.</li>
-                                    <li>The helmet features LoRa/GSM communication, allowing for real-time, long-range alerts to both workers and control rooms, thereby enhancing workplace safety.</li>
+                                    <li>Developed an intelligent IoT safety helmet using Arduino Uno, ESP32, and gas sensors (MQ4, MQ135) to monitor Methane (CH4), Carbon Monoxide (CO), and Carbon Dioxide (CO₂) in real time.</li>
+                                    <li>Integrated GPS tracking and LoRa/GSM communication to transmit real-time worker coordinates and automated emergency SMS alerts to supervisors.</li>
+                                    <li>Designed a real-time safety monitoring dashboard with cloud-based logging, biometric tracking indicators, and warning systems.</li>
                                 </ul>
                             </div>
                             
                             <div class="mb-4">
-                                <h5>Resume Building Tool</h5>
-                                <p class="fst-italic mb-2">AI-powered resume-building platform</p>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>Health Insurance Fraud Detection</h5>
+                                    <span class="text-muted">Machine Learning &amp; Web App</span>
+                                </div>
+                                <p class="fst-italic mb-2">AI-powered fraud detection and claim verification</p>
                                 <ul>
-                                    <li>Created a web-based platform featuring templates, real-time suggestions, and AI-driven feedback for professionally optimized resumes.</li>
+                                    <li>Built an automated health insurance claim verification platform utilizing a hybrid XGBoost + SVM machine learning model.</li>
+                                    <li>Implemented OCR-based document processing, feature engineering, and SMOTE sampling for handling highly imbalanced claim datasets.</li>
+                                    <li>Integrated SHAP (Explainable AI) to explain fraud probability scoring and implemented an AI chatbot to assist audit reviews.</li>
                                 </ul>
                             </div>
                             
-                            <div>
-                                <h5>Advanced Smart Payroll Management system</h5>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>AI Resume Builder</h5>
+                                    <span class="text-muted">Web Development &amp; NLP</span>
+                                </div>
+                                <p class="fst-italic mb-2">AI-driven resume optimization platform</p>
                                 <ul>
-                                    <li>Developed a payroll system using Python (Flask), MySQL, and Bootstrap/Tailwind CSS.</li>
-                                    <li>Implemented role-based authentication for secure HR and employee access.</li>
-                                    <li>Automated payroll processing, including PF, ESI, and TDS deductions.</li>
-                                    <li>Achieved a 40% reduction in payroll processing time.</li>
-                                    <li>Integrated biometric attendance for real-time tracking and alerts.</li>
-                                    <li>Provided employee self-service functionality (payslips, leave requests, attendance).</li>
-                                    <li>Included analytics dashboards for payroll trends and employee data insights.</li>
+                                    <li>Developed a web application using Python Flask, SQLite/MySQL, and HTML/CSS/JavaScript to build ATS-friendly resumes.</li>
+                                    <li>Implemented customizable templates, real-time resume preview, skill keyword suggestions, and dynamic PDF resume generation.</li>
+                                    <li>Built NLP-driven feedback and analysis engines to optimize formatting and content alignment based on job descriptions.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>Smart Payroll System</h5>
+                                    <span class="text-muted">Enterprise Software</span>
+                                </div>
+                                <p class="fst-italic mb-2">Automated payroll and attendance tracking portal</p>
+                                <ul>
+                                    <li>Developed a secure enterprise payroll system using Python Flask, MySQL, and Bootstrap/Tailwind CSS with role-based authentication.</li>
+                                    <li>Automated payroll processing calculations including PF, ESI, and TDS deductions, reducing administrative time by 40%.</li>
+                                    <li>Integrated biometric attendance for real-time tracking, leave requests, employee self-service payslip access, and dashboard analytics.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>Explainable AI Health Insurance Claim Fraud Detection</h5>
+                                    <span class="text-muted">Advanced AI &amp; Deep Learning</span>
+                                </div>
+                                <p class="fst-italic mb-2">Clinical record audit system using Transformers</p>
+                                <ul>
+                                    <li>Engineered a clinical claim fraud classifier leveraging BioGPT medical embeddings and a RoBERTa transformer neural network.</li>
+                                    <li>Structured data preprocessing workflows including text mining, normalization, and hybrid SMOTE sampling to address sparse claim data.</li>
+                                    <li>Designed an explainability audit dashboard utilizing SHAP value explanations for medical claim adjusters.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h5>UAV Imagery Camouflaged Soldier Detection</h5>
+                                    <span class="text-muted">Deep Learning &amp; Computer Vision</span>
+                                </div>
+                                <p class="fst-italic mb-2">Multi-stage deep learning framework for military surveillance</p>
+                                <ul>
+                                    <li>Developed an aerial target detection pipeline utilizing RT-DETR object detection and Segment Anything Model (SAM) for pixel-level target segmentation.</li>
+                                    <li>Integrated real-time UAV aerial video streaming, geospatial coordinate mapping, and target GPS tracking on an interactive monitoring dashboard.</li>
+                                    <li>Created map-based visual indicator modules presenting target bounding boxes, pixel segmentations, and exact coordinates.</li>
                                 </ul>
                             </div>
                         </div>
@@ -239,68 +284,113 @@
                             
                             <!-- Skill Categories -->
                             <div class="row mt-4">
-                                <div class="col-md-4 mb-3">
-                                    <h5>Programming Languages</h5>
-                                    <ul>
-                                        <li>Java</li>
-                                        <li>Python</li>
-                                        <li>C</li>
-                                        <li>JavaScript</li>
-                                        <li>R</li>
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-code me-2"></i>Programming Languages</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Python</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Java</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>JavaScript</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>C</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>SQL</li>
                                     </ul>
                                 </div>
                                 
-                                <div class="col-md-4 mb-3">
-                                    <h5>Web Development</h5>
-                                    <ul>
-                                        <li>HTML</li>
-                                        <li>CSS</li>
-                                        <li>JavaScript</li>
-                                        <li>React.js</li>
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-laptop-code me-2"></i>Frontend Development</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>HTML5 &amp; CSS3</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>JavaScript (ES6+)</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>React.js &amp; Next.js</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Bootstrap &amp; Tailwind CSS</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Responsive Web Design</li>
                                     </ul>
                                 </div>
                                 
-                                <div class="col-md-4 mb-3">
-                                    <h5>Data Science</h5>
-                                    <ul>
-                                        <li>Machine Learning</li>
-                                        <li>Data Analysis</li>
-                                        <li>Data Visualization</li>
-                                        <li>Deep Learning</li>
-                                        <li>AI</li>
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-server me-2"></i>Backend Development</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Python Flask &amp; Django</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Node.js &amp; Express.js</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>RESTful API Development</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Authentication &amp; Security</li>
                                     </ul>
                                 </div>
-                                
-                                <div class="col-md-4 mb-3">
-                                    <h5>Backend Technologies</h5>
-                                    <ul>
-                                        <li>SQL</li>
-                                        <li>MongoDB</li>
-                                        <li>Django</li>
-                                        <li>Flask</li>
-                                        <li>RESTful APIs</li>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-database me-2"></i>Database Management</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>MySQL</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>SQLite</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>MongoDB</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>SQLAlchemy ORM</li>
                                     </ul>
                                 </div>
-                                
-                                <div class="col-md-4">
-                                    <h5>Tools & Platforms</h5>
-                                    <ul>
-                                        <li>GitHub</li>
-                                        <li>Jupyter</li>
-                                        <li>Colab</li>
-                                        <li>Visual Studio Code</li>
-                                        <li>Docker</li>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-layer-group me-2"></i>MERN Stack</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>MongoDB</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Express.js</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>React.js</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Node.js</li>
                                     </ul>
                                 </div>
-                                
-                                <div class="col-md-4">
-                                    <h5>Other Skills</h5>
-                                    <ul>
-                                        <li>Photography</li>
-                                        <li>Sports</li>
-                                        <li>Traveling</li>
-                                        <li>Reading</li>
-                                        <li>Problem Solving</li>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-brain me-2"></i>Artificial Intelligence &amp; ML</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Machine &amp; Deep Learning</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>NLP &amp; Computer Vision</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>XGBoost, SVM, Scikit-learn</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>BioGPT &amp; SHAP Explainable AI</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Tesseract OCR</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-chart-bar me-2"></i>Data Science &amp; Analytics</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Pandas &amp; NumPy</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Data Preprocessing</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Feature Engineering</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Data Visualization</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-cloud me-2"></i>Cloud &amp; DevOps</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Git &amp; GitHub</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Vercel, Hostinger, PythonAnywhere</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>CI/CD Fundamentals</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-microchip me-2"></i>IoT &amp; Embedded Systems</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>ESP32 &amp; Arduino Uno</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Raspberry Pi Pico</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>LoRa &amp; GSM SIM800L</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>GPS Neo-6M &amp; Sensors</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-tools me-2"></i>Tools &amp; Technologies</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>VS Code &amp; Postman</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Jupyter Notebook</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Figma, Linux</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-users me-2"></i>Soft Skills</h5>
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Problem Solving &amp; Analytics</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Teamwork &amp; Communication</li>
+                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Agile &amp; Project Management</li>
                                     </ul>
                                 </div>
                             </div>
