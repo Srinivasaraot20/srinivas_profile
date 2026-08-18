@@ -582,6 +582,18 @@ Sitemap: {site_url}/sitemap.xml
 """
         return Response(txt, mimetype='text/plain')
 
+    @app.route('/health')
+    def health():
+        return {'status': 'ok'}, 200
+
+    @app.route('/favicon.ico')
+    def favicon():
+        return send_from_directory(
+            os.path.join(app.root_path, 'static', 'images'),
+            'favicon.ico',
+            mimetype='image/x-icon'
+        )
+
     @app.route('/googled5ad724c92ee2f27.html')
     def google_verification():
         if os.path.exists(os.path.join(app.root_path, 'googled5ad724c92ee2f27.html')):

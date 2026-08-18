@@ -14,7 +14,7 @@ class Config:
     MAIL_PORT = int(os.environ.get('MAIL_PORT', 587))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in ['true', 'on', '1']
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME', 'srinurao1902@gmail.com')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', 'jivq tmur vifo rkmi')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', '')
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER', 'srinurao1902@gmail.com')
     
     # Admin Notifications config
