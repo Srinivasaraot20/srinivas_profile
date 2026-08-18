@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Professional Experience & Education | Talari Srinivasa Rao{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Explore the professional career timeline of Talari Srinivasa Rao. Detailed history of full-stack developer internships (CSC India, Canohub, Coding Raja), B.Tech in AI & Data Science education, and technical certifications.{% endblock %}
+{% block title %}Experience | Full Stack Developer & AI Engineer | Srinivasa Rao{% endblock %}
 
-{% block meta_keywords %}Python Developer Intern, Full Stack Developer Experience, MERN Stack Internship, Computer Science Education, Talari Srinivasa Rao Resume, Velagapudi Ramakrishna Siddhartha Engineering College, Canohub Internship, CSC India Developer{% endblock %}
+{% block meta_description %}Explore the professional experience and development projects of Full Stack Developer and AI Engineer Srinivasa Rao.{% endblock %}
+
+
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -13,7 +15,7 @@
   "@graph": [
     {
       "@type": "EducationalOrganization",
-      "@id": "https://talari-srinivasa-rao.netlify.app/#education-vrsec",
+      "@id": "{{ site_url }}/#education-vrsec",
       "name": "Velagapudi Ramakrishna Siddhartha Engineering College",
       "address": {
         "@type": "PostalAddress",
@@ -24,7 +26,7 @@
     },
     {
       "@type": "Organization",
-      "@id": "https://talari-srinivasa-rao.netlify.app/#organization-csc",
+      "@id": "{{ site_url }}/#organization-csc",
       "name": "Council for Skills and Competencies (CSC India)",
       "address": {
         "@type": "PostalAddress",
@@ -33,12 +35,12 @@
     },
     {
       "@type": "Organization",
-      "@id": "https://talari-srinivasa-rao.netlify.app/#organization-canohub",
+      "@id": "{{ site_url }}/#organization-canohub",
       "name": "Canohub"
     },
     {
       "@type": "Organization",
-      "@id": "https://talari-srinivasa-rao.netlify.app/#organization-codingraja",
+      "@id": "{{ site_url }}/#organization-codingraja",
       "name": "Coding Raja Technologies"
     }
   ]
@@ -49,12 +51,12 @@
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">Professional Experience & Education</h1>
+        <h1 class="section-title text-center mb-5">Professional Experience & Education</h1>
         
         <!-- Professional Experience -->
         <div class="mb-5">
-            <h2 class="h3 section-title mb-4" data-aos="fade-up"><i class="fas fa-briefcase text-primary me-2"></i>Work Experience</h2>
-            <div class="card bg-dark text-white border-0 shadow-sm mb-4" data-aos="fade-up">
+            <h2 class="h3 section-title mb-4">{{ ic.icon('briefcase', 'icon text-primary me-2') }}Work Experience</h2>
+            <div class="card bg-dark text-white border-0 shadow-sm mb-4">
                 
                 <!-- CSC India -->
                 <div class="card-body p-4 border-bottom border-secondary">
@@ -62,7 +64,7 @@
                         <h3 class="h4 mb-0 text-white">Python Full Stack Developer Intern</h3>
                         <span class="badge bg-primary">8 Months</span>
                     </div>
-                    <h4 class="h6 text-white-50 mb-3"><i class="fas fa-building me-2"></i>Council for Skills and Competencies (CSC India) – Non-Profit Organization</h4>
+                    <h4 class="h6 text-white-50 mb-3">{{ ic.icon('building', 'icon me-2') }}Council for Skills and Competencies (CSC India) – Non-Profit Organization</h4>
                     <ul class="mb-3">
                         <li>Developed and deployed 4+ full-stack web applications to streamline organizational processes and improve operational efficiency.</li>
                         <li>Designed and implemented an <strong>Internship Offer Letter Management System</strong> to automate offer letter generation, storage, tracking, and distribution.</li>
@@ -96,7 +98,7 @@
                         <h3 class="h4 mb-0 text-white">Web Development Intern</h3>
                         <span class="badge bg-primary">2 Months</span>
                     </div>
-                    <h4 class="h6 text-white-50 mb-3"><i class="fas fa-building me-2"></i>Canohub</h4>
+                    <h4 class="h6 text-white-50 mb-3">{{ ic.icon('building', 'icon me-2') }}Canohub</h4>
                     <ul class="mb-3">
                         <li>Developed and maintained responsive, user-friendly, and high-performance web applications using modern frontend technologies.</li>
                         <li>Built interactive and reusable UI components using HTML5, CSS3, JavaScript, React.js, and Next.js.</li>
@@ -124,7 +126,7 @@
                         <h3 class="h4 mb-0 text-white">Web Developer (Remote Work)</h3>
                         <span class="badge bg-primary">Jan 2024 - Mar 2024</span>
                     </div>
-                    <h4 class="h6 text-white-50 mb-3"><i class="fas fa-building me-2"></i>Coding Raja Technologies</h4>
+                    <h4 class="h6 text-white-50 mb-3">{{ ic.icon('building', 'icon me-2') }}Coding Raja Technologies</h4>
                     <ul>
                         <li>Developed and maintained responsive web applications using HTML, CSS, JavaScript, and SQL while testing functionalities to ensure optimal performance and adherence to design specifications.</li>
                         <li>Collaborated with software development teams to enhance user-focused solutions by contributing to debugging efforts and updating existing code libraries.</li>
@@ -143,36 +145,36 @@
 
         <!-- Education Timeline -->
         <div class="mb-5">
-            <h2 class="h3 section-title mb-4" data-aos="fade-up"><i class="fas fa-graduation-cap text-primary me-2"></i>Education</h2>
+            <h2 class="h3 section-title mb-4">{{ ic.icon('graduation', 'icon text-primary me-2') }}Education</h2>
             <div class="timeline">
                 <!-- Education 1 -->
-                <div class="timeline-container left" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-container left">
                     <div class="timeline-content">
                         <h3>Bachelor of Technology</h3>
                         <h4 class="h6 text-primary">Artificial Intelligence and Data Science</h4>
                         <p class="mb-1">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</p>
-                        <p class="small text-info fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> 2023 - 2026</p>
+                        <p class="small text-info fw-bold mb-1">{{ ic.icon('calendar', 'icon me-1') }} 2023 - 2026</p>
                         <p class="small mb-0">GPA: 8.68</p>
                     </div>
                 </div>
                 
                 <!-- Education 2 -->
-                <div class="timeline-container right" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-container right">
                     <div class="timeline-content">
                         <h3>Diploma</h3>
                         <h4 class="h6 text-primary">Computer Engineering</h4>
                         <p class="mb-1">Adsumlu Aswardha Narayana Muurthi & Valluripalli Venkata Rama Seshadri Rao College, Gudlavalleru</p>
-                        <p class="small text-info fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> 2020 - 2023</p>
+                        <p class="small text-info fw-bold mb-1">{{ ic.icon('calendar', 'icon me-1') }} 2020 - 2023</p>
                         <p class="small mb-0">GPA: 89.17%</p>
                     </div>
                 </div>
                 
                 <!-- Education 3 -->
-                <div class="timeline-container left" data-aos="fade-right" data-aos-delay="300">
+                <div class="timeline-container left">
                     <div class="timeline-content">
                         <h3>Secondary School Certificate (SSC)</h3>
                         <p class="mb-1">Padmavathi EM High School, Vidyanagar, Krosuru</p>
-                        <p class="small text-info fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> 2019 - 2020</p>
+                        <p class="small text-info fw-bold mb-1">{{ ic.icon('calendar', 'icon me-1') }} 2019 - 2020</p>
                         <p class="small mb-0">GPA: 9.2</p>
                     </div>
                 </div>
@@ -181,9 +183,9 @@
         
         <!-- Internships & Virtual Programs -->
         <div class="mb-5">
-            <h2 class="h3 section-title mb-4" data-aos="fade-up"><i class="fas fa-award text-primary me-2"></i>Internships & Virtual Training</h2>
+            <h2 class="h3 section-title mb-4">{{ ic.icon('award', 'icon text-primary me-2') }}Internships & Virtual Training</h2>
             <div class="row">
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h3 class="h5 text-white">AI-ML Virtual Internship</h3>
@@ -193,7 +195,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h3 class="h5 text-white">SQL Internship</h3>
@@ -203,7 +205,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h3 class="h5 text-white">Full Stack Django Internship</h3>
@@ -213,7 +215,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h3 class="h5 text-white">Cloud Virtual Internship</h3>
@@ -226,21 +228,21 @@
         </div>
 
         <!-- Next Steps / Explore More (SEO Cross-Linking) -->
-        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+        <div class="row mt-5 pt-4 border-top border-secondary text-center">
             <div class="col-12">
                 <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
                 <div class="d-flex justify-content-center flex-wrap gap-3">
                     <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-tools me-2"></i>My Skills
+                        {{ ic.icon('tools', 'icon me-2') }}My Skills
                     </a>
                     <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-code me-2"></i>View Projects
+                        {{ ic.icon('code', 'icon me-2') }}View Projects
                     </a>
                     <a href="{{ url_for('certifications') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-certificate me-2"></i>Certifications
+                        {{ ic.icon('award', 'icon me-2') }}Certifications
                     </a>
                     <a href="{{ url_for('contact') }}" class="btn btn-primary">
-                        <i class="fas fa-envelope me-2"></i>Contact Me
+                        {{ ic.icon('mail', 'icon me-2') }}Contact Me
                     </a>
                 </div>
             </div>

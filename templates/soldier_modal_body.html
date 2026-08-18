@@ -1,3 +1,4 @@
+{% import '_icons.html' as ic %}
 <style>
   #soldierTab .nav-link.active {
     background-color: var(--primary-color) !important;
@@ -17,17 +18,17 @@
 <ul class="nav nav-pills nav-justified mb-4" id="soldierTab" role="tablist" style="background-color: rgba(255,255,255,0.05); padding: 5px; border-radius: 30px;">
   <li class="nav-item" role="presentation">
     <button class="nav-link active rounded-pill text-white py-2" id="pills-soldier-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-soldier-overview" type="button" role="tab" aria-controls="pills-soldier-overview" aria-selected="true">
-      <i class="fas fa-circle-info me-1 text-primary"></i> Overview & Applications
+      {{ ic.icon('info', 'icon me-1 text-primary') }} Overview & Applications
     </button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link rounded-pill text-white py-2" id="pills-soldier-features-tab" data-bs-toggle="pill" data-bs-target="#pills-soldier-features" type="button" role="tab" aria-controls="pills-soldier-features" aria-selected="false">
-      <i class="fas fa-list-check me-1 text-primary"></i> Key Features
+      {{ ic.icon('list-check', 'icon me-1 text-primary') }} Key Features
     </button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link rounded-pill text-white py-2" id="pills-soldier-tech-tab" data-bs-toggle="pill" data-bs-target="#pills-soldier-tech" type="button" role="tab" aria-controls="pills-soldier-tech" aria-selected="false">
-      <i class="fas fa-microchip me-1 text-primary"></i> Tech & Benefits
+      {{ ic.icon('chip', 'icon me-1 text-primary') }} Tech & Benefits
     </button>
   </li>
 </ul>
@@ -54,16 +55,16 @@
       <div class="row text-white-50 small">
         <div class="col-md-6">
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><i class="fas fa-shield-halved text-primary me-2"></i>Border Security & Monitoring</li>
-            <li class="mb-2"><i class="fas fa-fighter-jet text-primary me-2"></i>Military Surveillance & Tactical Intelligence</li>
-            <li class="mb-2"><i class="fas fa-life-ring text-primary me-2"></i>Search and Rescue Operations</li>
+            <li class="mb-2">{{ ic.icon('shield', 'icon text-primary me-2') }}Border Security & Monitoring</li>
+            <li class="mb-2">{{ ic.icon('jet', 'icon text-primary me-2') }}Military Surveillance & Tactical Intelligence</li>
+            <li class="mb-2">{{ ic.icon('life-ring', 'icon text-primary me-2') }}Search and Rescue Operations</li>
           </ul>
         </div>
         <div class="col-md-6">
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><i class="fas fa-tree text-primary me-2"></i>Forest Monitoring & Wildlife Protection</li>
-            <li class="mb-2"><i class="fas fa-satellite text-primary me-2"></i>Remote Area Surveillance</li>
-            <li class="mb-2"><i class="fas fa-brain text-primary me-2"></i>Strategic Defense Intelligence</li>
+            <li class="mb-2">{{ ic.icon('tree', 'icon text-primary me-2') }}Forest Monitoring & Wildlife Protection</li>
+            <li class="mb-2">{{ ic.icon('sat', 'icon text-primary me-2') }}Remote Area Surveillance</li>
+            <li class="mb-2">{{ ic.icon('cpu', 'icon text-primary me-2') }}Strategic Defense Intelligence</li>
           </ul>
         </div>
       </div>
@@ -76,34 +77,34 @@
     <div class="row">
       <div class="col-md-6">
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-helicopter text-primary me-2"></i>UAV-Based Surveillance System</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('heli', 'icon text-primary me-2') }}UAV-Based Surveillance System</h6>
           <p class="text-white-50 small">Designed for processing live aerial video feeds and image frames captured by drone cameras.</p>
         </div>
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-radar text-primary me-2"></i>Real-Time Human Detection</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('radar', 'icon text-primary me-2') }}Real-Time Human Detection</h6>
           <p class="text-white-50 small">High-speed targeting of individuals using state-of-the-art RT-DETR (Real-Time DEtection TRansformer).</p>
         </div>
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-mask text-primary me-2"></i>Camouflaged Identification</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('shield', 'icon text-primary me-2') }}Camouflaged Identification</h6>
           <p class="text-white-50 small">Specialized training datasets optimized to detect patterns blending in environments (woodlands, desert, snow).</p>
         </div>
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-crop-simple text-primary me-2"></i>SAM Pixel-Level Segmentation</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('crop', 'icon text-primary me-2') }}SAM Pixel-Level Segmentation</h6>
           <p class="text-white-50 small">Integrates Meta's Segment Anything Model (SAM) for extreme boundary outlining, reducing false-positive boxes.</p>
         </div>
       </div>
       
       <div class="col-md-6">
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-location-crosshairs text-primary me-2"></i>Geospatial Coordinate Mapping</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('crosshair', 'icon text-primary me-2') }}Geospatial Coordinate Mapping</h6>
           <p class="text-white-50 small">Translates pixel bounding boxes into GPS coordinates using camera angle, altitude, and mapping models.</p>
         </div>
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-chart-line text-primary me-2"></i>Interactive Monitoring Dashboard</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('chart-line', 'icon text-primary me-2') }}Interactive Monitoring Dashboard</h6>
           <p class="text-white-50 small">A live map display tracking drone location and targeted detections with telemetry feeds.</p>
         </div>
         <div class="mb-3">
-          <h6 class="fw-bold text-white mb-1"><i class="fas fa-gauge-high text-primary me-2"></i>Real-Time Analytics</h6>
+          <h6 class="fw-bold text-white mb-1">{{ ic.icon('gauge', 'icon text-primary me-2') }}Real-Time Analytics</h6>
           <p class="text-white-50 small">Historical timeline metrics, target movement tracking, and instant alerts for secure networks.</p>
         </div>
       </div>
@@ -114,7 +115,7 @@
   <div class="tab-pane fade" id="pills-soldier-tech" role="tabpanel" aria-labelledby="pills-soldier-tech-tab">
     <div class="row">
       <div class="col-md-6">
-        <h5 class="fw-bold mb-3 text-primary"><i class="fas fa-microchip me-2"></i>Technologies Used</h5>
+        <h5 class="fw-bold mb-3 text-primary">{{ ic.icon('chip', 'icon me-2') }}Technologies Used</h5>
         <div class="mb-3">
           <h6 class="fw-bold text-white mb-2">Deep Learning Frameworks</h6>
           <div>
@@ -137,7 +138,7 @@
       </div>
       
       <div class="col-md-6">
-        <h5 class="fw-bold mb-3 text-primary"><i class="fas fa-circle-check me-2"></i>Key Benefits</h5>
+        <h5 class="fw-bold mb-3 text-primary">{{ ic.icon('check-circle', 'icon me-2') }}Key Benefits</h5>
         <ul class="text-white-50 small ps-3">
           <li class="mb-2"><strong>Improved Detection Accuracy</strong>: SAM's precise boundaries eliminate localization errors.</li>
           <li class="mb-2"><strong>Reduced False Positives</strong>: Distinguishes wildlife and flora from targets.</li>

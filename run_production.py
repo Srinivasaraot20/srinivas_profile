@@ -5,17 +5,11 @@ This script sets up the production environment and starts the server.
 """
 
 import os
-import sys
-from pathlib import Path
 
 def main():
     # Set environment variables for production
     os.environ.setdefault('FLASK_CONFIG', 'production')
-    
-    # Add current directory to Python path
-    current_dir = Path(__file__).parent
-    sys.path.insert(0, str(current_dir))
-    
+
     # Import and create the app
     from app import create_app
     

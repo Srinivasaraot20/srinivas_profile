@@ -114,6 +114,52 @@ def create_app(config_name=None):
         # Ensure instance directory exists for SQLite
         os.makedirs(os.path.join(app.root_path, 'instance'), exist_ok=True)
         db.create_all()
+
+    @app.context_processor
+    def inject_globals():
+        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
+        whatsapp_number = ''.join(ch for ch in str(app.config.get('WHATSAPP_NUMBER', '918341492762')) if ch.isdigit())
+        page_names = {
+            'index': 'Home',
+            'about': 'About',
+            'skills': 'Skills',
+            'experience': 'Experience',
+            'projects': 'Projects',
+            'achievements': 'Achievements',
+            'certifications': 'Certifications',
+            'resume': 'Resume',
+            'gallery': 'Gallery',
+            'contact': 'Contact',
+        }
+        return {
+            'site_url': site_url,
+            'absolute_url': lambda path: site_url + path,
+            'whatsapp_number': whatsapp_number,
+            'breadcrumb_name': page_names.get(request.endpoint),
+        }
+
+    @app.after_request
+    def add_security_headers(response):
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        response.headers['X-Frame-Options'] = 'DENY'
+        response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+        response.headers['Permissions-Policy'] = 'camera=(), microphone=(), geolocation=()'
+        response.headers['Cross-Origin-Opener-Policy'] = 'same-origin'
+        response.headers['Strict-Transport-Security'] = 'max-age=63072000; includeSubDomains'
+        response.headers['Content-Security-Policy'] = (
+            "default-src 'self'; "
+            "script-src 'self' 'unsafe-inline'; "
+            "style-src 'self' 'unsafe-inline'; "
+            "img-src 'self' data:; "
+            "font-src 'self'; "
+            "connect-src 'self'; "
+            "frame-src https://www.google.com; "
+            "object-src 'none'; "
+            "base-uri 'self'; "
+            "form-action 'self'; "
+            "frame-ancestors 'none'"
+        )
+        return response
     
     @app.route('/')
     def index():
@@ -192,21 +238,21 @@ def create_app(config_name=None):
                 'title': 'First Place - Innovation Day Celebration',
                 'organization': 'Velagapudi Ramakrishna Siddhartha Engineering College',
                 'description': 'Won 1st place for the "Smart Helmet for Coal Mine Workers," an AIoT safety solution for detecting harmful gases in coal mines.',
-                'image': 'solo.png',
+                'image': 'solo.webp',
                 'emoji': '🥇'
             },
             {
                 'title': 'Top 8 Startup and Innovation Ideas',
                 'organization': 'AIC ALEAP WE Hub & MSME Minister, Andhra Pradesh',
                 'description': 'Recognized for startup idea "Robotics for Bomb Detection and Disposal" at an MSME-sponsored innovation event, received award for best startup idea.',
-                'image': 'cert.svg',
+                'image': 'cert.webp',
                 'emoji': '🚀'
             },
             {
                 'title': 'Appreciation Award - Innovation Acquisition Summit-24',
                 'organization': 'VIT-AP, in collaboration with FAPSIA & NRDC',
                 'description': '₹3 lakhs in funding for AIoT-based smart helmet to monitor harmful gases in real-time for coal mine workers\' safety.',
-                'image': 'vit.png',
+                'image': 'vit.webp',
                 'emoji': '🛡️'
             },
             {
@@ -238,7 +284,7 @@ def create_app(config_name=None):
             {
                 'title': 'ServiceNow Certified System Administrator',
                 'organization': 'ServiceNow',
-                'image': 'servicenow.png',
+                'image': 'servicenow.webp',
                 'link': 'https://nowlearning.servicenow.com/'
             },
             {
@@ -440,13 +486,13 @@ def create_app(config_name=None):
         now = datetime.datetime.now()
         gallery_images = [
            
-            {'src': 'solo.png', 'alt': 'First Prize Award', 'caption': 'Innovation Day First Prize'},
-            {'src': 'cert.png', 'alt': 'Startup Award', 'caption': 'Top 8 Startup Recognition'},
-            {'src': 'vit.png', 'alt': 'VIT-AP Award', 'caption': 'Innovation Acquisition Award'},
-            {'src': 'vitap.jpg', 'alt': 'VIT-AP Award', 'caption': 'VIT-AP Innovation Award'},
-            {'src': 'vit-ap.jpg', 'alt': 'VIT-AP Award', 'caption': 'VIT-AP Received Award'},
-            {'src': 'fun.jpeg', 'alt': 'Funding Award', 'caption': '₹3 Lakhs Funding Grant'},
-            {'src': 'best.jpg', 'alt': 'Best Project Award', 'caption': 'Best Project Award'},
+            {'src': 'solo.webp', 'alt': 'First Prize Award', 'caption': 'Innovation Day First Prize'},
+            {'src': 'cert.webp', 'alt': 'Startup Award', 'caption': 'Top 8 Startup Recognition'},
+            {'src': 'vit.webp', 'alt': 'VIT-AP Award', 'caption': 'Innovation Acquisition Award'},
+            {'src': 'vitap.webp', 'alt': 'VIT-AP Award', 'caption': 'VIT-AP Innovation Award'},
+            {'src': 'vit-ap.webp', 'alt': 'VIT-AP Award', 'caption': 'VIT-AP Received Award'},
+            {'src': 'fun.webp', 'alt': 'Funding Award', 'caption': '₹3 Lakhs Funding Grant'},
+            {'src': 'best.webp', 'alt': 'Best Project Award', 'caption': 'Best Project Award'},
              {'src': 'projects/smart_helmet.svg', 'alt': 'Smart Helmet Project', 'caption': 'Smart Helmet for Coal Miners'},
             {'src': 'projects/insurance_fraud.svg', 'alt': 'Insurance Fraud Detection', 'caption': 'Health Insurance Fraud Detection'},
             {'src': 'projects/resume_builder.svg', 'alt': 'Resume Builder', 'caption': 'AI Resume Builder Tool'},

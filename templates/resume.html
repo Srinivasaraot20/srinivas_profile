@@ -1,37 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %}Resume & Curriculum Vitae | Talari Srinivasa Rao{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Download and view the professional resume of Talari Srinivasa Rao, software engineer with experience in Python, Java, JavaScript, React, and Machine Learning.{% endblock %}
+{% block title %}Resume | Talari Srinivasa Rao | Full Stack Developer & AI Engineer{% endblock %}
 
-{% block meta_keywords %}Srinivasa Rao Talari Resume, Download Resume Software Engineer India, Python Developer CV, MERN Stack Developer Curriculum Vitae{% endblock %}
+{% block meta_description %}View the resume of Talari Srinivasa Rao, a Full Stack Developer and AI Engineer experienced in Python, Django, JavaScript, AI/ML, and web development.{% endblock %}
+
+
 
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-4" data-aos="fade-up">My Resume</h1>
+        <h1 class="section-title text-center mb-4">My Resume</h1>
         
-        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-center mb-5">
             <button id="print-resume" class="btn btn-primary me-2">
-                <i class="fas fa-print me-2"></i>Print Resume
+                {{ ic.icon('printer', 'icon me-2') }}Print Resume
             </button>
             <button id="share-resume" class="btn btn-outline-primary">
-                <i class="fas fa-share-alt me-2"></i>Share / Copy URL
+                {{ ic.icon('share', 'icon me-2') }}Share / Copy URL
             </button>
         </div>
         
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card border-0 shadow-sm resume-card" style="background-color: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1);" data-aos="fade-up" data-aos-delay="300">
+                <div class="card border-0 shadow-sm resume-card" style="background-color: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1);">
                     <div class="card-body p-4">
                         <!-- Resume Header -->
                         <div class="text-center mb-5">
                             <h2 class="mb-1">Srinivasa Rao Talari</h2>
                             <p class="text-muted mb-3">B.Tech AI & Data Science student | IoT Innovator | ML Developer | Full-Stack Intern</p>
                             <div class="d-flex justify-content-center">
-                                <p class="me-3"><i class="fas fa-map-marker-alt me-2"></i> Bayyavaram, Andhra Pradesh</p>
-                                <p class="me-3"><i class="fas fa-phone me-2"></i> +91-8341492762</p>
-                                <p><i class="fas fa-envelope me-2"></i> srininvast20@gmail.com</p>
+                                <p class="me-3">{{ ic.icon('map-pin', 'icon me-2') }} Bayyavaram, Andhra Pradesh</p>
+                                <p class="me-3">{{ ic.icon('phone', 'icon me-2') }} +91-8341492762</p>
+                                <p>{{ ic.icon('mail', 'icon me-2') }} srininvast20@gmail.com</p>
                             </div>
                         </div>
                         
@@ -285,112 +287,112 @@
                             <!-- Skill Categories -->
                             <div class="row mt-4">
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-code me-2"></i>Programming Languages</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('code', 'icon me-2') }}Programming Languages</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Python</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Java</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>JavaScript</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>C</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>SQL</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Python</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Java</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}JavaScript</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}C</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}SQL</li>
                                     </ul>
                                 </div>
                                 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-laptop-code me-2"></i>Frontend Development</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('laptop-code', 'icon me-2') }}Frontend Development</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>HTML5 &amp; CSS3</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>JavaScript (ES6+)</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>React.js &amp; Next.js</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Bootstrap &amp; Tailwind CSS</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Responsive Web Design</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}HTML5 &amp; CSS3</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}JavaScript (ES6+)</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}React.js &amp; Next.js</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Bootstrap &amp; Tailwind CSS</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Responsive Web Design</li>
                                     </ul>
                                 </div>
                                 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-server me-2"></i>Backend Development</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('server', 'icon me-2') }}Backend Development</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Python Flask &amp; Django</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Node.js &amp; Express.js</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>RESTful API Development</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Authentication &amp; Security</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Python Flask &amp; Django</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Node.js &amp; Express.js</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}RESTful API Development</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Authentication &amp; Security</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-database me-2"></i>Database Management</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('database', 'icon me-2') }}Database Management</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>MySQL</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>SQLite</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>MongoDB</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>SQLAlchemy ORM</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}MySQL</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}SQLite</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}MongoDB</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}SQLAlchemy ORM</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-layer-group me-2"></i>MERN Stack</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('layers', 'icon me-2') }}MERN Stack</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>MongoDB</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Express.js</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>React.js</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Node.js</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}MongoDB</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Express.js</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}React.js</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Node.js</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-brain me-2"></i>Artificial Intelligence &amp; ML</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('cpu', 'icon me-2') }}Artificial Intelligence &amp; ML</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Machine &amp; Deep Learning</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>NLP &amp; Computer Vision</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>XGBoost, SVM, Scikit-learn</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>BioGPT &amp; SHAP Explainable AI</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Tesseract OCR</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Machine &amp; Deep Learning</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}NLP &amp; Computer Vision</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}XGBoost, SVM, Scikit-learn</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}BioGPT &amp; SHAP Explainable AI</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Tesseract OCR</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-chart-bar me-2"></i>Data Science &amp; Analytics</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('chart-bar', 'icon me-2') }}Data Science &amp; Analytics</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Pandas &amp; NumPy</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Data Preprocessing</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Feature Engineering</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Data Visualization</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Pandas &amp; NumPy</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Data Preprocessing</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Feature Engineering</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Data Visualization</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-cloud me-2"></i>Cloud &amp; DevOps</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('cloud', 'icon me-2') }}Cloud &amp; DevOps</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Git &amp; GitHub</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Vercel, Hostinger, PythonAnywhere</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>CI/CD Fundamentals</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Git &amp; GitHub</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Vercel, Hostinger, PythonAnywhere</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}CI/CD Fundamentals</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-microchip me-2"></i>IoT &amp; Embedded Systems</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('chip', 'icon me-2') }}IoT &amp; Embedded Systems</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>ESP32 &amp; Arduino Uno</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Raspberry Pi Pico</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>LoRa &amp; GSM SIM800L</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>GPS Neo-6M &amp; Sensors</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}ESP32 &amp; Arduino Uno</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Raspberry Pi Pico</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}LoRa &amp; GSM SIM800L</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}GPS Neo-6M &amp; Sensors</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-tools me-2"></i>Tools &amp; Technologies</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('tools', 'icon me-2') }}Tools &amp; Technologies</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>VS Code &amp; Postman</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Jupyter Notebook</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Figma, Linux</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}VS Code &amp; Postman</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Jupyter Notebook</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Figma, Linux</li>
                                     </ul>
                                 </div>
 
                                 <div class="col-md-4 mb-4">
-                                    <h5 class="text-primary mb-3"><i class="fas fa-users me-2"></i>Soft Skills</h5>
+                                    <h5 class="text-primary mb-3">{{ ic.icon('users', 'icon me-2') }}Soft Skills</h5>
                                     <ul class="list-unstyled ps-0">
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Problem Solving &amp; Analytics</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Teamwork &amp; Communication</li>
-                                        <li class="mb-2"><i class="fas fa-chevron-right text-muted me-2" style="font-size: 0.8rem;"></i>Agile &amp; Project Management</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Problem Solving &amp; Analytics</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Teamwork &amp; Communication</li>
+                                        <li class="mb-2">{{ ic.icon('chevron-right', 'icon text-muted me-2') }}Agile &amp; Project Management</li>
                                     </ul>
                                 </div>
                             </div>
@@ -498,16 +500,16 @@
                                 <h5 class="mb-4 text-white">Explore My Portfolio</h5>
                                 <div class="d-flex justify-content-center flex-wrap gap-3">
                                     <a href="{{ url_for('skills') }}" class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-tools me-2"></i>My Skills
+                                        {{ ic.icon('tools', 'icon me-2') }}My Skills
                                     </a>
                                     <a href="{{ url_for('experience') }}" class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                                        {{ ic.icon('briefcase', 'icon me-2') }}Work Experience
                                     </a>
                                     <a href="{{ url_for('projects') }}" class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-code me-2"></i>View Projects
+                                        {{ ic.icon('code', 'icon me-2') }}View Projects
                                     </a>
                                     <a href="{{ url_for('contact') }}" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-envelope me-2"></i>Contact Me
+                                        {{ ic.icon('mail', 'icon me-2') }}Contact Me
                                     </a>
                                 </div>
                             </div>

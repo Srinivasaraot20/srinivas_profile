@@ -8,6 +8,13 @@ import os
 import sys
 from pathlib import Path
 
+# Ensure the test output (which includes unicode symbols) prints correctly
+# on Windows consoles regardless of the default code page.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 def test_imports():
     """Test that all modules can be imported."""
     try:

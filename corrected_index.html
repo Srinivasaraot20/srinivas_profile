@@ -3,14 +3,11 @@
 {% block content %}
 <!-- Hero Section -->
 <section id="hero" class="hero-section d-flex align-items-center">
-    <div id="particles-js" class="particles-js"></div>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 order-lg-1 order-2 mt-5 mt-lg-0">
                 <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
-                    <h1 class="display-4 fw-bold mb-4">
-                        <span class="typed-text"></span>
-                    </h1>
+                    <h1 class="display-4 fw-bold mb-4">Full Stack Developer & AI Engineer</h1>
                     <p class="lead mb-4">B.Tech AI & Data Science student | IoT Innovator | ML Developer | Full-Stack Developer</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="{{ url_for('resume') }}" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">
@@ -210,17 +207,6 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Hero section parallax effect
-        window.addEventListener('scroll', function() {
-            const heroSection = document.getElementById('hero');
-            if (heroSection) {
-                const scrollPosition = window.scrollY;
-                if (scrollPosition < 600) {
-                    heroSection.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
-                }
-            }
-        });
-
         // Animate skill bars when they come into view
         const animateSkillBars = function() {
             const skillBars = document.querySelectorAll('.skill-progress');

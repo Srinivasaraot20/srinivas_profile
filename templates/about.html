@@ -1,46 +1,44 @@
 {% extends 'base.html' %}
 
-{% block title %}About Talari Srinivasa Rao | Profile & Background{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Learn more about Talari Srinivasa Rao, a Computer Science graduate specializing in AI, Machine Learning, and Full Stack Development. Discover his background, education, and professional journey.{% endblock %}
+{% block title %}About Talari Srinivasa Rao | Full Stack Developer & AI Engineer{% endblock %}
 
-{% block meta_keywords %}Talari Srinivasa Rao, About Srinivasa Rao, Computer Science Engineer India, AI Developer Profile, MERN Stack Developer Bio{% endblock %}
+{% block meta_description %}Learn about Talari Srinivasa Rao, a Full Stack Developer and AI Engineer with expertise in Python, Django, JavaScript, AI/ML, and web development.{% endblock %}
+
+
 
 {% block content %}
-<section class="py-5 mt-5">
+<section class="about-page py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">About Me</h1>
+        <h1 class="section-title text-center mb-5">About Me</h1>
         
         <div class="row mb-5">
             <div class="col-lg-4 mb-4 mb-lg-0">
-                <div class="card bg-dark text-white border-0 shadow-sm h-100" data-aos="fade-right">
+                <div class="card bg-dark text-white border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
-                        <img src="{{ url_for('static', filename='images/ps.png') }}" alt="Srinivasa Rao Talari" class="img-fluid rounded-circle mb-4" style="max-width: 200px;">
+                        <img src="{{ url_for('static', filename='images/ps.webp') }}" alt="Srinivasa Rao Talari" class="img-fluid rounded-circle mb-4" style="max-width: 200px;" width="200" height="200">
                         <h4>Srinivasa Rao Talari</h4>
                         <p class="text-muted">B.Tech AI & Data Science student</p>
-                        <!-- Include Font Awesome & Bootstrap (if not already included) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Buttons Section -->
 <div class="d-flex justify-content-center mt-3 flex-wrap gap-2">
     <a href="https://github.com/Srinivasaraot20" class="btn btn-outline-primary btn-sm" target="_blank">
-        <i class="fab fa-github"></i> GitHub
+        {{ ic.brand('github', 'icon') }} GitHub
     </a>
     <a href="https://www.linkedin.com/in/srinivasa-rao-talari-a87723289/" class="btn btn-outline-primary btn-sm" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
+        {{ ic.brand('linkedin', 'icon') }} LinkedIn
     </a>
     <a href="mailto:srininvast20@gmail.com" class="btn btn-outline-primary btn-sm">
-        <i class="fas fa-envelope"></i> Email
+        {{ ic.icon('mail', 'icon') }} Email
     </a>
     <a href="https://leetcode.com/u/srinivasarao_talari_26/" class="btn btn-sm text-white" style="background-color: #FFA116;" target="_blank">
-        <i class="fas fa-code"></i> LeetCode
+        {{ ic.icon('code', 'icon') }} LeetCode
     </a>
     <a href="https://www.codechef.com/users/srinivast20" class="btn btn-outline-dark btn-sm" target="_blank">
-        <i class="fas fa-utensils"></i> CodeChef
+        {{ ic.icon('utensils', 'icon') }} CodeChef
     </a>
     <a href="https://www.hackerrank.com/profile/srininvast20" class="btn btn-outline-success btn-sm" target="_blank">
-        <i class="fab fa-hackerrank"></i> HackerRank
+        {{ ic.brand('hackerrank', 'icon') }} HackerRank
     </a>
 </div>
 
@@ -51,7 +49,7 @@
             </div>
             
             <div class="col-lg-8">
-                <div class="card bg-dark text-white border-0 shadow-sm h-100" data-aos="fade-left">
+                <div class="card bg-dark text-white border-0 shadow-sm h-100">
                     <div class="card-body p-4">
                         <h3 class="mb-4">Professional Summary</h3>
                         <p>I am a Computer Science graduate and Full-Stack Developer with expertise in Python, Java, C, JavaScript, SQL, MERN Stack (MongoDB, Express.js, React.js, Node.js), and modern web technologies. I have hands-on experience in designing, developing, and deploying scalable web applications, AI-powered solutions, enterprise platforms, and data-driven systems.</p>
@@ -62,13 +60,13 @@
                             <h5 class="mb-3">Contact Information</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i> Bayyavaram, Andhra Pradesh
+                                    {{ ic.icon('map-pin', 'icon me-2 text-primary') }} Bayyavaram, Andhra Pradesh
                                 </li>
                                 <li class="mb-2">
-                                    <i class="fas fa-phone me-2 text-primary"></i> +91-8341492762
+                                    {{ ic.icon('phone', 'icon me-2 text-primary') }} +91-8341492762
                                 </li>
                                 <li>
-                                    <i class="fas fa-envelope me-2 text-primary"></i> srininvast20@gmail.com
+                                    {{ ic.icon('mail', 'icon me-2 text-primary') }} srininvast20@gmail.com
                                 </li>
                             </ul>
                         </div>
@@ -85,36 +83,36 @@
         
         <!-- Education Timeline -->
         <div class="mb-5">
-            <h3 class="section-title mb-4" data-aos="fade-up">Education</h3>
+            <h3 class="section-title mb-4">Education</h3>
             <div class="timeline">
                 <!-- Education 1 -->
-                <div class="timeline-container left" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-container left">
                     <div class="timeline-content">
                         <h4>Bachelor of Technology</h4>
                         <h6>Artificial Intelligence and Data Science</h6>
                         <p class="mb-1">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</p>
-                        <p class="small text-info fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> 2023 - 2026</p>
+                        <p class="small text-info fw-bold mb-1">{{ ic.icon('calendar', 'icon me-1') }} 2023 - 2026</p>
                         <p class="small">GPA: 8.68</p>
                     </div>
                 </div>
                 
                 <!-- Education 2 -->
-                <div class="timeline-container right" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-container right">
                     <div class="timeline-content">
                         <h4>Diploma</h4>
                         <h6>Computer Engineering</h6>
                         <p class="mb-1">Adsumlu Aswardha Narayana Muurthi & Valluripalli Venkata Rama Seshadri Rao College,Gudlavalleru </p>
-                        <p class="small text-info fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> 2020 - 2023</p>
+                        <p class="small text-info fw-bold mb-1">{{ ic.icon('calendar', 'icon me-1') }} 2020 - 2023</p>
                         <p class="small">GPA: 89.17%</p>
                     </div>
                 </div>
                 
                 <!-- Education 3 -->
-                <div class="timeline-container left" data-aos="fade-right" data-aos-delay="300">
+                <div class="timeline-container left">
                     <div class="timeline-content">
                         <h4>Secondary School Certificate (SSC)</h4>
                         <p class="mb-1">Padmavathi EM High School, Vidyanagar, Krosuru</p>
-                        <p class="small text-info fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> 2019 - 2020</p>
+                        <p class="small text-info fw-bold mb-1">{{ ic.icon('calendar', 'icon me-1') }} 2019 - 2020</p>
                         <p class="small">GPA: 9.2</p>
                     </div>
                 </div>
@@ -123,14 +121,14 @@
         
         <!-- Professional Experience -->
         <div class="mb-5">
-            <h3 class="section-title mb-4" data-aos="fade-up">Professional Experience</h3>
-            <div class="card bg-dark text-white border-0 shadow-sm mb-4" data-aos="fade-up">
+            <h3 class="section-title mb-4">Professional Experience</h3>
+            <div class="card bg-dark text-white border-0 shadow-sm mb-4">
                 <div class="card-body p-4 border-bottom border-secondary">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4>Python Full Stack Developer Intern</h4>
                         <span class="badge bg-primary">8 Months</span>
                     </div>
-                    <h6 class="text-white-50 mb-3"><i class="fas fa-building me-2"></i>Council for Skills and Competencies (CSC India) – Non-Profit Organization</h6>
+                    <h6 class="text-white-50 mb-3">{{ ic.icon('building', 'icon me-2') }}Council for Skills and Competencies (CSC India) – Non-Profit Organization</h6>
                     <ul>
                         <li>Developed and deployed 4+ full-stack web applications to streamline organizational processes and improve operational efficiency.</li>
                         <li>Designed and implemented an <strong>Internship Offer Letter Management System</strong> to automate offer letter generation, storage, tracking, and distribution.</li>
@@ -165,7 +163,7 @@
                         <h4>Web Development Intern</h4>
                         <span class="badge bg-primary">2 Months</span>
                     </div>
-                    <h6 class="text-white-50 mb-3"><i class="fas fa-building me-2"></i>Canohub</h6>
+                    <h6 class="text-white-50 mb-3">{{ ic.icon('building', 'icon me-2') }}Canohub</h6>
                     <ul>
                         <li>Developed and maintained responsive, user-friendly, and high-performance web applications using modern frontend technologies.</li>
                         <li>Built interactive and reusable UI components using HTML5, CSS3, JavaScript, React.js, and Next.js.</li>
@@ -206,9 +204,9 @@
         
         <!-- Internships -->
         <div class="mb-5">
-            <h3 class="section-title mb-4" data-aos="fade-up">Internships</h3>
+            <h3 class="section-title mb-4">Internships</h3>
             <div class="row">
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="text-white">AI-ML Virtual Internship</h5>
@@ -218,7 +216,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="text-white">SQL Internship</h5>
@@ -228,7 +226,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="text-white">Full Stack Development Training & Internship (Python, Django)</h5>
@@ -238,7 +236,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="text-white">Cloud Virtual Internship</h5>
@@ -248,7 +246,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-md-6 mb-4">
                     <div class="card bg-dark text-white border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="text-white">Web Development Internship</h5>
@@ -262,14 +260,14 @@
         
         <!-- Skills -->
         <div class="mb-5">
-            <h3 class="section-title mb-4" data-aos="fade-up">Technical Skills</h3>
+            <h3 class="section-title mb-4">Technical Skills</h3>
             <div class="row">
                 <!-- Programming Languages -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="50">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #3498db !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-code text-primary me-2"></i> Programming Languages
+                                {{ ic.icon('code', 'icon text-primary me-2') }} Programming Languages
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">Python</span>
@@ -283,11 +281,11 @@
                 </div>
 
                 <!-- Frontend Development -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #2ecc71 !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-laptop-code text-success me-2"></i> Frontend Development
+                                {{ ic.icon('laptop-code', 'icon text-success me-2') }} Frontend Development
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">HTML5</span>
@@ -304,11 +302,11 @@
                 </div>
 
                 <!-- Backend Development -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #9b59b6 !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-server me-2" style="color: #9b59b6;"></i> Backend Development
+                                {{ ic.icon('server', 'icon me-2') }} Backend Development
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">Python Flask</span>
@@ -323,11 +321,11 @@
                 </div>
 
                 <!-- Database Management -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #f1c40f !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-database text-warning me-2"></i> Database Management
+                                {{ ic.icon('database', 'icon text-warning me-2') }} Database Management
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">MySQL</span>
@@ -340,11 +338,11 @@
                 </div>
 
                 <!-- MERN Stack -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #e74c3c !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-layer-group text-danger me-2"></i> MERN Stack
+                                {{ ic.icon('layers', 'icon text-danger me-2') }} MERN Stack
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">MongoDB</span>
@@ -357,11 +355,11 @@
                 </div>
 
                 <!-- AI & Machine Learning -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #e67e22 !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-brain me-2" style="color: #e67e22;"></i> Artificial Intelligence & ML
+                                {{ ic.icon('cpu', 'icon me-2') }} Artificial Intelligence & ML
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">Machine Learning</span>
@@ -379,11 +377,11 @@
                 </div>
 
                 <!-- Data Science & Analytics -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="350">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #1abc9c !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-chart-bar me-2" style="color: #1abc9c;"></i> Data Science & Analytics
+                                {{ ic.icon('chart-bar', 'icon me-2') }} Data Science & Analytics
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">Pandas</span>
@@ -397,11 +395,11 @@
                 </div>
 
                 <!-- Cloud & DevOps -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #34495e !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-cloud me-2" style="color: #34495e;"></i> Cloud & DevOps
+                                {{ ic.icon('cloud', 'icon me-2') }} Cloud & DevOps
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">Git</span>
@@ -416,11 +414,11 @@
                 </div>
 
                 <!-- IoT & Embedded Systems -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="450">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #d35400 !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-microchip me-2" style="color: #d35400;"></i> IoT & Embedded Systems
+                                {{ ic.icon('chip', 'icon me-2') }} IoT & Embedded Systems
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">ESP32</span>
@@ -436,11 +434,11 @@
                 </div>
 
                 <!-- Tools & Technologies -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #7f8c8d !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-tools text-secondary me-2"></i> Tools & Technologies
+                                {{ ic.icon('tools', 'icon text-secondary me-2') }} Tools & Technologies
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">VS Code</span>
@@ -455,11 +453,11 @@
                 </div>
 
                 <!-- Soft Skills -->
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="550">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #1abc9c !important;">
                         <div class="card-body p-4">
                             <h5 class="card-title text-white mb-3 d-flex align-items-center">
-                                <i class="fas fa-users me-2" style="color: #1abc9c;"></i> Soft Skills
+                                {{ ic.icon('users', 'icon me-2') }} Soft Skills
                             </h5>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge skill-badge py-2 px-3">Problem Solving</span>
@@ -478,8 +476,8 @@
 
         <!-- Volunteer Experience -->
         <div>
-            <h3 class="section-title mb-4" data-aos="fade-up">Volunteer Experience</h3>
-            <div class="card bg-dark text-white border-0 shadow-sm" data-aos="fade-up">
+            <h3 class="section-title mb-4">Volunteer Experience</h3>
+            <div class="card bg-dark text-white border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5>National Service Scheme (NSS)</h5>
                     <h6 class="text-muted">Volunteer</h6>

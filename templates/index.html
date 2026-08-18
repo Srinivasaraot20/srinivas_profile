@@ -1,74 +1,137 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Talari Srinivasa Rao | Portfolio - Full Stack Developer & AI Engineer{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Portfolio of Talari Srinivasa Rao, a Computer Science Engineer specializing in Full Stack Web Development (MERN, Flask, Django) and AI & Machine Learning Solutions.{% endblock %}
+{% block title %}Talari Srinivasa Rao | Full Stack Developer & AI Engineer{% endblock %}
 
-{% block meta_keywords %}Talari Srinivasa Rao, Talari Srinivasa Rao Portfolio, Talari Srinivasa Rao Resume, Talari Srinivasa Rao Official Website, Talari Srinivasa Rao Developer, Talari Srinivasa Rao Projects, Talari Srinivasa Rao AI Engineer, Talari Srinivasa Rao Full Stack Developer, Full Stack Developer India, Python Full Stack Developer, AI and Data Science Engineer, Machine Learning Engineer, Django Developer, MERN Stack Developer, Software Engineer Portfolio, Web Developer Portfolio, Srinivasa Rao Talari, T Srinivasa Rao, Talari Srinivas, Talari Srinivasa Rao AI Researcher, Talari Srinivasa Rao Engineer, Talari Srinivasa Rao Vijayawada, Talari Srinivasa Rao Portfolio Website, Talari Srinivasa Rao Full Stack Developer Portfolio, Talari Srinivasa Rao AI and Data Science Engineer, Talari Srinivasa Rao Machine Learning Projects, Talari Srinivasa Rao Research Publications, Talari Srinivasa Rao Health Insurance Fraud Detection, Talari Srinivasa Rao Smart Helmet Project, Talari Srinivasa Rao Software Developer India{% endblock %}
+{% block meta_description %}Hire Talari Srinivasa Rao, a Full Stack Developer & AI Engineer who builds fast, scalable web apps and AI/ML solutions with Python, Django, and JavaScript.{% endblock %}
 
 {% block schema_markup %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Talari Srinivasa Rao Portfolio",
-  "url": "https://talari-srinivasa-rao.netlify.app/",
-  "author": {
-    "@type": "Person",
-    "name": "Talari Srinivasa Rao"
-  },
-  "description": "Professional portfolio website of Talari Srinivasa Rao, Full Stack Developer and AI/ML Engineer."
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Talari Srinivasa Rao do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Talari Srinivasa Rao is a Full Stack Developer and AI Engineer who designs and builds scalable web applications, AI-powered solutions, and data-driven systems using Python, JavaScript, React, Node.js, Flask, and Django."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies and frameworks does he work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "He works with Python, Java, C, JavaScript, SQL, MERN Stack (MongoDB, Express.js, React.js, Node.js), Flask, Django, REST APIs, machine learning (XGBoost, Scikit-learn, RoBERTa), computer vision, and IoT systems like Arduino and ESP32."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of projects has Talari built?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Notable projects include an IoT smart helmet for coal mine workers (funded with ₹3 Lakh), health insurance fraud detection using XGBoost and SVM, an AI resume builder, a smart payroll system, and camouflaged soldier detection using UAV imagery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Has Talari won any awards or funding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. He won 1st prize at VR Siddhartha Engineering College's Innovation Day, was recognized as a Top 8 Startup by AIC ALEAP WE Hub, received an Innovation Award at VIT-AP's Innovation Acquisition Summit, and secured ₹3 Lakh in funding for AIoT development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Talari available for freelance work or collaboration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. He is open to new projects, freelance work, internships, and collaborations. Contact him through the WhatsApp button, email at srininvast20@gmail.com, or the contact form."
+      }
+    }
+  ]
 }
 </script>
 {% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
-<section id="hero" class="hero-section d-flex align-items-center">
-    <div id="particles-js" class="particles-js"></div>
+<section id="hero" class="hero-section">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-1 order-2 mt-5 mt-lg-0">
-                <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
-                    <h1 class="display-4 fw-bold mb-4">
-                        <span class="typed-text"></span>
-                    </h1>
-                    <p class="lead mb-4">B.Tech AI & Data Science student | Awarded ₹3L+ Funding| Award-Winning Project Innovator | IoT Innovator | ML Developer | Full-Stack Developer</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="{{ url_for('resume') }}" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">
-                            <i class="fas fa-file-alt me-2"></i> View Resume
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <div class="hero-content">
+                    <span class="hero-badge">FULL STACK DEVELOPER &bull; AI ENGINEER</span>
+                    <h1 class="hero-title">Talari Srinivasa Rao</h1>
+                    <h2 class="hero-subtitle">Full Stack Developer &amp; AI Engineer</h2>
+                    <p class="hero-desc">B.Tech AI &amp; Data Science student | Awarded ₹3L+ Funding | Award-Winning Project Innovator | IoT Innovator | ML Developer | Full-Stack Developer</p>
+                    <div class="d-flex flex-wrap gap-3 hero-actions">
+                        <a href="{{ url_for('resume') }}" class="btn btn-primary btn-lg">
+                            {{ ic.icon('file-text', 'icon me-2') }} View Resume
                         </a>
-                        <a href="{{ url_for('projects') }}" class="btn btn-outline-primary btn-lg" data-aos="fade-up" data-aos-delay="500">
-                            <i class="fas fa-brain me-2"></i> View Projects
+                        <a href="{{ url_for('projects') }}" class="btn btn-outline-primary btn-lg">
+                            {{ ic.icon('cpu', 'icon me-2') }} View Projects
                         </a>
-                        <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg" data-aos="fade-up" data-aos-delay="600">
-                            <i class="fas fa-envelope me-2"></i> Contact Me
+                        <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg">
+                            {{ ic.icon('mail', 'icon me-2') }} Contact Me
                         </a>
                     </div>
+                    <a href="{{ url_for('contact') }}" class="hero-cta-link">
+                        Let's Work Together {{ ic.icon('chevron-right', 'icon ms-2') }}
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-6 order-lg-2 order-1 text-center">
-                <img src="{{ url_for('static', filename='images/ps.png') }}" alt="Srinivasa Rao Talari" class="profile-img img-fluid" data-aos="zoom-in" data-aos-delay="300">
+            <div class="col-lg-6 order-lg-1 text-center">
+                <div class="profile-card">
+                    <img src="{{ url_for('static', filename='images/ps.webp') }}" alt="Srinivasa Rao Talari" class="profile-img img-fluid" width="340" height="400" fetchpriority="high">
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Introduction Section -->
-<section id="intro" class="py-5">
+<!-- About Section -->
+<section id="about" class="about-section">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2 class="section-title text-center mb-5" data-aos="fade-up">About Me</h2>
-                <p class="lead" data-aos="fade-up" data-aos-delay="100">
-                    I am a Computer Science graduate and Full-Stack Developer with expertise in Python, Java, C, JavaScript, SQL, MERN Stack (MongoDB, Express.js, React.js, Node.js), and modern web technologies. I have hands-on experience in designing, developing, and deploying scalable web applications, AI-powered solutions, enterprise platforms, and data-driven systems.
-                </p>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    Passionate about software engineering, artificial intelligence, and problem-solving, I focus on building secure, efficient, and user-centric applications. My experience spans Full-Stack Development, MERN Stack applications, AI/ML solutions, RESTful APIs, database management, and cloud-based deployments.
-                </p>
-                <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn More About Me</a>
+            <div class="col-lg-8">
+                <div class="about-card">
+                    <h2 class="about-title text-center">About Me</h2>
+                    <p class="about-description">
+                        I am a Computer Science graduate and Full-Stack Developer specializing in Python, JavaScript, SQL, AI/ML, and modern web technologies. I build scalable web applications, AI-powered solutions, and data-driven systems.
+                    </p>
+                    <button class="about-toggle" id="about-toggle" type="button" aria-expanded="false" aria-controls="about-more">
+                        <span class="about-toggle-text">Read More</span>
+                        <span class="about-toggle-icon" aria-hidden="true">&rarr;</span>
+                    </button>
+                    <div class="about-more" id="about-more">
+                        <div class="about-more-inner">
+                            <p>
+                                I am a Computer Science graduate and Full-Stack Developer with expertise in Python, Java, C, JavaScript, SQL, MERN Stack (MongoDB, Express.js, React.js, Node.js), and modern web technologies. I have hands-on experience in designing, developing, and deploying scalable web applications, AI-powered solutions, enterprise platforms, and data-driven systems.
+                            </p>
+                            <p>
+                                Passionate about software engineering, artificial intelligence, and problem-solving, I focus on building secure, efficient, and user-centric applications. My experience spans Full-Stack Development, MERN Stack applications, AI/ML solutions, RESTful APIs, database management, and cloud-based deployments.
+                            </p>
+                            <div class="about-more-actions">
+                                <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn More About Me</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="expertise-title">Key Expertise</h3>
+                    <div class="expertise-tags">
+                        <span class="expertise-tag">Python</span>
+                        <span class="expertise-tag">Django</span>
+                        <span class="expertise-tag">JavaScript</span>
+                        <span class="expertise-tag">SQL</span>
+                        <span class="expertise-tag">AI/ML</span>
+                        <span class="expertise-tag">Full Stack</span>
+                        <span class="expertise-tag">REST APIs</span>
+                        <span class="expertise-tag">Data Science</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,18 +141,18 @@
 <!-- Featured Projects -->
 <section id="featured-projects" class="py-5 bg-dark">
     <div class="container">
-        <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Projects</h2>
+        <h2 class="section-title text-center mb-5">Featured Projects</h2>
         <div class="row g-4 justify-content-center">
             <!-- Project 1 -->
             <div class="col-md-6 col-lg-4">
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
                             <img src="{{ url_for('static', filename='images/projects/smart_helmet.svg') }}" alt="Smart Helmet" class="img-fluid mb-3" style="max-height: 130px;">
-                            <h5 class="card-title">Smart Helmet ⛏️</h5>
+                            <h3 class="card-title h5">Smart Helmet ⛏️</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h5 class="mb-3">Smart Helmet for Coal Mine Workers</h5>
+                            <h3 class="h5 mb-3">Smart Helmet for Coal Mine Workers</h3>
                             <p class="small">IoT-based safety solution using Arduino, gas sensors, GPS, and an SMS alert system.</p>
                             <div class="mt-auto">
                                 <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
@@ -101,14 +164,14 @@
             
             <!-- Project 2 -->
             <div class="col-md-6 col-lg-4">
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
                             <img src="{{ url_for('static', filename='images/projects/insurance_fraud.svg') }}" alt="Insurance Fraud" class="img-fluid mb-3" style="max-height: 130px;">
-                            <h5 class="card-title">Fraud Detection 💡</h5>
+                            <h3 class="card-title h5">Fraud Detection 💡</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h5 class="mb-3">Health Insurance Fraud Detection</h5>
+                            <h3 class="h5 mb-3">Health Insurance Fraud Detection</h3>
                             <p class="small">AI-powered fraud detection using XGBoost and SVM for health insurance claims.</p>
                             <div class="mt-auto">
                                 <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
@@ -120,14 +183,14 @@
             
             <!-- Project 3 -->
             <div class="col-md-6 col-lg-4">
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
                             <img src="{{ url_for('static', filename='images/projects/resume_builder.svg') }}" alt="Resume Builder" class="img-fluid mb-3" style="max-height: 130px;">
-                            <h5 class="card-title">Resume Builder 🧾</h5>
+                            <h3 class="card-title h5">Resume Builder 🧾</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h5 class="mb-3">AI Resume Builder</h5>
+                            <h3 class="h5 mb-3">AI Resume Builder</h3>
                             <p class="small">Web-based platform featuring templates, real-time suggestions, and AI-driven feedback.</p>
                             <div class="mt-auto">
                                 <a href="{{ url_for('projects') }}" class="btn btn-light btn-sm">View Details</a>
@@ -139,14 +202,14 @@
             
             <!-- Project 4 -->
             <div class="col-md-6 col-lg-4">
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
                             <img src="{{ url_for('static', filename='images/projects/payroll.svg') }}" alt="Payroll System" class="img-fluid mb-3" style="max-height: 130px;">
-                            <h5 class="card-title">Payroll System 💼</h5>
+                            <h3 class="card-title h5">Payroll System 💼</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h5 class="mb-3">Smart Payroll System</h5>
+                            <h3 class="h5 mb-3">Smart Payroll System</h3>
                             <p class="small">Automated payroll system with role-based authentication and biometric attendance.</p>
                             <div class="mt-auto">
                                 <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#payrollDemoModal">View Details</button>
@@ -158,14 +221,14 @@
 
             <!-- Project 5 -->
             <div class="col-md-6 col-lg-4">
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="500">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
                             <img src="{{ url_for('static', filename='images/projects/insurance_fraud.svg') }}" alt="Explainable AI Fraud Detection" class="img-fluid mb-3" style="max-height: 130px;">
-                            <h5 class="card-title">Explainable AI 🛡️</h5>
+                            <h3 class="card-title h5">Explainable AI 🛡️</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h5 class="mb-3">Explainable AI Claim Fraud Detection</h5>
+                            <h3 class="h5 mb-3">Explainable AI Claim Fraud Detection</h3>
                             <p class="small">AI claim verification platform utilizing OCR, BioGPT embeddings, RoBERTa classifier, and SHAP explainability.</p>
                             <div class="mt-auto">
                                 <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#fraudDemoModal">View Details</button>
@@ -177,14 +240,14 @@
 
             <!-- Project 6 -->
             <div class="col-md-6 col-lg-4">
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="600">
+                <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front d-flex flex-column justify-content-center align-items-center p-4">
                             <img src="{{ url_for('static', filename='images/projects/soldier_detection.svg') }}" alt="Soldier Detection" class="img-fluid mb-3" style="max-height: 130px;">
-                            <h5 class="card-title">Soldier Detection 🪖</h5>
+                            <h3 class="card-title h5">Soldier Detection 🪖</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h5 class="mb-3">Camouflaged Soldier Detection</h5>
+                            <h3 class="h5 mb-3">Camouflaged Soldier Detection</h3>
                             <p class="small">UAV surveillance framework utilising RT-DETR, SAM segmentation, and geospatial GPS coordinates.</p>
                             <div class="mt-auto">
                                 <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#soldierDemoModal">View Details</button>
@@ -194,7 +257,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center mt-5" data-aos="fade-up">
+        <div class="text-center mt-5">
             <a href="{{ url_for('projects') }}" class="btn btn-primary">View All Projects</a>
         </div>
     </div>
@@ -203,47 +266,113 @@
 <!-- Achievements Highlight -->
 <section id="achievements-highlight" class="py-5">
     <div class="container">
-        <h2 class="section-title text-center mb-5" data-aos="fade-up">Achievements</h2>
+        <h2 class="section-title text-center mb-5">Achievements</h2>
         <div class="row">
-            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="achievement-card text-center p-4 h-100">
                     <div class="mb-3">
                         <img src="{{ url_for('static', filename='images/awards/first_prize.svg') }}" alt="First Prize" class="img-fluid" style="height: 120px;">
                     </div>
-                    <h5>1st Prize 🥇</h5>
+                    <h3 class="h5">1st Prize 🥇</h3>
                     <p class="small">Innovation Day Celebration at VR Siddhartha Engineering College</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="achievement-card text-center p-4 h-100">
                     <div class="mb-3">
                         <img src="{{ url_for('static', filename='images/awards/startup.svg') }}" alt="Top 8 Startup" class="img-fluid" style="height: 220px;">
                     </div>
-                    <h5>Top 8 Startup 🚀</h5>
+                    <h3 class="h5">Top 8 Startup 🚀</h3>
                     <p class="small">Recognized by AIC ALEAP WE Hub & MSME Minister, Andhra Pradesh</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="achievement-card text-center p-4 h-100">
                     <div class="mb-3">
                         <img src="{{ url_for('static', filename='images/awards/vit_ap.svg') }}" alt="VIT-AP Award" class="img-fluid" style="height: 120px;">
                     </div>
-                    <h5>Innovation Award 🛡️</h5>
+                    <h3 class="h5">Innovation Award 🛡️</h3>
                     <p class="small">VIT-AP Innovation Acquisition Summit-24 in collaboration with FAPSIA & NRDC</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="achievement-card text-center p-4 h-100">
                     <div class="mb-3">
                         <img src="{{ url_for('static', filename='images/awards/funding.svg') }}" alt="Funding" class="img-fluid" style="height: 120px;">
                     </div>
-                    <h5>₹3 Lakhs Funding 💰</h5>
+                    <h3 class="h5">₹3 Lakhs Funding 💰</h3>
                     <p class="small">Received funding for AIoT-based smart helmet development</p>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-3" data-aos="fade-up">
+        <div class="text-center mt-3">
             <a href="{{ url_for('achievements') }}" class="btn btn-primary">View All Achievements</a>
+        </div>
+    </div>
+</section>
+
+<!-- Frequently Asked Questions -->
+<section id="faq" class="faq-section" aria-labelledby="faq-heading">
+    <div class="container">
+        <h2 id="faq-heading" class="section-title faq-title">Frequently Asked Questions</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+                        <span class="faq-question-text">What does Talari Srinivasa Rao do?</span>
+                        <span class="faq-icon">{{ ic.icon('chevron-down', 'icon') }}</span>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer-wrapper" role="region" aria-labelledby="faq-question-1">
+                        <div class="faq-answer-inner">
+                            <p class="faq-answer">I am a Full Stack Developer &amp; AI Engineer who designs and builds scalable web applications, AI-powered solutions, and data-driven systems using Python, JavaScript, React, Node.js, Flask, and Django.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                        <span class="faq-question-text">What technologies and frameworks does he work with?</span>
+                        <span class="faq-icon">{{ ic.icon('chevron-down', 'icon') }}</span>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer-wrapper" role="region" aria-labelledby="faq-question-2">
+                        <div class="faq-answer-inner">
+                            <p class="faq-answer">Python, Java, C, JavaScript, SQL, MERN Stack (MongoDB, Express.js, React.js, Node.js), Flask, Django, REST APIs, machine learning (XGBoost, Scikit-learn, RoBERTa), computer vision, and IoT systems like Arduino and ESP32.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                        <span class="faq-question-text">What kind of projects has Talari built?</span>
+                        <span class="faq-icon">{{ ic.icon('chevron-down', 'icon') }}</span>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer-wrapper" role="region" aria-labelledby="faq-question-3">
+                        <div class="faq-answer-inner">
+                            <p class="faq-answer">Notable projects include an IoT smart helmet for coal mine workers (funded with ₹3 Lakh), health insurance fraud detection using XGBoost and SVM, an AI resume builder, a smart payroll system, and camouflaged soldier detection using UAV imagery.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                        <span class="faq-question-text">Has Talari won any awards or funding?</span>
+                        <span class="faq-icon">{{ ic.icon('chevron-down', 'icon') }}</span>
+                    </button>
+                    <div id="faq-answer-4" class="faq-answer-wrapper" role="region" aria-labelledby="faq-question-4">
+                        <div class="faq-answer-inner">
+                            <p class="faq-answer">Yes. I won 1st prize at VR Siddhartha Engineering College's Innovation Day, was recognized as a Top 8 Startup by AIC ALEAP WE Hub, received an Innovation Award at VIT-AP's Innovation Acquisition Summit, and secured ₹3 Lakh in funding for AIoT development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                        <span class="faq-question-text">Is Talari available for freelance work or collaboration?</span>
+                        <span class="faq-icon">{{ ic.icon('chevron-down', 'icon') }}</span>
+                    </button>
+                    <div id="faq-answer-5" class="faq-answer-wrapper" role="region" aria-labelledby="faq-question-5">
+                        <div class="faq-answer-inner">
+                            <p class="faq-answer">Yes. I am open to new projects, freelance work, internships, and collaborations. Contact me through the WhatsApp button, email at srininvast20@gmail.com, or the contact form.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -253,10 +382,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2 class="mb-4" data-aos="fade-up">Interested in working together?</h2>
-                <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">Let's discuss how I can contribute to your next project with my skills in AI, ML, and full-stack development.</p>
-                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-paper-plane me-2"></i> Get In Touch
+                <h2 class="mb-4">Interested in working together?</h2>
+                <p class="lead mb-4">Let's discuss how I can contribute to your next project with my skills in AI, ML, and full-stack development.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">
+                    {{ ic.icon('send', 'icon me-2') }} Get In Touch
                 </a>
             </div>
         </div>
@@ -327,17 +456,6 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Hero section parallax effect
-        window.addEventListener('scroll', function() {
-            const heroSection = document.getElementById('hero');
-            if (heroSection) {
-                const scrollPosition = window.scrollY;
-                if (scrollPosition < 600) {
-                    heroSection.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
-                }
-            }
-        });
-
         // Animate skill bars when they come into view
         const animateSkillBars = function() {
             const skillBars = document.querySelectorAll('.skill-progress');

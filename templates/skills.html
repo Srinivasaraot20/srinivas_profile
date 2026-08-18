@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Technical Skills | Talari Srinivasa Rao - MERN Stack & AI Engineer{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Explore the comprehensive technical skills and expertise of Talari Srinivasa Rao. Proficient in MERN Stack (MongoDB, Express, React, Node.js), Python, Django, Flask, AI/ML (NLP, Computer Vision), and IoT systems.{% endblock %}
+{% block title %}Skills | Python, Django, JavaScript, AI/ML | Srinivasa Rao{% endblock %}
 
-{% block meta_keywords %}MERN Stack Developer, Python Full Stack Developer, AI Engineer, Machine Learning Engineer, JavaScript Developer, Flask Developer, Django Developer, IoT Developer, React Developer, SQL Database Developer, Talari Srinivasa Rao Skills{% endblock %}
+{% block meta_description %}Explore Srinivasa Rao's technical skills in Python, Java, JavaScript, Django, SQL, AI/ML, web development, APIs, databases, and automation.{% endblock %}
+
+
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -67,19 +69,19 @@
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">Technical Skills & Tech Stack</h1>
+        <h1 class="section-title text-center mb-5">Technical Skills & Tech Stack</h1>
         
-        <p class="lead text-center mb-5 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p class="lead text-center mb-5 max-w-2xl mx-auto">
             A comprehensive overview of my technological proficiency spanning full-stack web development, MERN stack solutions, artificial intelligence, data analytics, and Internet of Things (IoT) systems.
         </p>
         
         <div class="row">
             <!-- Programming Languages -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="50">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #3498db !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-code text-primary me-2"></i> Programming Languages
+                            {{ ic.icon('code', 'icon text-primary me-2') }} Programming Languages
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">Python</span>
@@ -93,11 +95,11 @@
             </div>
 
             <!-- Frontend Development -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #2ecc71 !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-laptop-code text-success me-2"></i> Frontend Development
+                            {{ ic.icon('laptop-code', 'icon text-success me-2') }} Frontend Development
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">HTML5</span>
@@ -114,11 +116,11 @@
             </div>
 
             <!-- Backend Development -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #9b59b6 !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-server me-2" style="color: #9b59b6;"></i> Backend Development
+                            {{ ic.icon('server', 'icon me-2') }} Backend Development
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">Python Flask</span>
@@ -133,11 +135,11 @@
             </div>
 
             <!-- Database Management -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #f1c40f !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-database text-warning me-2"></i> Database Management
+                            {{ ic.icon('database', 'icon text-warning me-2') }} Database Management
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">MySQL</span>
@@ -150,11 +152,11 @@
             </div>
 
             <!-- MERN Stack -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="250">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #e74c3c !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-layer-group text-danger me-2"></i> MERN Stack
+                            {{ ic.icon('layers', 'icon text-danger me-2') }} MERN Stack
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">MongoDB</span>
@@ -167,11 +169,11 @@
             </div>
 
             <!-- AI & Machine Learning -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #e67e22 !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-brain me-2" style="color: #e67e22;"></i> Artificial Intelligence & ML
+                            {{ ic.icon('cpu', 'icon me-2') }} Artificial Intelligence & ML
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">Machine Learning</span>
@@ -189,11 +191,11 @@
             </div>
 
             <!-- Data Science & Analytics -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="350">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #1abc9c !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-chart-bar me-2" style="color: #1abc9c;"></i> Data Science & Analytics
+                            {{ ic.icon('chart-bar', 'icon me-2') }} Data Science & Analytics
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">Pandas</span>
@@ -207,11 +209,11 @@
             </div>
 
             <!-- Cloud & DevOps -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #34495e !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-cloud me-2" style="color: #34495e;"></i> Cloud & DevOps
+                            {{ ic.icon('cloud', 'icon me-2') }} Cloud & DevOps
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">Git</span>
@@ -226,11 +228,11 @@
             </div>
 
             <!-- IoT & Embedded Systems -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="450">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #d35400 !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-microchip me-2" style="color: #d35400;"></i> IoT & Embedded Systems
+                            {{ ic.icon('chip', 'icon me-2') }} IoT & Embedded Systems
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">ESP32</span>
@@ -246,11 +248,11 @@
             </div>
 
             <!-- Tools & Technologies -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #7f8c8d !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-tools text-secondary me-2"></i> Tools & Technologies
+                            {{ ic.icon('tools', 'icon text-secondary me-2') }} Tools & Technologies
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">VS Code</span>
@@ -265,11 +267,11 @@
             </div>
 
             <!-- Soft Skills -->
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="550">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card bg-dark border-0 shadow-sm h-100 skill-card" style="background-color: var(--card-bg) !important; border-top: 3px solid #1abc9c !important;">
                     <div class="card-body p-4">
                         <h2 class="h5 card-title text-white mb-3 d-flex align-items-center">
-                            <i class="fas fa-users me-2" style="color: #1abc9c;"></i> Soft Skills
+                            {{ ic.icon('users', 'icon me-2') }} Soft Skills
                         </h2>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge skill-badge py-2 px-3">Problem Solving</span>
@@ -286,21 +288,21 @@
         </div>
 
         <!-- Next Steps / Explore More (SEO Cross-Linking) -->
-        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+        <div class="row mt-5 pt-4 border-top border-secondary text-center">
             <div class="col-12">
                 <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
                 <div class="d-flex justify-content-center flex-wrap gap-3">
                     <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-code me-2"></i>View Projects
+                        {{ ic.icon('code', 'icon me-2') }}View Projects
                     </a>
                     <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                        {{ ic.icon('briefcase', 'icon me-2') }}Work Experience
                     </a>
                     <a href="{{ url_for('certifications') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-certificate me-2"></i>Certifications
+                        {{ ic.icon('award', 'icon me-2') }}Certifications
                     </a>
                     <a href="{{ url_for('contact') }}" class="btn btn-primary">
-                        <i class="fas fa-envelope me-2"></i>Contact Me
+                        {{ ic.icon('mail', 'icon me-2') }}Contact Me
                     </a>
                 </div>
             </div>

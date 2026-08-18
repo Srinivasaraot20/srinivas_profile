@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Photo & Project Gallery | Talari Srinivasa Rao{% endblock %}
+{% block title %}Gallery | Projects, Achievements & Events | Srinivasa Rao{% endblock %}
 
-{% block meta_description %}A visual gallery of project prototypes, awards, and innovations developed by Talari Srinivasa Rao. Includes images of the smart helmet, awards received, and certifications.{% endblock %}
+{% block meta_description %}View photos from Srinivasa Rao's projects, technical events, achievements, academic journey, certifications, hackathons, and professional activities.{% endblock %}
 
-{% block meta_keywords %}Talari Srinivasa Rao Gallery, Project Images, Innovation Day Photos, Smart Helmet Prototype, Award Ceremony Images{% endblock %}
+
 
 {% block content %}
-<section class="py-5 mt-5">
+<section class="gallery-page py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">Gallery</h1>
-        <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="section-title text-center mb-5">Gallery</h1>
+        <p class="lead text-center mb-5">
             A visual showcase of my projects, achievements, and professional journey.
         </p>
 
         <div class="row g-4">
             {% for image in images %}
-            <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 50 }}">
+            <div class="col-sm-6 col-lg-4">
                 <div class="gallery-item position-relative overflow-hidden shadow rounded-3">
                     <img src="{{ url_for('static', filename='images/' + image.src) }}"
                          alt="{{ image.alt }}"
@@ -32,7 +32,7 @@
 
         <div class="row mt-5">
             <div class="col-12 text-center">
-                <div class="card bg-dark text-white border-0 shadow p-4" data-aos="fade-up">
+                <div class="card bg-dark text-white border-0 shadow p-4">
                     <h4 class="mb-3 text-white">Behind the Scenes</h4>
                     <p>This gallery showcases significant milestones from my academic and professional journey.</p>
                     <p class="mb-0">

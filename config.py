@@ -20,6 +20,8 @@ class Config:
     # Admin Notifications config
     ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'srininvast20@gmail.com')
     ADMIN_WHATSAPP = os.environ.get('ADMIN_WHATSAPP', '8341492762')
+    WHATSAPP_COUNTRY_CODE = os.environ.get('WHATSAPP_COUNTRY_CODE', '91')
+    WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '918341492762')
     
     # Database configuration
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///' + str(BASE_DIR / 'instance' / 'portfolio.db'))

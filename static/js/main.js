@@ -1,149 +1,6 @@
 // Main JavaScript file for Srinivasa's Portfolio
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS animations
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
-
-    // Initialize Particles.js for background effect
-    if (document.getElementById('particles-js')) {
-        try {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#3a9bdc"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#2c7cb7",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 4,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-        } catch (error) {
-            console.log("Particles.js initialization error:", error);
-            // Fallback: Apply a subtle gradient background to the element
-            const particlesElement = document.getElementById('particles-js');
-            if (particlesElement) {
-                particlesElement.style.background = "linear-gradient(135deg, #1c3754 0%, #0f2133 100%)";
-            }
-        }
-    }
-
-    // Initialize Typed.js for home page
-    if (document.querySelector('.typed-text')) {
-        let typed = new Typed('.typed-text', {
-            strings: [
-                "Hi, I'm Srinivasa Rao 👋",
-                "AI/ML Developer",
-                "IoT Builder",
-                "Full-Stack Intern"
-            ],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 2000,
-            startDelay: 1000,
-            loop: true
-        });
-    }
-
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -201,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scrollTopBtn) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
+                scrollTopBtn.style.display = 'flex';
             } else {
-                scrollTopBtn.classList.remove('show');
+                scrollTopBtn.style.display = 'none';
             }
         });
         
@@ -214,24 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 
     // Intersection Observer for fade-in animations
     const fadeElements = document.querySelectorAll('.fade-up');

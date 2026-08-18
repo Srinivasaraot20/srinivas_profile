@@ -18,7 +18,7 @@ A modern, responsive portfolio website showcasing projects, achievements, and pr
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 5
-- **Animation**: AOS (Animate On Scroll), Typed.js, Particles.js
+- **Animation**: AOS (Animate On Scroll), Intersection Observer reveal effects
 - **Email**: Flask-Mail with SMTP
 - **Forms**: Flask-WTF with CSRF protection
 - **Deployment**: Docker, Gunicorn
@@ -125,7 +125,7 @@ srinivas_profile/
 
 ## 🎨 Sections
 
-- **Home**: Hero section with animated text and particles
+- **Home**: Hero section with clean static background, profile image and CTA buttons
 - **About**: Personal introduction and skills
 - **Projects**: Showcase of technical projects
 - **Achievements**: Awards and recognitions

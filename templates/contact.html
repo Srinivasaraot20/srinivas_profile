@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact Talari Srinivasa Rao | Hire Full Stack & AI Developer{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Get in touch with Talari Srinivasa Rao for freelance software development, AI solutions, web application design, and collaboration in Andhra Pradesh, India.{% endblock %}
+{% block title %}Contact Talari Srinivasa Rao | Full Stack Developer & AI Engineer{% endblock %}
 
-{% block meta_keywords %}Hire Full Stack Developer India, Contact Python Developer, Freelance MERN Stack Developer Visakhapatnam, Hire AI Machine Learning Engineer{% endblock %}
+{% block meta_description %}Contact Talari Srinivasa Rao for Full Stack Development, AI/ML solutions, technical collaborations, and professional inquiries.{% endblock %}
+
+
 
 {% block content %}
-<section class="py-5 mt-5">
+<section class="contact-page py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">Contact Me</h1>
+        <h1 class="section-title text-center mb-5">Contact Me</h1>
         
         <div class="row">
-            <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-lg-5 mb-5 mb-lg-0">
                 <div class="card bg-dark text-white border-0 shadow h-100">
                     <div class="card-body p-4">
                         <h4 class="text-white mb-4">Get In Touch</h4>
@@ -21,7 +23,7 @@
                         <div class="mt-4">
                             <div class="d-flex mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-map-marker-alt fs-4 text-primary"></i>
+                                    {{ ic.icon('map-pin', 'icon fs-4 text-primary') }}
                                 </div>
                                 <div>
                                     <h5>Location</h5>
@@ -31,21 +33,22 @@
                             
                             <div class="d-flex mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-envelope fs-4 text-primary"></i>
+                                    {{ ic.icon('mail', 'icon fs-4 text-primary') }}
                                 </div>
                                 <div>
                                     <h5>Email</h5>
-                                    <p>srininvast20@gmail.com</p>
+                                    <p><a href="mailto:srininvast20@gmail.com" class="contact-email">srininvast20@gmail.com</a></p>
                                 </div>
                             </div>
                             
                             <div class="d-flex mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-phone fs-4 text-primary"></i>
+                                    {{ ic.icon('phone', 'icon fs-4 text-primary') }}
                                 </div>
                                 <div>
-                                    <h5>Phone</h5>
-                                    <p>+91-8341492762</p>
+                                    <h5>Phone / WhatsApp</h5>
+                                    <p><a href="tel:+918341492762">+91-8341492762</a></p>
+                                    <p><a href="https://wa.me/{{ whatsapp_number }}" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
                                 </div>
                             </div>
                         </div>
@@ -53,17 +56,17 @@
                         <div class="mt-5">
                             <h5 class="mb-3">Connect with me</h5>
                             <div class="social-links">
-                                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                                <a href="https://linkedin.com/in/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                                <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                                <a href="https://instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                                <a href="https://github.com/" target="_blank" rel="noopener">{{ ic.brand('github', 'icon') }}</a>
+                                <a href="https://linkedin.com/in/" target="_blank" rel="noopener">{{ ic.brand('linkedin', 'icon') }}</a>
+                                <a href="https://twitter.com/" target="_blank" rel="noopener">{{ ic.brand('twitter', 'icon') }}</a>
+                                <a href="https://instagram.com/" target="_blank" rel="noopener">{{ ic.brand('instagram', 'icon') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+            <div class="col-lg-7">
                 <div class="card bg-dark text-white border-0 shadow contact-form-container">
                     <div class="card-body p-4">
                         <h4 class="text-white mb-4">Send Message</h4>
@@ -155,7 +158,7 @@
                                 
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">
-                                        <i class="fas fa-paper-plane me-2"></i> Send Message
+                                        {{ ic.icon('send', 'icon me-2') }} Send Message
                                     </button>
                                 </div>
                             </div>
@@ -165,18 +168,18 @@
             </div>
         </div>
         <!-- Next Steps / Explore More (SEO Cross-Linking) -->
-        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+        <div class="row mt-5 pt-4 border-top border-secondary text-center">
             <div class="col-12">
                 <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
                 <div class="d-flex justify-content-center flex-wrap gap-3">
                     <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-tools me-2"></i>My Skills
+                        {{ ic.icon('tools', 'icon me-2') }}My Skills
                     </a>
                     <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                        {{ ic.icon('briefcase', 'icon me-2') }}Work Experience
                     </a>
                     <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-code me-2"></i>View Projects
+                        {{ ic.icon('code', 'icon me-2') }}View Projects
                     </a>
                 </div>
             </div>
@@ -205,7 +208,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 <!-- Map Section (Optional) -->
 <section class="py-5">
     <div class="container">
-        <div class="card bg-dark text-white border-0 shadow" data-aos="fade-up">
+        <div class="card bg-dark text-white border-0 shadow">
             <div class="card-body p-0">
                 <div class="ratio ratio-21x9">
                     <iframe 

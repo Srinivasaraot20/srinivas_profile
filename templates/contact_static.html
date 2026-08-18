@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact Talari Srinivasa Rao | Hire Full Stack & AI Developer{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Get in touch with Talari Srinivasa Rao for freelance software development, AI solutions, web application design, and collaboration in Andhra Pradesh, India.{% endblock %}
+{% block title %}Contact Talari Srinivasa Rao | Full Stack Developer & AI Engineer{% endblock %}
 
-{% block meta_keywords %}Hire Full Stack Developer India, Contact Python Developer, Freelance MERN Stack Developer Visakhapatnam, Hire AI Machine Learning Engineer{% endblock %}
+{% block meta_description %}Contact Talari Srinivasa Rao for software development projects, Full Stack Development, AI/ML solutions, technical opportunities, collaborations, and professional inquiries.{% endblock %}
+
+
 
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">Contact Me</h1>
+        <h1 class="section-title text-center mb-5">Contact Me</h1>
         
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <div class="card bg-dark text-white border-0 shadow p-4" data-aos="fade-up">
+                <div class="card bg-dark text-white border-0 shadow p-4">
                     <h4 class="mb-4">Get in Touch</h4>
                     
                     <!-- Netlify Contact Form -->
@@ -48,37 +50,37 @@
                         
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                                {{ ic.icon('send', 'icon me-2') }}Send Message
                             </button>
                         </div>
                     </form>
                     
                     <!-- Success Message (hidden by default) -->
                     <div id="success-message" class="alert alert-success mt-3" style="display: none;">
-                        <i class="fas fa-check-circle me-2"></i>
+                        {{ ic.icon('check-circle', 'icon me-2') }}
                         Thank you for your message! I'll get back to you soon.
                     </div>
                 </div>
                 
                 <!-- Contact Information -->
                 <div class="row mt-5">
-                    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-md-4 text-center">
                         <div class="contact-info-card">
-                            <i class="fas fa-envelope fa-3x mb-3 text-primary"></i>
+                            {{ ic.icon('mail', 'icon mb-3 text-primary') }}
                             <h5>Email</h5>
                             <p>srininvast20@gmail.com</p>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-md-4 text-center">
                         <div class="contact-info-card">
-                            <i class="fas fa-phone fa-3x mb-3 text-primary"></i>
+                            {{ ic.icon('phone', 'icon mb-3 text-primary') }}
                             <h5>Phone</h5>
                             <p>+91-8341492762</p>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-md-4 text-center">
                         <div class="contact-info-card">
-                            <i class="fas fa-map-marker-alt fa-3x mb-3 text-primary"></i>
+                            {{ ic.icon('map-pin', 'icon mb-3 text-primary') }}
                             <h5>Location</h5>
                             <p>Andhra Pradesh, India</p>
                         </div>
@@ -88,18 +90,18 @@
         </div>
         
         <!-- Next Steps / Explore More (SEO Cross-Linking) -->
-        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+        <div class="row mt-5 pt-4 border-top border-secondary text-center">
             <div class="col-12">
                 <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
                 <div class="d-flex justify-content-center flex-wrap gap-3">
                     <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-tools me-2"></i>My Skills
+                        {{ ic.icon('tools', 'icon me-2') }}My Skills
                     </a>
                     <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                        {{ ic.icon('briefcase', 'icon me-2') }}Work Experience
                     </a>
                     <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-code me-2"></i>View Projects
+                        {{ ic.icon('code', 'icon me-2') }}View Projects
                     </a>
                 </div>
             </div>

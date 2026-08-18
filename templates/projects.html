@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Software Projects | Talari Srinivasa Rao - AI & Web Developer{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}Explore the portfolio projects of Talari Srinivasa Rao. Includes Health Insurance Fraud Detection with SHAP Explainable AI, Smart IoT Helmet for miners, AI Resume Builder, and UAV camouflaged soldier detection.{% endblock %}
+{% block title %}Projects | AI, Full Stack & IoT Projects | Srinivasa Rao{% endblock %}
 
-{% block meta_keywords %}AI Projects, Machine Learning Portfolio, Web Developer Projects, IoT Projects, RT-DETR UAV, Explainable AI Claim Fraud, Smart Payroll System, Tesseract OCR, BioGPT, Python Projects{% endblock %}
+{% block meta_description %}Explore Srinivasa Rao's portfolio of AI/ML, Full Stack Development, IoT, automation, and web application projects built using modern technologies.{% endblock %}
+
+
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -58,14 +60,14 @@
 {% block content %}
 <section class="py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">My Projects</h1>
-        <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="section-title text-center mb-5">My Projects</h1>
+        <p class="lead text-center mb-5">
             Explore my work in AI, ML, IoT and web development. Each project demonstrates my technical skills and problem-solving approach.
         </p>
         
         <div class="row g-4">
             {% for project in projects %}
-            <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="col-md-6 mb-4">
                 <div class="card bg-dark text-white border-0 shadow-sm h-100 project-card">
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center mb-4">
@@ -196,21 +198,21 @@
         </div>
         
         <!-- Next Steps / Explore More (SEO Cross-Linking) -->
-        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+        <div class="row mt-5 pt-4 border-top border-secondary text-center">
             <div class="col-12">
                 <h3 class="h4 mb-4 text-white">Explore More</h3>
                 <div class="d-flex justify-content-center flex-wrap gap-3">
                     <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-tools me-2"></i>My Skills
+                        {{ ic.icon('tools', 'icon me-2') }}My Skills
                     </a>
                     <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                        {{ ic.icon('briefcase', 'icon me-2') }}Work Experience
                     </a>
                     <a href="{{ url_for('certifications') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-certificate me-2"></i>Certifications
+                        {{ ic.icon('award', 'icon me-2') }}Certifications
                     </a>
                     <a href="{{ url_for('contact') }}" class="btn btn-primary">
-                        <i class="fas fa-envelope me-2"></i>Contact Me
+                        {{ ic.icon('mail', 'icon me-2') }}Contact Me
                     </a>
                 </div>
             </div>

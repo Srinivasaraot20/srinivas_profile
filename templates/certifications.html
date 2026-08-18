@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Technical Certifications | Talari Srinivasa Rao{% endblock %}
+{% import '_icons.html' as ic %}
 
-{% block meta_description %}View the official software and engineering credentials held by Talari Srinivasa Rao, including ServiceNow System Administrator, HarvardX Data Science, and IIT R Software.{% endblock %}
+{% block title %}Certifications | Cloud, AI & Technology | Srinivasa Rao{% endblock %}
 
-{% block meta_keywords %}ServiceNow CSA Certificate, HarvardX Data Science Python, IIT Madras NPTEL R Software, Ethical Hacking IIT, Linux NDG Cisco, Cisco Networking Certification{% endblock %}
+{% block meta_description %}Explore Srinivasa Rao's professional certifications and credentials in cloud computing, software development, AI, technology, and related technical domains.{% endblock %}
+
+
 
 {% block content %}
 <style>
@@ -52,16 +54,16 @@
     }
 </style>
 
-<section class="py-5 mt-5">
+<section class="certifications-page py-5 mt-5">
     <div class="container">
-        <h1 class="section-title text-center mb-5" data-aos="fade-up">Certifications</h1>
-        <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="section-title text-center mb-5">Certifications</h1>
+        <p class="lead text-center mb-5">
             Professional certifications that showcase my technical knowledge and continuous learning journey.
         </p>
 
         <div class="row g-4">
             {% for cert in certifications %}
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 50 }}">
+            <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card bg-dark text-white border-0 shadow h-100 certificate-item"
                     style="--start-color: {{ ['#ff7e5f', '#feb47b', '#6a11cb', '#2575fc', '#43cea2', '#185a9d', '#f7971e', '#f953c6', '#b91d73', '#1e3c72', '#fc466b'][loop.index0 % 11] }};
                            --end-color: {{ ['#feb47b', '#ff7e5f', '#2575fc', '#6a11cb', '#185a9d', '#43cea2', '#f953c6', '#f7971e', '#1e3c72', '#b91d73', '#fc466b'][loop.index0 % 11] }};">
@@ -76,7 +78,7 @@
                         </div>
                         <h5 class="card-title text-white fw-bold mb-2">{{ cert.title }}</h5>
                         <p class="text-white-50 small mb-0 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-university text-info me-2"></i> {{ cert.organization }}
+                            {{ ic.icon('landmark', 'icon text-info me-2') }} {{ cert.organization }}
                         </p>
                     </div>
                 </div>
@@ -86,7 +88,7 @@
 
         <div class="row mt-5">
             <div class="col-12">
-                <div class="card bg-dark text-white border-0 shadow p-4" data-aos="fade-up">
+                <div class="card bg-dark text-white border-0 shadow p-4">
                     <h4 class="text-white mb-4">My Learning Journey</h4>
                     <p>
                         Continuous education and skill development are essential in the rapidly evolving fields of AI, machine learning, and software development. These certifications represent my commitment to staying current with industry trends and best practices.
@@ -98,7 +100,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="d-flex">
                                     <div class="me-3">
-                                        <i class="fas fa-brain fs-2 text-primary"></i>
+                                        {{ ic.icon('cpu', 'icon fs-2 text-primary') }}
                                     </div>
                                     <div>
                                         <h6>Artificial Intelligence & Machine Learning</h6>
@@ -109,7 +111,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="d-flex">
                                     <div class="me-3">
-                                        <i class="fas fa-database fs-2 text-primary"></i>
+                                        {{ ic.icon('database', 'icon fs-2 text-primary') }}
                                     </div>
                                     <div>
                                         <h6>Data Science & Analytics</h6>
@@ -120,7 +122,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="d-flex">
                                     <div class="me-3">
-                                        <i class="fas fa-code fs-2 text-primary"></i>
+                                        {{ ic.icon('code', 'icon fs-2 text-primary') }}
                                     </div>
                                     <div>
                                         <h6>Programming & Development</h6>
@@ -131,7 +133,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="d-flex">
                                     <div class="me-3">
-                                        <i class="fas fa-cloud fs-2 text-primary"></i>
+                                        {{ ic.icon('cloud', 'icon fs-2 text-primary') }}
                                     </div>
                                     <div>
                                         <h6>Cloud & Infrastructure</h6>
@@ -149,21 +151,21 @@
             </div>
         </div>
         <!-- Next Steps / Explore More (SEO Cross-Linking) -->
-        <div class="row mt-5 pt-4 border-top border-secondary text-center" data-aos="fade-up">
+        <div class="row mt-5 pt-4 border-top border-secondary text-center">
             <div class="col-12">
                 <h3 class="h4 mb-4 text-white">Explore My Portfolio</h3>
                 <div class="d-flex justify-content-center flex-wrap gap-3">
                     <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-tools me-2"></i>My Skills
+                        {{ ic.icon('tools', 'icon me-2') }}My Skills
                     </a>
                     <a href="{{ url_for('experience') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-briefcase me-2"></i>Work Experience
+                        {{ ic.icon('briefcase', 'icon me-2') }}Work Experience
                     </a>
                     <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-code me-2"></i>View Projects
+                        {{ ic.icon('code', 'icon me-2') }}View Projects
                     </a>
                     <a href="{{ url_for('contact') }}" class="btn btn-primary">
-                        <i class="fas fa-envelope me-2"></i>Contact Me
+                        {{ ic.icon('mail', 'icon me-2') }}Contact Me
                     </a>
                 </div>
             </div>
