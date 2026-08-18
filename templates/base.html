@@ -7,7 +7,7 @@
 
     <!-- Primary SEO Meta Tags -->
     <title>{% block title %}{{ title }} | Talari Srinivasa Rao - Full Stack Developer & AI Engineer{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}Talari Srinivasa Rao is a Computer Science Engineer specializing in Full Stack, MERN Stack, Python Development, and AI/ML Solutions based in Andhra Pradesh, India. Portfolio featuring smart IoT systems, fraud detection models, and custom software.{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Talari Srinivasa Rao is a Full Stack Developer & AI Engineer specializing in Python, Django, JavaScript, AI/ML, and web application development based in Andhra Pradesh, India.{% endblock %}">
     <meta name="author" content="Talari Srinivasa Rao">
     <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
 
@@ -23,7 +23,7 @@
     <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{{ self.meta_description() }}{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ site_url }}{{ url_for('static', filename='images/tsr-social-preview.webp') }}{% endblock %}">
-    <meta property="og:site_name" content="Talari Srinivasa Rao Portfolio">
+    <meta property="og:site_name" content="Talari Srinivasa Rao">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -40,6 +40,7 @@
       "@id": "{{ site_url }}/#person",
       "name": "Talari Srinivasa Rao",
       "url": "{{ site_url }}/",
+      "image": "{{ site_url }}{{ url_for('static', filename='images/tsr-social-preview.webp') }}",
       "sameAs": [
         "https://github.com/Srinivasaraot20",
         "https://www.linkedin.com/in/srinivasa-rao-talari-a87723289/",
@@ -70,8 +71,8 @@
       "@type": "WebSite",
       "@id": "{{ site_url }}/#website",
       "url": "{{ site_url }}/",
-      "name": "Talari Srinivasa Rao Portfolio",
-      "description": "Portfolio of Talari Srinivasa Rao, Full Stack Developer & AI Engineer specializing in MERN, Flask, Django, and AI/ML solutions.",
+      "name": "Talari Srinivasa Rao",
+      "description": "Portfolio of Talari Srinivasa Rao, Full Stack Developer & AI Engineer specializing in Python, Django, JavaScript, AI/ML, and web application development.",
       "inLanguage": "en",
       "author": { "@id": "{{ site_url }}/#person" },
       "publisher": { "@id": "{{ site_url }}/#person" }
@@ -121,10 +122,12 @@
     {% block schema_markup %}{% endblock %}
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" sizes="any">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='images/favicon-48x48.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
 
     {% if request.endpoint == 'index' %}
     <!-- Preload LCP image -->
@@ -241,13 +244,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-3 text-primary">Srinivasa Rao Talari</h5>
+                    <h3 class="h5 mb-3 text-primary">Srinivasa Rao Talari</h3>
                     <p class="small">B.Tech AI & Data Science student | IoT Innovator | ML Developer | Full-Stack Intern</p>
                     <p class="small mt-3">{{ ic.icon('map-pin', 'icon me-2') }}Bayyavaram, Andhra Pradesh</p>
                     <p class="small">{{ ic.icon('phone', 'icon me-2') }}+91-8341492762</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-3 text-primary">Quick Links</h5>
+                    <h3 class="h5 mb-3 text-primary">Quick Links</h3>
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled">
@@ -268,7 +271,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="mb-3 text-primary">Connect With Me</h5>
+                    <h3 class="h5 mb-3 text-primary">Connect With Me</h3>
                     <div class="social-links mb-4">
                         <a href="https://github.com/" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">{{ ic.brand('github', 'icon') }}</a>
                         <a href="https://linkedin.com/in/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">{{ ic.brand('linkedin', 'icon') }}</a>
@@ -277,7 +280,7 @@
                         <a href="#" title="Instagram" aria-label="Instagram">{{ ic.brand('instagram', 'icon') }}</a>
                     </div>
                     <div class="newsletter">
-                        <h6 class="text-white mb-2">Subscribe to my newsletter</h6>
+                        <h4 class="h6 text-white mb-2">Subscribe to my newsletter</h4>
                         <form action="{{ url_for('subscribe') }}" method="POST">
                             <div class="input-group">
                                 <input type="email" name="email" class="form-control" placeholder="Your email" required>

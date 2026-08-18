@@ -72,11 +72,11 @@
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center mb-4">
                             <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" class="img-fluid me-3" style="width: 50px; height: 50px;" loading="lazy">
-                            <h4 class="card-title text-white mb-0">{{ project.title }} <span>{{ project.emoji }}</span></h4>
+                            <h2 class="h4 card-title text-white mb-0">{{ project.title }} <span>{{ project.emoji }}</span></h2>
                         </div>
                         <p class="card-text">{{ project.description }}</p>
                         <div class="mt-3">
-                            <h6 class="text-white mb-2">Technologies Used:</h6>
+                            <h3 class="h6 text-white mb-2">Technologies Used:</h3>
                             <div class="d-flex flex-wrap gap-2">
                                 {% for tech in project.tech %}
                                 <span class="badge bg-primary p-2">{{ tech }}</span>
@@ -97,7 +97,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="projectModalLabel{{ loop.index }}">{{ project.title }} {{ project.emoji }}</h5>
+                            <h3 class="modal-title" id="projectModalLabel{{ loop.index }}">{{ project.title }} {{ project.emoji }}</h3>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -112,7 +112,7 @@
                                     <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }} - Project Image" class="img-fluid" style="max-height: 200px;" loading="lazy">
                                 </div>
                                 <div class="mb-4">
-                                    <h5>Project Overview</h5>
+                                    <h4 class="h5">Project Overview</h4>
                                     <p>
                                         {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
                                         An intelligent IoT-based safety monitoring system designed to protect coal mine workers by continuously monitoring hazardous environmental conditions. The helmet detects dangerous gas concentrations such as Methane (CH4), Carbon Monoxide (CO), Carbon Dioxide (CO₂), and other harmful gases in real time. The system also monitors temperature and humidity levels to enhance workplace safety.<br><br>
@@ -129,7 +129,7 @@
                                     </p>
                                 </div>
                                 <div class="mb-4">
-                                    <h5>Technologies Used</h5>
+                                    <h4 class="h5">Technologies Used</h4>
                                     <div class="d-flex flex-wrap gap-2">
                                         {% for tech in project.tech %}
                                         <span class="badge bg-primary p-2">{{ tech }}</span>
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <h5>Key Features</h5>
+                                    <h4 class="h5">Key Features</h4>
                                     <ul>
                                         {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
                                         <li>Real-time Gas Detection (CH4, CO, CO₂)</li>
@@ -175,7 +175,7 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <h5>Challenges & Solutions</h5>
+                                    <h4 class="h5">Challenges & Solutions</h4>
                                     <p>
                                         {% if project.title == 'Smart Helmet for Coal Mine Workers' %}
                                         Designing a compact, lightweight system that could reliably detect harmful gases was challenging. The solution involved careful component selection and integration, with extensive testing to ensure accuracy in detection and alarm triggering mechanisms.
