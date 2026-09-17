@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d2137"/>
+      <stop offset="100%" stop-color="#2196f3"/>
+    </linearGradient>
+    <linearGradient id="sGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2196f3"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="240" r="230" fill="url(#arcGrad)"/>
+  <!-- Arc cutout -->
+  <path d="M100,200 A200,200 0 0,1 412,200" fill="none" stroke="#fff" stroke-width="28" stroke-linecap="round"/>
+  <!-- Code brackets -->
+  <text x="256" y="130" text-anchor="middle" font-family="monospace" font-size="60" font-weight="bold" fill="#1565c0">&lt;/&gt;</text>
+  <!-- T -->
+  <path d="M100,180 L210,180 L210,250 L170,250 L170,420 L140,420 L140,250 L100,250 Z" fill="#0d2137"/>
+  <!-- S -->
+  <path d="M220,210 L290,210 Q320,210 320,245 Q320,275 290,280 L250,285 L250,315 L290,315 Q330,315 330,355 Q330,395 290,395 L220,395 L220,365 L280,365 Q300,365 300,355 Q300,345 280,345 L250,345 L250,250 L220,250 Z" fill="url(#sGrad)"/>
+  <!-- R -->
+  <path d="M340,180 L440,180 L440,250 L400,250 Q430,270 430,300 Q430,330 400,345 L450,420 L410,420 L370,350 L370,420 L340,420 Z M370,250 L370,320 L400,320 Q415,320 415,300 Q415,280 400,280 Q390,280 370,270 Z" fill="#0d2137"/>
+  <!-- Orange accent on R -->
+  <path d="M400,345 L450,420 L410,420 L370,350 L370,365 L400,365 Q415,365 415,355 Q415,345 400,345 Z" fill="#f57c00"/>
+</svg>
