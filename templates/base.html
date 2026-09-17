@@ -184,15 +184,19 @@
                             {{ ic.icon('code', 'icon') }} Projects
                         </a>
                     </li>
+                    <li>
+                        <a class="nav-link {% if request.path == url_for('contact') %}active{% endif %}" href="{{ url_for('contact') }}">
+                            {{ ic.icon('mail', 'icon') }} Contact
+                        </a>
+                    </li>
                     <li class="nav-dropdown">
-                        <button type="button" class="nav-link dropdown-toggle {% if request.path in [url_for('achievements'), url_for('certifications'), url_for('gallery'), url_for('contact')] %}active{% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="nav-link dropdown-toggle {% if request.path in [url_for('achievements'), url_for('certifications'), url_for('gallery')] %}active{% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
                             More {{ ic.icon('chevron-down', 'icon') }}
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item {% if request.path == url_for('achievements') %}active{% endif %}" href="{{ url_for('achievements') }}">{{ ic.icon('trophy', 'icon') }} Achievements</a></li>
                             <li><a class="dropdown-item {% if request.path == url_for('certifications') %}active{% endif %}" href="{{ url_for('certifications') }}">{{ ic.icon('award', 'icon') }} Certifications</a></li>
                             <li><a class="dropdown-item {% if request.path == url_for('gallery') %}active{% endif %}" href="{{ url_for('gallery') }}">{{ ic.icon('image', 'icon') }} Gallery</a></li>
-                            <li><a class="dropdown-item {% if request.path == url_for('contact') %}active{% endif %}" href="{{ url_for('contact') }}">{{ ic.icon('mail', 'icon') }} Contact</a></li>
                         </ul>
                     </li>
                 </ul>

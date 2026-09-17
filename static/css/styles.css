@@ -99,7 +99,7 @@ body {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .btn-primary-custom:hover {
-  background-color: #2980b9;
+  background-color: var(--c-primary);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -143,7 +143,7 @@ body {
 }
 
 .newsletter-btn {
-  border-radius: 0 var(--r-pill) var(--r-pill) 0 !important;
+  border-radius: var(--r-md) !important;
   white-space: nowrap;
 }
 
@@ -260,7 +260,7 @@ body {
   right: 11px;
   bottom: 4px;
   height: 2px;
-  border-radius: 2px;
+  border-radius: var(--r-sm);
   background-color: #38bdf8;
 }
 
@@ -339,7 +339,7 @@ body {
   gap: 7px;
   padding: 9px 16px;
   border-radius: var(--r-md);
-  background-color: #168be8;
+  background-color: var(--c-primary);
   color: #ffffff;
   font-size: var(--fs-nav);
   font-weight: 600;
@@ -349,7 +349,7 @@ body {
 }
 
 .resume-btn:hover {
-  background-color: #0f6fc4;
+  background-color: var(--c-primary);
   color: #ffffff;
 }
 
@@ -596,13 +596,13 @@ body.nav-open .whatsapp-button {
 .mobile-nav-cta {
   justify-content: center;
   margin-top: 10px;
-  background-color: #168be8;
+  background-color: var(--c-primary);
   color: #ffffff;
   font-weight: 600;
 }
 
 .mobile-nav-cta:hover {
-  background-color: #0f6fc4;
+  background-color: var(--c-primary);
   color: #ffffff;
 }
 
@@ -708,7 +708,7 @@ body.nav-open .whatsapp-button {
   font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #7ec8ff;
+  color: var(--c-accent);
   background-color: rgba(33, 150, 243, 0.1);
   border: 1px solid rgba(33, 150, 243, 0.3);
   border-radius: var(--r-pill);
@@ -727,14 +727,14 @@ body.nav-open .whatsapp-button {
 .hero-subtitle {
   font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight: 600;
-  color: #3a9bdc;
+  color: var(--c-accent);
   margin-bottom: 1.25rem;
 }
 
 .hero-desc {
   max-width: 560px;
   font-size: var(--fs-base);
-  color: #b8c2d4;
+  color: var(--c-text-muted);
   margin-bottom: 1.75rem;
 }
 
@@ -747,13 +747,13 @@ body.nav-open .whatsapp-button {
   align-items: center;
   gap: 0.35rem;
   font-weight: 600;
-  color: #3a9bdc;
+  color: var(--c-accent);
   text-decoration: none;
   transition: color 0.3s ease, gap 0.3s ease;
 }
 
 .hero-cta-link:hover {
-  color: #7ec8ff;
+  color: var(--c-accent);
   gap: 0.6rem;
 }
 
@@ -991,9 +991,14 @@ section {
 .about-highlights {
   list-style: none;
   padding: 0;
-  margin: 1.5rem auto 0;
+  margin: 1.5rem 0 0;
   max-width: 600px;
   text-align: left;
+}
+
+.about-card .about-highlights {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-highlights li {
@@ -1036,7 +1041,7 @@ section {
 /* Project Cards */
 .project-card {
   height: 100%;
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
@@ -1072,7 +1077,7 @@ section {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   overflow: hidden;
 }
 
@@ -1083,6 +1088,23 @@ section {
 
 .flip-card-front .card-title {
   margin-top: 0.5rem;
+}
+
+.flip-card-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--c-text-muted);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.flip-card:hover .flip-card-hint {
+  opacity: 0;
 }
 
 .flip-card-back {
@@ -1212,14 +1234,14 @@ section {
   padding: 20px 30px;
   background-color: var(--card-bg);
   position: relative;
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Achievement Cards */
 .achievement-card {
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   overflow: hidden;
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
@@ -1235,7 +1257,7 @@ section {
 
 /* Certificate Grid */
 .certificate-item {
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform var(--transition-speed);
@@ -1251,14 +1273,14 @@ section {
 /* Contact Form */
 .contact-form-container {
   background-color: var(--card-bg);
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   box-shadow: var(--shadow);
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .form-control {
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   padding: 0.75rem 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: rgba(255, 255, 255, 0.05);
@@ -1275,13 +1297,13 @@ section {
 .btn-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   padding: 0.75rem 1.5rem;
   transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 .btn-primary:hover {
-  background-color: #2980b9;
+  background-color: var(--c-primary);
   transform: translateY(-2px);
 }
 
@@ -1328,7 +1350,7 @@ section {
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
-  border-radius: var(--border-radius);
+  border-radius: var(--r-md);
   box-shadow: var(--shadow);
 }
 
@@ -1595,14 +1617,14 @@ section {
     padding: 0;
     border: 0;
     background: none;
-    color: #2196f3;
+    color: var(--c-primary);
     font-size: var(--fs-nav);
     font-weight: 600;
     cursor: pointer;
   }
 
   .about-toggle:hover {
-    color: #64b5f6;
+    color: var(--c-accent);
   }
 
   .about-toggle:focus-visible {
@@ -1668,7 +1690,7 @@ section {
     border: 1px solid rgba(33, 150, 243, 0.35);
     border-radius: var(--r-pill);
     background: rgba(33, 150, 243, 0.06);
-    color: #dbeafe;
+    color: var(--c-accent);
     white-space: nowrap;
   }
 }
@@ -1738,7 +1760,7 @@ section {
     font-size: var(--fs-base);
     line-height: 1.55;
     text-align: center;
-    color: #d0d5dc;
+    color: var(--c-text-secondary);
     margin-bottom: 28px !important;
   }
 
@@ -1769,7 +1791,7 @@ section {
   }
 
   .contact-page .card a {
-    color: #7ec8ff;
+    color: var(--c-accent);
     text-decoration: none;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -1896,7 +1918,7 @@ section {
 
 .skill-badge {
   background-color: rgba(255, 255, 255, 0.08) !important;
-  color: #e2e8f0 !important;
+  color: var(--c-text-secondary) !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
   font-weight: 500;
@@ -1932,12 +1954,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 120px;
+  height: 150px;
   margin-bottom: 1rem;
 }
 
 .achievement-img-wrap img {
-  max-height: 120px;
+  max-height: 150px;
   width: auto;
   object-fit: contain;
 }
