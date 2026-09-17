@@ -15,6 +15,37 @@ img, svg {
 
 /* Base Styles */
 :root {
+  /* Design tokens - consolidated font sizes */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 1rem;
+  --fs-md: 1.05rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+  --fs-4xl: 3.5rem;
+  --fs-nav: 0.9375rem;
+  --fs-brand: 1.3125rem;
+  --fs-mobile-nav: 1rem;
+  /* Design tokens - consolidated colors */
+  --c-primary: #3498db;
+  --c-accent: #38bdf8;
+  --c-accent-dark: #3a9bdc;
+  --c-accent-light: #7ec8ff;
+  --c-text: #ffffff;
+  --c-text-secondary: #c7ced8;
+  --c-text-muted: #b8c2d4;
+  --c-green: #25d366;
+  --c-green-hover: #2ecc71;
+  /* Design tokens - consolidated border radii */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-pill: 999px;
+  /* Existing tokens */
   --primary-color: #3498db;
   --secondary-color: #2c3e50;
   --accent-color: #e74c3c;
@@ -109,7 +140,7 @@ body {
 }
 
 .brand-name {
-  font-size: 21px;
+  font-size: var(--fs-brand);
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
@@ -130,10 +161,10 @@ body {
   align-items: center;
   gap: 7px;
   padding: 9px 11px;
-  font-size: 15px;
+  font-size: var(--fs-nav);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.72);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   text-decoration: none;
   white-space: nowrap;
   background: none;
@@ -181,13 +212,7 @@ body {
 }
 
 .nav-dropdown .dropdown-toggle::after {
-  content: '';
-  display: inline-block;
-  margin-left: 5px;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid currentColor;
-  transition: transform 0.2s ease;
+  content: none;
 }
 
 .nav-dropdown .dropdown-toggle[aria-expanded="true"]::after {
@@ -206,7 +231,7 @@ body {
   list-style: none;
   background-color: #0d1420;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: var(--r-lg);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   opacity: 0;
   visibility: hidden;
@@ -225,8 +250,8 @@ body {
   align-items: center;
   gap: 9px;
   padding: 10px 12px;
-  border-radius: 6px;
-  font-size: 15px;
+  border-radius: var(--r-md);
+  font-size: var(--fs-nav);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
@@ -255,10 +280,10 @@ body {
   align-items: center;
   gap: 7px;
   padding: 9px 16px;
-  border-radius: 8px;
+  border-radius: var(--r-md);
   background-color: #168be8;
   color: #ffffff;
-  font-size: 15px;
+  font-size: var(--fs-nav);
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -286,7 +311,7 @@ body {
   height: 44px;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -299,7 +324,7 @@ body {
 .toggler-bar {
   width: 20px;
   height: 2px;
-  border-radius: 2px;
+  border-radius: var(--r-sm);
   background-color: #ffffff;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -443,7 +468,7 @@ body.nav-open .whatsapp-button {
 }
 
 .mobile-nav-title {
-  font-size: 13px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -458,7 +483,7 @@ body.nav-open .whatsapp-button {
   height: 40px;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   cursor: pointer;
@@ -486,8 +511,8 @@ body.nav-open .whatsapp-button {
   gap: 12px;
   min-height: 44px;
   padding: 10px 12px;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: var(--r-md);
+  font-size: var(--fs-mobile-nav);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
@@ -539,7 +564,7 @@ body.nav-open .whatsapp-button {
 
   .nav-links .nav-link {
     padding: 8px 9px;
-    font-size: 14px;
+    font-size: var(--fs-sm);
     gap: 6px;
   }
 
@@ -558,12 +583,12 @@ body.nav-open .whatsapp-button {
   }
 
   .brand-name {
-    font-size: 19px;
+    font-size: var(--fs-brand);
   }
 
   .resume-btn {
     padding: 8px 14px;
-    font-size: 14px;
+    font-size: var(--fs-sm);
   }
 }
 
@@ -590,7 +615,7 @@ body.nav-open .whatsapp-button {
   }
 
   .brand-name {
-    font-size: 20px;
+    font-size: var(--fs-brand);
   }
 
   .nav-container {
@@ -622,14 +647,14 @@ body.nav-open .whatsapp-button {
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 0.9rem;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.12em;
   color: #7ec8ff;
   background-color: rgba(33, 150, 243, 0.1);
   border: 1px solid rgba(33, 150, 243, 0.3);
-  border-radius: 999px;
-  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  text-transform: capitalize;
   margin-bottom: 1.25rem;
 }
 
@@ -650,7 +675,7 @@ body.nav-open .whatsapp-button {
 
 .hero-desc {
   max-width: 560px;
-  font-size: 1.05rem;
+  font-size: var(--fs-md);
   color: #b8c2d4;
   margin-bottom: 1.75rem;
 }
@@ -677,7 +702,7 @@ body.nav-open .whatsapp-button {
 .profile-card {
   display: inline-block;
   position: relative;
-  border-radius: 28px;
+  border-radius: var(--r-2xl);
   background: rgba(33, 150, 243, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
@@ -687,7 +712,7 @@ body.nav-open .whatsapp-button {
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 28px;
+  border-radius: var(--r-2xl);
   padding: 1px;
   background: linear-gradient(135deg, rgba(33, 150, 243, 0.5), rgba(255, 255, 255, 0.08));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -703,7 +728,7 @@ body.nav-open .whatsapp-button {
   max-height: 420px;
   object-fit: cover;
   object-position: center top;
-  border-radius: 28px;
+  border-radius: var(--r-2xl);
   border: 5px solid rgba(255, 255, 255, 0.06);
   box-shadow: var(--shadow);
   transition: transform 0.5s;
@@ -728,10 +753,14 @@ section {
   margin-bottom: 3rem;
 }
 
+.faq-title::after {
+  content: none;
+}
+
 .faq-item {
   background: #11161f;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: var(--r-lg);
   margin-bottom: 14px;
   overflow: hidden;
 }
@@ -758,11 +787,11 @@ section {
 .faq-question:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: -2px;
-  border-radius: 14px;
+  border-radius: var(--r-lg);
 }
 
 .faq-question-text {
-  font-size: 18px;
+  font-size: var(--fs-base);
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
@@ -806,7 +835,7 @@ section {
   margin: 0;
   padding: 16px 24px 20px;
   color: #c7ced8;
-  font-size: 16px;
+  font-size: var(--fs-base);
   line-height: 1.65;
 }
 
@@ -816,7 +845,7 @@ section {
   }
 
   .faq-title {
-    font-size: 32px;
+    font-size: var(--fs-3xl);
     line-height: 1.2;
     margin-bottom: 24px;
   }
@@ -833,12 +862,12 @@ section {
   }
 
   .faq-question-text {
-    font-size: 16px;
+    font-size: var(--fs-base);
   }
 
   .faq-answer {
     padding: 14px 16px 18px;
-    font-size: 15px;
+    font-size: var(--fs-nav);
     line-height: 1.6;
   }
 }
@@ -904,6 +933,31 @@ section {
   color: #c7ced8;
   text-align: center;
   margin: 0 auto;
+}
+
+.about-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem auto 0;
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-highlights li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #c7ced8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
 .about-more p {
@@ -974,6 +1028,10 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.flip-card-front .card-title {
+  margin-top: 0.5rem;
+}
+
 .flip-card-back {
   background-color: var(--secondary-color);
   color: var(--light-text);
@@ -988,7 +1046,7 @@ section {
 /* Skill Bars */
 .skill-bar {
   height: 10px;
-  border-radius: 5px;
+  border-radius: var(--r-sm);
   background-color: rgba(255, 255, 255, 0.1);
   margin-bottom: 1.5rem;
   position: relative;
@@ -1013,7 +1071,7 @@ section {
 
 .skill-progress {
   height: 100%;
-  border-radius: 5px;
+  border-radius: var(--r-sm);
   background: linear-gradient(90deg, var(--primary-color) 0%, #2ecc71 100%);
   width: 0; /* Initial width, will be animated via JavaScript */
   transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1286,7 +1344,7 @@ section {
 
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
-  border-radius: 5px;
+  border-radius: var(--r-sm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1347,7 +1405,7 @@ section {
 
   .hero-badge {
     padding: 9px 16px;
-    font-size: 12px;
+    font-size: var(--fs-sm);
     letter-spacing: 0.8px;
     margin-bottom: 18px;
   }
@@ -1366,7 +1424,7 @@ section {
   .hero-desc {
     margin-left: auto;
     margin-right: auto;
-    font-size: 15px;
+    font-size: var(--fs-nav);
     line-height: 1.6;
     margin-bottom: 22px;
   }
@@ -1396,7 +1454,7 @@ section {
   .profile-img {
     width: 230px;
     height: 280px;
-    border-radius: 24px;
+    border-radius: var(--r-xl);
     border-width: 3px;
   }
 
@@ -1444,13 +1502,13 @@ section {
   .about-card {
     margin-top: 24px;
     padding: 24px 20px;
-    border-radius: 20px;
+    border-radius: var(--r-xl);
     background: #11161f;
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .about-title {
-    font-size: 32px;
+    font-size: var(--fs-3xl);
     line-height: 1.2;
     font-weight: 700;
     text-align: center;
@@ -1466,12 +1524,12 @@ section {
     height: 3px;
     margin: 10px auto 0;
     background: #2196f3;
-    border-radius: 999px;
+    border-radius: var(--r-pill);
   }
 
   .about-description {
     max-width: 100%;
-    font-size: 16px;
+    font-size: var(--fs-base);
     line-height: 1.65;
     text-align: left;
     color: #c7ced8;
@@ -1487,7 +1545,7 @@ section {
     border: 0;
     background: none;
     color: #2196f3;
-    font-size: 15px;
+    font-size: var(--fs-nav);
     font-weight: 600;
     cursor: pointer;
   }
@@ -1499,7 +1557,7 @@ section {
   .about-toggle:focus-visible {
     outline: 2px solid rgba(33, 150, 243, 0.5);
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
   }
 
   .about-more {
@@ -1519,7 +1577,7 @@ section {
 
   .about-more p {
     text-align: left;
-    font-size: 15px;
+    font-size: var(--fs-nav);
     line-height: 1.65;
     margin-top: 0;
   }
@@ -1534,14 +1592,14 @@ section {
   }
 
   .about-more-actions .btn {
-    font-size: 14px;
+    font-size: var(--fs-sm);
     padding: 8px 18px;
   }
 
   .expertise-title {
     display: block;
     margin: 24px 0 12px;
-    font-size: 16px;
+    font-size: var(--fs-base);
     font-weight: 600;
     color: #ffffff;
   }
@@ -1555,9 +1613,9 @@ section {
 
   .expertise-tag {
     padding: 7px 11px;
-    font-size: 12px;
+    font-size: var(--fs-xs);
     border: 1px solid rgba(33, 150, 243, 0.35);
-    border-radius: 999px;
+    border-radius: var(--r-pill);
     background: rgba(33, 150, 243, 0.06);
     color: #dbeafe;
     white-space: nowrap;
@@ -1572,11 +1630,11 @@ section {
   }
 
   .about-title {
-    font-size: 29px;
+    font-size: var(--fs-3xl);
   }
 
   .about-description {
-    font-size: 15px;
+    font-size: var(--fs-nav);
     line-height: 1.6;
   }
 
@@ -1599,7 +1657,7 @@ section {
   .gallery-page h1.section-title,
   .contact-page h1.section-title,
   .certifications-page h1.section-title {
-    font-size: 32px;
+    font-size: var(--fs-3xl);
     line-height: 1.2;
     font-weight: 700;
     text-align: center;
@@ -1623,12 +1681,12 @@ section {
     height: 3px;
     margin: 9px auto 0;
     background: #2196f3;
-    border-radius: 999px;
+    border-radius: var(--r-pill);
   }
 
   .gallery-page .lead,
   .certifications-page .lead {
-    font-size: 16px;
+    font-size: var(--fs-base);
     line-height: 1.55;
     text-align: center;
     color: #d0d5dc;
@@ -1744,7 +1802,7 @@ section {
   }
 
   .hero-title {
-    font-size: 34px;
+    font-size: var(--fs-3xl);
   }
 }
 
@@ -1819,6 +1877,20 @@ section {
 
 .achievement-card:hover img {
   transform: scale(1.05);
+}
+
+.achievement-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-bottom: 1rem;
+}
+
+.achievement-img-wrap img {
+  max-height: 120px;
+  width: auto;
+  object-fit: contain;
 }
 
 
