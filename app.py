@@ -600,6 +600,12 @@ Sitemap: {site_url}/sitemap.xml
             return send_from_directory(app.root_path, 'googled5ad724c92ee2f27.html', mimetype='text/html')
         return Response("google-site-verification: googled5ad724c92ee2f27.html", mimetype='text/html')
 
+    @app.route('/googleca61b563ada1ea61.html')
+    def google_verification_new():
+        if os.path.exists(os.path.join(app.root_path, 'googleca61b563ada1ea61.html')):
+            return send_from_directory(app.root_path, 'googleca61b563ada1ea61.html', mimetype='text/html')
+        return Response("google-site-verification: googleca61b563ada1ea61.html", mimetype='text/html')
+
     @app.errorhandler(404)
     def page_not_found(e):
         now = datetime.datetime.now()
