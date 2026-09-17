@@ -12,7 +12,10 @@ from forms import ContactForm
 from flask_wtf.csrf import CSRFProtect
 from config import config
 from models import db, ContactMessage
-from twilio.rest import Client
+try:
+    from twilio.rest import Client
+except ImportError:
+    Client = None
 
 # Simple in-memory rate limiter
 SUBMISSION_LIMIT = 3
@@ -66,7 +69,7 @@ def send_whatsapp_notification(name, email, phone, subject, message, submission_
 *Message:* {message}
 *Time:* {submission_time}"""
 
-    if account_sid and auth_token:
+    if account_sid and auth_token and Client:
         try:
             client = Client(account_sid, auth_token)
             msg = client.messages.create(
