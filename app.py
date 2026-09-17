@@ -126,7 +126,7 @@ def create_app(config_name=None):
 
     @app.context_processor
     def inject_globals():
-        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
+        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.vercel.app').rstrip('/')
         whatsapp_number = ''.join(ch for ch in str(app.config.get('WHATSAPP_NUMBER', '918341492762')) if ch.isdigit())
         page_names = {
             'index': 'Home',
@@ -514,7 +514,7 @@ def create_app(config_name=None):
         if os.path.exists(os.path.join(app.root_path, 'sitemap.xml')):
             return send_from_directory(app.root_path, 'sitemap.xml', mimetype='application/xml')
         now_date = datetime.datetime.now().strftime('%Y-%m-%d')
-        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
+        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.vercel.app').rstrip('/')
         xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -584,7 +584,7 @@ def create_app(config_name=None):
     def robots():
         if os.path.exists(os.path.join(app.root_path, 'robots.txt')):
             return send_from_directory(app.root_path, 'robots.txt', mimetype='text/plain')
-        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.onrender.com').rstrip('/')
+        site_url = app.config.get('SITE_URL', 'https://srinivas-profile.vercel.app').rstrip('/')
         txt = f"""User-agent: *
 Allow: /
 Sitemap: {site_url}/sitemap.xml

@@ -152,7 +152,7 @@
         <nav class="navbar site-navbar" aria-label="Main navigation">
             <div class="nav-container">
                 <a class="navbar-brand" href="{{ url_for('index') }}" aria-label="Talari Srinivasa Rao - Home">
-                    <img src="{{ url_for('static', filename='images/tsr-logo.webp') }}" alt="TSR Logo" class="brand-logo" width="46" height="46" loading="eager">
+                    <img src="{{ url_for('static', filename='images/tsr-logo.png') }}" alt="TSR Logo" class="brand-logo" width="46" height="46" loading="eager" onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/logo.svg') }}';">
                     <span class="brand-name">Srinivasa Rao</span>
                 </a>
 

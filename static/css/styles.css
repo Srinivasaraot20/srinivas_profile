@@ -1,5 +1,18 @@
 /* Custom CSS for Srinivasa Rao Talari's Portfolio */
 
+/* Prevent images and SVGs from overflowing containers */
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Brand logo constraint */
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
 /* Base Styles */
 :root {
   --primary-color: #3498db;

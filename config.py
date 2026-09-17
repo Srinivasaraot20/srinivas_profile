@@ -44,7 +44,7 @@ class Config:
 
     DEBUG = False
     TESTING = False
-    SITE_URL = os.environ.get('SITE_URL', 'https://srinivas-profile.onrender.com')
+    SITE_URL = os.environ.get('SITE_URL', 'https://srinivas-profile.vercel.app')
 
     LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')
 
