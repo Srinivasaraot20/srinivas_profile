@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>body{margin:0;font-family:monospace;background:#000;color:#0f0}</style>
+</head>
+<body>
+<pre id="report">waiting...</pre>
+<iframe id="f" src="/about" style="width:360px;height:640px;border:1px solid #333"></iframe>
+<script>
+  var f = document.getElementById('f');
+  function measure() {
+    var d = f.contentDocument;
+    if (!d || !d.querySelector('h1.section-title')) { setTimeout(measure, 200); return; }
+    var header = d.querySelector('header');
+    var h1 = d.querySelector('h1.section-title');
+    var img = d.querySelector('.card img');
+    var out = [];
+    out.push('WIDTH=' + d.documentElement.clientWidth);
+    out.push('VIEWPORT_H=' + d.documentElement.clientHeight);
+    out.push('SCROLL_H=' + d.documentElement.scrollHeight);
+    if (header) { var hr = header.getBoundingClientRect(); out.push('NAVBAR_TOP=' + Math.round(hr.top)); out.push('NAVBAR_BOTTOM=' + Math.round(hr.bottom)); out.push('NAVBAR_H=' + Math.round(hr.height)); }
+    if (h1) { var hr1 = h1.getBoundingClientRect(); out.push('H1_TOP=' + Math.round(hr1.top)); out.push('H1_BOTTOM=' + Math.round(hr1.bottom)); out.push('H1_H=' + Math.round(hr1.height)); out.push('GAP_NAV_TO_H1=' + Math.round(hr1.top - hr.bottom)); }
+    if (img) { var ir = img.getBoundingClientRect(); out.push('IMG_TOP=' + Math.round(ir.top)); out.push('IMG_W=' + Math.round(ir.width)); out.push('IMG_H=' + Math.round(ir.height)); out.push('GAP_H1_TO_IMG=' + Math.round(ir.top - hr1.bottom)); }
+    document.getElementById('report').textContent = out.join('\n');
+  }
+  setTimeout(measure, 1000);
+</script>
+</body>
+</html>

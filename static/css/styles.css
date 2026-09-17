@@ -856,6 +856,12 @@ section {
   padding: 5rem 0;
 }
 
+/* About page (desktop/tablet) - replaces Bootstrap .py-5/.mt-5 utilities so mobile media query can override them */
+.about-page {
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
 .about-card {
   padding: 0;
   background: transparent;
@@ -1587,6 +1593,11 @@ section {
     margin-bottom: 20px !important;
   }
 
+  /* About page: tighter gap between heading/underline and profile image */
+  .about-page h1.section-title {
+    margin-bottom: 8px !important;
+  }
+
   .about-page h1.section-title::after,
   .gallery-page h1.section-title::after,
   .contact-page h1.section-title::after,
@@ -1621,7 +1632,11 @@ section {
   }
 
   .about-page .card img {
-    max-width: 180px !important;
+    width: 220px !important;
+    height: 220px !important;
+    max-width: 220px !important;
+    object-fit: cover;
+    object-position: center top;
   }
 
   /* Contact page: compact info + clickable links */

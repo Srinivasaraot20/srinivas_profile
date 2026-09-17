@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=360">
+</head>
+<body>
+<pre id="report">loading...</pre>
+<script>
+  function measure() {
+    var d = document;
+    var header = d.querySelector('header');
+    var h1 = d.querySelector('h1.section-title');
+    var img = d.querySelector('.card img');
+    var out = [];
+    out.push('DOC_CLIENT_W=' + d.documentElement.clientWidth);
+    out.push('DOC_SCROLL_W=' + d.documentElement.scrollWidth);
+    out.push('DOC_SCROLL_H=' + d.documentElement.scrollHeight);
+    var vp = d.querySelector('meta[name=viewport]');
+    out.push('VIEWPORT_META=' + (vp ? vp.content : 'none'));
+    if (header) { var hr = header.getBoundingClientRect(); out.push('NAVBAR_TOP=' + Math.round(hr.top)); out.push('NAVBAR_BOTTOM=' + Math.round(hr.bottom)); out.push('NAVBAR_H=' + Math.round(hr.height)); }
+    if (h1) { var hr1 = h1.getBoundingClientRect(); out.push('H1_TOP=' + Math.round(hr1.top)); out.push('H1_LEFT=' + Math.round(hr1.left)); out.push('H1_RIGHT=' + Math.round(hr1.right)); out.push('GAP_NAV_TO_H1=' + Math.round(hr1.top - hr.bottom)); }
+    if (img) { var ir = img.getBoundingClientRect(); out.push('IMG_TOP=' + Math.round(ir.top)); out.push('IMG_LEFT=' + Math.round(ir.left)); out.push('IMG_RIGHT=' + Math.round(ir.right)); out.push('IMG_W=' + Math.round(ir.width)); out.push('IMG_H=' + Math.round(ir.height)); out.push('GAP_H1_TO_IMG=' + Math.round(ir.top - hr1.bottom)); }
+    out.push('OVERFLOW_W=' + (d.documentElement.scrollWidth - d.documentElement.clientWidth));
+    document.getElementById('report').textContent = out.join('\n');
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/about', false);
+  xhr.send();
+  if (xhr.status === 200) {
+    document.open();
+    document.write(xhr.responseText);
+    document.close();
+    setTimeout(measure, 1200);
+  } else {
+    document.getElementById('report').textContent = 'fetch failed ' + xhr.status;
+  }
+</script>
+</body>
+</html>
