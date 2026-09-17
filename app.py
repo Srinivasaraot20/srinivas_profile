@@ -114,8 +114,14 @@ def create_app(config_name=None):
     
     # Ensure database tables exist
     with app.app_context():
-        # Ensure instance directory exists for SQLite
-        os.makedirs(os.path.join(app.root_path, 'instance'), exist_ok=True)
+        db_uri = app.config.get('SQLALCHEMY_DATABASE_URI', '')
+        if db_uri.startswith('sqlite:////tmp/'):
+            os.makedirs('/tmp', exist_ok=True)
+        elif 'sqlite:///' in db_uri and ':memory:' not in db_uri:
+            db_path = db_uri.replace('sqlite:///', '')
+            db_dir = os.path.dirname(db_path)
+            if db_dir:
+                os.makedirs(db_dir, exist_ok=True)
         db.create_all()
 
     @app.context_processor
