@@ -116,9 +116,6 @@ def generate_static_site():
 /contact /.netlify/functions/contact 200
 /subscribe /.netlify/functions/subscribe 200
 /download-resume /static/files/Srinivasa_Rao_Talari_Resume.docx 200
-
-# SPA fallback (if needed)
-/* /index.html 200
 """
         
         with open(os.path.join(build_dir, '_redirects'), 'w') as f:

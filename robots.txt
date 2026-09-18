@@ -1,5 +1,26 @@
+# robots.txt for https://srinivas-profile.vercel.app
+# See: https://www.robotstxt.org/protocol
+
 User-agent: *
-Disallow: /admin/
-Disallow: /login/
 Allow: /
-Sitemap: https://srinivas-profile.onrender.com/sitemap.xml
+Allow: /static/css/
+Allow: /static/js/
+Allow: /static/images/
+Allow: /static/fonts/
+Allow: /static/files/
+Allow: /static/site.webmanifest
+
+# Block internal/private routes
+Disallow: /admin/
+Disallow: /health
+Disallow: /subscribe
+
+# Block test/debug files in static directory
+Disallow: /static/layout_probe.html
+Disallow: /static/probe2.html
+
+# Block Google site verification files (not needed for crawling)
+Disallow: /google*.html
+
+# Sitemap location
+Sitemap: https://srinivas-profile.vercel.app/sitemap.xml

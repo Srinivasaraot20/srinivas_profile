@@ -585,8 +585,22 @@ def create_app(config_name=None):
         if os.path.exists(os.path.join(app.root_path, 'robots.txt')):
             return send_from_directory(app.root_path, 'robots.txt', mimetype='text/plain')
         site_url = app.config.get('SITE_URL', 'https://srinivas-profile.vercel.app').rstrip('/')
-        txt = f"""User-agent: *
+        txt = f"""# robots.txt for {site_url}
+# See: https://www.robotstxt.org/protocol
+
+User-agent: *
 Allow: /
+Allow: /static/
+
+# Block internal/private routes
+Disallow: /admin/
+Disallow: /health
+Disallow: /subscribe
+
+# Block Google site verification files (not needed for crawling)
+Disallow: /google*.html
+
+# Sitemap location
 Sitemap: {site_url}/sitemap.xml
 """
         return Response(txt, mimetype='text/plain')
